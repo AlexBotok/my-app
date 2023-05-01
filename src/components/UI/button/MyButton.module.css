@@ -1,0 +1,68 @@
+button{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.leftbdiv {
+  width: 30px;
+  height: 30px;
+  transition: all 0.6s ease;
+}
+
+.leftbdiv:hover .leftb {
+  fill: #1e2e36;
+}
+
+.leftb {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: #1e2e36;
+}
+
+.leftb_hov {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  fill: #1e2e36;
+  transition: all 0.2s ease;
+}
+
+.leftb2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: #ffffff;
+}
+.leftbdiv:hover .leftb2 {
+  fill: #ffffff;
+}
+
+.leftb_hov:hover {
+  fill: #ffffff;
+}
+
+.div{
+    cursor: pointer;
+}
+
+.leftb_hov2{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  transition: all 0.2s ease;
+  fill: #ffffff;
+}
+
+.leftb_hov2:hover{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  transition: all 0.2s ease;
+  fill: #1e2e36;
+}
