@@ -1,7 +1,8 @@
-import React from "react";
 import classes from "./Header.module.css";
-import DownArrow from "../UI/hoverDownArrow/HoverDownArrow";
-const Header = () => {
+import DownArrow from "../hoverDownArrow/HoverDownArrow";
+import withTranslation from "../../../withTranslation.js";
+import { Link } from "react-router-dom";
+const Header = ({ t }) => {
   const clickbtnopen = () => {
     const menu = document.getElementById("menushkaid");
     menu.classList.add(classes.add);
@@ -9,7 +10,6 @@ const Header = () => {
   const clickbtnclose = () => {
     const menu = document.getElementById("menushkaid");
     menu.classList.remove(classes.add);
-    console.log("gay");
   };
   return (
     <header className={classes.header} id="header">
@@ -17,72 +17,72 @@ const Header = () => {
         <div className={classes.header_1}>
           <div className={classes.header_flex_dir}>
             <div className={classes.header_1_1}>
-              <p>Ми в соціальних мережах:</p>
-              <a href="https://t.me/bot4ka" target="_blank" rel="noreferrer">
+              <p>{t("t1")}</p>
+              <Link to="https://t.me/bot4ka" target="_blank" rel="noreferrer">
                 <img src="./img/Telegram.svg" alt="Telegram" />
-              </a>
-              <a
-                href="https://www.facebook.com"
+              </Link>
+              <Link
+                to="https://www.facebook.com"
                 target="_blank"
                 rel="noreferrer"
               >
                 <img src="./img/Facebook.svg" alt="Facebook" />
-              </a>
-              <a
-                href="https://www.instagram.com/bot4ka/"
+              </Link>
+              <Link
+                to="https://www.instagram.com/bot4ka/"
                 target="_blank"
                 rel="noreferrer"
               >
                 <img src="./img/Instagram.svg" alt="Instagram" />
-              </a>
-              <a href="tel:+380682735499" className="header_bottom">
+              </Link>
+              <Link to="tel:+380682735499" className="header_bottom">
                 <img
                   src="./img/smartphone.svg"
                   alt="Smartphone"
                   className={classes.header_bottomimg}
                 />
-              </a>
-              <a href="tel:+380682735498">
+              </Link>
+              <Link to="tel:+380682735498">
                 <p>(068) 273 54 99</p>
-              </a>
+              </Link>
               <div className={classes.downarrow}>
                 <DownArrow value="1"></DownArrow>
               </div>
 
               <ul className={classes.hov_menu1} id="hov_menu1">
-                <li>Це номер телефону оператора</li>
+                <li>{t("t26")}</li>
               </ul>
             </div>
             <div className={classes.header_1_2}>
               <ul className={classes.header_1_2_1}>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     style={{ marginLeft: "0px" }}
                     className={classes.bottomrect1}
                   >
-                    Головна
-                  </a>
+                    {t("t23")}
+                  </Link>
                 </li>
                 <li>
-                  <a href="/#" className={classes.bottomrect1}>
-                    АкцІї
-                  </a>
+                  <Link to="/#" className={classes.bottomrect1}>
+                    {t("t18")}
+                  </Link>
                 </li>
                 <li>
-                  <a href="/#" className={classes.bottomrect1}>
-                    Доставка та оплата
-                  </a>
+                  <Link to="/#" className={classes.bottomrect1}>
+                    {t("t19")}
+                  </Link>
                 </li>
                 <li>
-                  <a href="/#" className={classes.bottomrect1}>
-                    Про нас
-                  </a>
+                  <Link to="/#" className={classes.bottomrect1}>
+                    {t("t20")}
+                  </Link>
                 </li>
                 <li>
-                  <a href="/#" className={classes.bottomrect1}>
-                    Контакти
-                  </a>
+                  <Link to="/#" className={classes.bottomrect1}>
+                    {t("t21")}
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -93,27 +93,27 @@ const Header = () => {
           <div className={classes.header_2_1}>
             <ul className={classes.header_2_1_1}>
               <li className={classes.header_2_1_2_1}>
-                <a href="/sofas">Дивани</a>
+                <Link to="/sofas">{t("t12")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <a href="/#">Ліжка</a>
+                <Link to="/#">{t("t13")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <a href="/#">Крісла</a>
+                <Link to="/#">{t("t14")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <a href="/#">Комоди</a>
+                <Link to="/#">{t("t17")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <a href="/#">Шафи</a>
+                <Link to="/#">{t("t15")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <a href="/#">Кухня</a>
+                <Link to="/#">{t("t16")}</Link>
                 <DownArrow></DownArrow>
               </li>
             </ul>
@@ -125,17 +125,17 @@ const Header = () => {
             </p>
           </div>
           <div className={classes.header_2_3}>
-            <a href="/cart">
+            <Link to="/cart">
               <img src="./img/shopping-cart.svg" alt="cart" />
-            </a>
-            <a className={classes.header_2_3_1} href="/cart">
-              <p>Кошик</p>
-            </a>
-            <a href="/#">
+            </Link>
+            <Link className={classes.header_2_3_1} to="/cart">
+              <p>{t("t25")}</p>
+            </Link>
+            <Link to="/#">
               <div className={classes.header_2_3_2}>
-                <p className={classes.header_2_3_3}>Замовити дзвінок</p>
+                <p className={classes.header_2_3_3}>{t("t24")}</p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
         <div className={classes.menushka} id="menushkaid">
@@ -155,49 +155,49 @@ const Header = () => {
                   style={{ flexDirection: "column" }}
                 >
                   <li style={{ margin: "10px 0px" }}>
-                    <a
-                      href="/"
+                    <Link
+                      to="/"
                       style={{ marginLeft: "0px" }}
                       className={classes.bottomrect1}
                     >
-                      Головна
-                    </a>
+                      {t("t23")}
+                    </Link>
                   </li>
                   <li style={{ margin: "10px 0px" }}>
-                    <a
-                      href="/#"
+                    <Link
+                      to="/#"
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
-                      АкцІї
-                    </a>
+                      {t("t18")}
+                    </Link>
                   </li>
                   <li style={{ margin: "10px 0px" }}>
-                    <a
-                      href="/#"
+                    <Link
+                      to="/#"
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
-                      Доставка та оплата
-                    </a>
+                      {t("t19")}
+                    </Link>
                   </li>
                   <li style={{ margin: "10px 0px" }}>
-                    <a
-                      href="/#"
+                    <Link
+                      to="/#"
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
-                      Про нас
-                    </a>
+                      {t("t20")}
+                    </Link>
                   </li>
                   <li style={{ margin: "10px 0px" }}>
-                    <a
-                      href="/#"
+                    <Link
+                      to="/#"
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
-                      Контакти
-                    </a>
+                      {t("t21")}
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -219,11 +219,13 @@ const Header = () => {
             </p>
           </div>
           <button className={classes.knopka}>
-            <img src="./img/cart1.svg" alt="cart" />
+            <Link to="/cart">
+              <img src="./img/cart1.svg" alt="cart" />
+            </Link>
           </button>
         </div>
       </div>
     </header>
   );
 };
-export default Header;
+export default withTranslation(Header);

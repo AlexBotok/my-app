@@ -1,0 +1,56 @@
+.div {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  width: auto;
+  height: auto;
+  font-family: "Proxima Nova";
+  font-size: 16px;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(255, 255, 255, 0.5)
+}
+
+.active{
+  color: #fff;
+}
+
+.chk, .chk1 {
+  align-items: center;
+  border-radius: 40px;
+  border: 1px #9fadb7 solid;
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  height: 16px;
+  justify-content: flex-start;
+  margin: 0 8px;
+  padding: 0 0 0 4px;
+  position: relative;
+  width: 26px;
+  cursor: pointer;
+}
+
+.chk::after {
+  background-color: #01b587;
+  border-radius: 50%;
+  content: "";
+  height: 8px;
+  transform: translateX(0);
+  transition: 0.3s ease-in-out;
+  width: 8px;
+}
+
+.chk1::after {
+  background-color: #01b587;
+  border-radius: 50%;
+  content: "";
+  height: 8px;
+  transform: translateX(8px);
+  transition: 0.3s ease-in-out;
+  width: 8px;
+}

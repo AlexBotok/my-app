@@ -22,6 +22,7 @@
   font-size: 18px;
   line-height: 125%;
   color: #1e2e36;
+  white-space: nowrap;
 }
 
 .header_1_1 a {
@@ -80,6 +81,7 @@
 .header_1_2_1 {
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .header_1_2_1 a {
@@ -243,6 +245,7 @@
   background: transparent;
 }
 .menushka {
+  z-index: 3;
   left: 0;
   opacity: 0;
   pointer-events: none;
@@ -261,6 +264,7 @@
 }
 
 .menushka_1 {
+  z-index: 3;
   background-color: #ffffff;
   box-sizing: border-box;
   height: 100vh;
@@ -323,9 +327,14 @@
   }
 
   .mobilka {
+    position: fixed;
+    right: 0;
+    z-index: 2;
+    width: 100%;
+    background: #fff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 20px;
   }
 }
@@ -358,9 +367,14 @@
   }
 
   .mobilka {
+    position: fixed;
+    right: 0;
+    z-index: 2;
+    width: 100%;
+    background: #fff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 20px;
   }
 }
@@ -393,25 +407,28 @@
   }
 
   .mobilka {
+    position: fixed;
+    right: 0;
+    z-index: 2;
+    width: 100%;
+    background: #fff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 20px;
   }
 
-  .downarrow{
+  .downarrow {
     display: none;
   }
-
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-
-  .container{
+  .container {
     width: 900px;
   }
 
-  .header_2{
+  .header_2 {
     height: 200px;
     display: flex;
     align-items: center;
@@ -419,7 +436,7 @@
     flex-direction: column;
   }
 
-  .header_flex_dir{
+  .header_flex_dir {
     display: flex;
     width: 100%;
     align-items: center;
@@ -430,20 +447,17 @@
     display: none;
   }
 
-  .downarrow{
+  .downarrow {
     display: none;
   }
-
 }
 
-
 @media (min-width: 1200px) {
-
-  .container{
+  .container {
     width: 1200px;
   }
 
-  .header_2{
+  .header_2 {
     height: 200px;
     display: flex;
     align-items: center;
@@ -451,17 +465,17 @@
     flex-direction: column;
   }
 
-  .header_1_2_1 a{
+  .header_1_2_1 a {
     font-size: 16px;
   }
 
-  .downarrow{
+  .downarrow {
     display: block;
   }
 }
 
 @media (min-width: 1400px) {
-  .container{
+  .container {
     width: 1380px;
   }
 
@@ -472,19 +486,19 @@
     align-items: center;
     justify-content: space-between;
   }
-  .header_1_2_1 a{
+  .header_1_2_1 a {
     font-size: 18px;
   }
 }
 
 @media (min-width: 1700px) {
-  .container{
+  .container {
     width: 1600px;
   }
 }
 
 @media (min-width: 1818px) {
-  .container{
+  .container {
     width: 1818px;
   }
 }

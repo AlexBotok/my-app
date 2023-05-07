@@ -4,7 +4,7 @@
 }
 .section {
   transition: 0.1s cubic-bezier(0.4, 0, 1, 1);
-  background: url(/public/img/bg.png) no-repeat center top / cover;
+  background-size: cover
 }
 .sect1 {
   display: flex;

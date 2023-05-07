@@ -1,4 +1,3 @@
-import React from "react";
 import anime from "animejs/lib/anime.es.js";
 import {buttondown1} from "../svgcomp/Svg"
 import classes from "./DownArrow.module.css";

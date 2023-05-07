@@ -1,0 +1,31 @@
+.rect4__2{
+    position: absolute;
+    width: 119px;
+    height: 33px;
+    background: #1e2e36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 125%;
+    margin-top: 10px;
+}
+
+.rect4__2_1{
+    position: absolute;
+    width: 100px;
+    height: 33px;
+    background: #ff1b1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 125%;
+    margin-top: 48px;
+}

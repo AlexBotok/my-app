@@ -1,0 +1,37 @@
+.sect4_svg {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.r4svg {
+  width: 100px;
+  height: 100px;
+}
+
+.sect4p {
+  position: relative;
+  padding-top: 10px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #1e2e36;
+}
+
+.sect4p::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -2px;
+  left: 0;
+  background: #44c697;
+  transition: 0.5s ease;
+}
+
+.sect4pline::after {
+  width: 100%;
+}

@@ -14,6 +14,7 @@
 .sect2 p {
   position: relative;
   font-weight: 700;
+  white-space: nowrap;
   font-size: 48px;
   line-height: 125%;
   text-align: center;
@@ -74,10 +75,12 @@
 
 .sect3_1 img {
   position: absolute;
+  object-fit: cover;
+  width: 100%;
 }
 
 .sect3_1p {
-  position: absolute;
+  position: relative;
   width: 80%;
   bottom: 0px;
   font-weight: 400;
@@ -89,13 +92,14 @@
 }
 
 .sect3_1_1 p {
-  position: absolute;
+  position: relative;
+  width: fit-content;
   bottom: 0px;
   font-weight: 700;
   font-size: 36px;
   line-height: 125%;
   color: #ffffff;
-  margin-bottom: 93px;
+  margin-bottom: 7px;
   margin-left: 30px;
 }
 
@@ -111,6 +115,8 @@
 
 .sect3_1_1 img {
   position: absolute;
+  object-fit: cover;
+  width: 100%;
 }
 
 .sect3_1_1 {
@@ -145,6 +151,8 @@
 
 .sect3_1_2 img {
   position: absolute;
+  object-fit: cover;
+  width: 100%;
 }
 
 .sect3_1_2 {
@@ -156,9 +164,31 @@
   transition: all ease 2s;
 }
 
+.slidet7 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 @media (max-width: 575px) {
   .container {
     width: 100%;
+  }
+  .sect3_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_2 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
   }
 }
 
@@ -166,11 +196,41 @@
   .container {
     width: 90%;
   }
+  .sect3_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_2 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .container {
     width: 90%;
+  }
+  .sect3_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_2 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
   }
 }
 
@@ -178,11 +238,41 @@
   .container {
     width: 900px;
   }
+  .sect3_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_2 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
 }
 
 @media (min-width: 1200px) {
   .container {
     width: 1200px;
+  }
+  .sect3_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_2 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
   }
 }
 
@@ -190,16 +280,61 @@
   .container {
     width: 1380px;
   }
+  .sect3_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_2 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
 }
 
 @media (min-width: 1700px) {
   .container {
     width: 1600px;
   }
+  .sect3_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
+  .sect3_1_2 img {
+    position: absolute;
+    object-fit: cover;
+    width: auto;
+  }
 }
 
 @media (min-width: 1818px) {
   .container {
     width: 1818px;
+  }
+  .sect3_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+  }
+  .sect3_1_1 img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+  }
+  .sect3_1_2 img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
   }
 }

@@ -1,6 +1,9 @@
-import React from "react";
 import classes from "./MyButton.module.css";
 import { button, leftb_hov, rightb_hov } from "../svgcomp/Svg";
+
+const MyButtonNone = () => {
+  return (<button style={{display:"none"}}></button>);
+};
 
 const MyButtonLeft = ({ onClick, id }) => {
   return (
@@ -52,4 +55,4 @@ const MyButtonRight = ({ onClick, id }) => {
   );
 };
 
-export { MyButtonLeft, MyButtonRight };
+export { MyButtonLeft, MyButtonRight, MyButtonNone };
