@@ -1,6 +1,7 @@
 import classes from "./Header2.module.css";
 import { Link } from "react-router-dom";
-const Header2 = ({ name }) => {
+import withTranslation from "../../../withTranslation";
+const Header2 = ({ name, t }) => {
   return (
     <header className={classes.header}>
       <div className={classes.container}>
@@ -17,27 +18,27 @@ const Header2 = ({ name }) => {
                   style={{ marginLeft: "0px" }}
                   className={classes.bottomrect1}
                 >
-                  Головна
+                  {t("t23")}
                 </Link>
               </li>
               <li>
                 <Link to="/#" className={classes.bottomrect1}>
-                  АкцІї
+                {t("t18")}
                 </Link>
               </li>
               <li>
                 <Link to="/#" className={classes.bottomrect1}>
-                  Доставка та оплата
+                {t("t19")}
                 </Link>
               </li>
               <li>
                 <Link to="/#" className={classes.bottomrect1}>
-                  Про нас
+                {t("t28")}
                 </Link>
               </li>
               <li>
                 <Link to="/#" className={classes.bottomrect1}>
-                  Контакти
+                {t("t21")}
                 </Link>
               </li>
             </ul>
@@ -49,4 +50,4 @@ const Header2 = ({ name }) => {
   );
 };
 
-export default Header2;
+export default withTranslation(Header2);

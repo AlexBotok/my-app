@@ -43,5 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/AlexBotok/my-app.git",
+  "author": "bot4ka <47043242+AlexBotok@users.noreply.github.com>",
+  "license": "MIT"
 }

@@ -42,7 +42,7 @@ const Header = ({ t }) => {
                   className={classes.header_bottomimg}
                 />
               </Link>
-              <Link to="tel:+380682735498">
+              <Link to="tel:+380682735499">
                 <p>(068) 273 54 99</p>
               </Link>
               <div className={classes.downarrow}>

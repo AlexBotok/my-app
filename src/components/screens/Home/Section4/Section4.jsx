@@ -1,12 +1,13 @@
 import classes from "./Section4.module.css";
-const Section4 = () => {
+import withTranslation from "../../../../withTranslation.js";
+const Section4 = ({t}) => {
   return (
     <div className={classes.container}>
       <div className={classes.sect5}>
         <div className={classes.sect5__1}>
           <div className={classes.sect4_1}>
             <div className={classes.rect3}></div>
-            <p>Про нас</p>
+            <p>{t("t28")}</p>
           </div>
         </div>
         <div className={classes.sect5__2}>
@@ -51,4 +52,4 @@ const Section4 = () => {
   );
 };
 
-export default Section4;
+export default withTranslation(Section4);

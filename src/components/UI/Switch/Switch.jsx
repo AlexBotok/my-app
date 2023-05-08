@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Switch.module.css";
 import withTranslation from "../../../withTranslation.js";
-const Switch = ({i18n}) => {
+const Switch = ({ i18n }) => {
   const [isChecked, setChecked] = useState(
     JSON.parse(localStorage.getItem("isChecked")) || false
   );
@@ -15,7 +15,7 @@ const Switch = ({i18n}) => {
     if (lang) {
       i18n.changeLanguage(lang);
     }
-  }, []);
+  }, [i18n]);
 
   const changeLanguage = (language) => {
     localStorage.setItem("language", language);

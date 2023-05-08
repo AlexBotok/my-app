@@ -1,12 +1,14 @@
 import classes from "./Section5.module.css";
-const Section5 = () => {
+import withTranslation from "../../../../withTranslation.js";
+import { Link } from "react-router-dom";
+const Section5 = ({ t }) => {
   return (
     <div className={classes.container}>
       <div className={classes.sect6}>
         <div className={classes.sect6_1}>
           <div className={classes.sect4_16}>
             <div className={classes.rect3}></div>
-            <p>Залишились питання?</p>
+            <p>{t("t30")}</p>
           </div>
         </div>
         <div className={classes.sect6_2}>
@@ -18,12 +20,12 @@ const Section5 = () => {
           <div className={classes.sect6_4}>
             <div className={classes.sect6_palkag}></div>
             <div className={classes.windowkons}>
-              <p className={classes.wind_1}>Замовте консультацію</p>
+              <p className={classes.wind_1}>{t("t31")}</p>
               <form className={classes.form1}>
                 <input
                   type="text"
                   id="namew"
-                  placeholder="Введіть ім'я"
+                  placeholder={t("t35")}
                   className={classes.namew}
                 />
               </form>
@@ -31,15 +33,21 @@ const Section5 = () => {
                 <input
                   type="text"
                   id="namew"
-                  placeholder="Номер телефону"
+                  placeholder={t("t36")}
                   className={classes.namew}
                 />
               </form>
-              <button className={classes.btn6}>Відправити</button>
+              <button className={classes.btn6}>{t("t32")}</button>
               <p className={classes.zaiavka}>
-                Залиште заявку або телефонуйте за номером
-                <span className={classes.zaiavkanomer}>(099) 111 22 33</span>, і
-                наш менеджер звяжеться з вами для кваліфікованої консультації.
+                {t("t33")}
+                <Link
+                  to="tel:+380991112233"
+                  className={classes.zaiavkanomer}
+                  style={{ textDecoration: "none" }}
+                >
+                  (099) 111 22 33
+                </Link>
+                , {t("t34")}
               </p>
             </div>
           </div>
@@ -49,4 +57,4 @@ const Section5 = () => {
   );
 };
 
-export default Section5;
+export default withTranslation(Section5);
