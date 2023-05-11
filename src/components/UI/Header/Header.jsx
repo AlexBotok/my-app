@@ -97,23 +97,23 @@ const Header = ({ t }) => {
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to="/#">{t("t13")}</Link>
+                <Link to="/beds">{t("t13")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to="/#">{t("t14")}</Link>
+                <Link to="/chairs">{t("t14")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to="/#">{t("t17")}</Link>
+                <Link to="/chests">{t("t17")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to="/#">{t("t15")}</Link>
+                <Link to="/wardrobes">{t("t15")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to="/#">{t("t16")}</Link>
+                <Link to="/kitchens">{t("t16")}</Link>
                 <DownArrow></DownArrow>
               </li>
             </ul>

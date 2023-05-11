@@ -1,6 +1,7 @@
 import classes from "./Footer.module.css";
 import Switch from "../Switch/Switch";
 import withTranslation from "../../../withTranslation.js";
+import { Link } from "react-router-dom";
 const Footer = ({ t }) => {
   return (
     <footer className={classes.footer} id="footer">
@@ -12,53 +13,53 @@ const Footer = ({ t }) => {
           </div>
           <div className={classes.footer_2_2}>
             <ul className={classes.katalog1}>
-              <a href="/sofas" className={classes.katalog}>
+              <Link to="/sofas" className={classes.katalog}>
                 <li>— {t("t12")}</li>
-              </a>
-              <a href="/#" className={classes.katalog}>
+              </Link>
+              <Link to="/beds" className={classes.katalog}>
                 <li>— {t("t13")}</li>
-              </a>
-              <a href="/#" className={classes.katalog}>
+              </Link>
+              <Link to="/chairs" className={classes.katalog}>
                 <li>— {t("t14")}</li>
-              </a>
-              <a href="/#" className={classes.katalog}>
+              </Link>
+              <Link to="/wardrobes" className={classes.katalog}>
                 <li>— {t("t15")}</li>
-              </a>
-              <a href="/#" className={classes.katalog}>
+              </Link>
+              <Link to="/kitchens" className={classes.katalog}>
                 <li>— {t("t16")}</li>
-              </a>
-              <a href="/#" className={classes.katalog}>
+              </Link>
+              <Link to="/chests" className={classes.katalog}>
                 <li>— {t("t17")}</li>
-              </a>
+              </Link>
             </ul>
             <ul className={classes.katalog2}>
-              <a href="/#" className={classes.katalog}>
+              <Link to="/#" className={classes.katalog}>
                 <li>— {t("t18")}</li>
-              </a>
-              <a href="/#" className={classes.katalog}>
+              </Link>
+              <Link to="/#" className={classes.katalog}>
                 <li>— {t("t19")}</li>
-              </a>
-              <a href="/#" className={classes.katalog}>
+              </Link>
+              <Link to="/#" className={classes.katalog}>
                 <li>— {t("t20")}</li>
-              </a>
-              <a href="/#" className={classes.katalog}>
+              </Link>
+              <Link to="/#" className={classes.katalog}>
                 <li>— {t("t21")}</li>
-              </a>
+              </Link>
             </ul>
             <ul className={classes.katalog3}>
-              <a href="/#" className={classes.katalog3_1}>
+              <Link to="/#" className={classes.katalog3_1}>
                 <li>
                   <img src="./img/map.svg" alt="map" />
                   <p>TEST</p>
                 </li>
-              </a>
-              <a href="/#" className={classes.katalog3_1}>
+              </Link>
+              <Link to="/#" className={classes.katalog3_1}>
                 <li>
                   <img src="./img/calendar.svg" alt="calendar" />
                   <p>{t("t22")}</p>
                 </li>
-              </a>
-              <a href="/#" className={classes.katalog3_2}>
+              </Link>
+              <Link to="/#" className={classes.katalog3_2}>
                 <li>
                   <img src="./img/smartphone 1.svg" alt="smartphone" />
                   <div>
@@ -66,22 +67,37 @@ const Footer = ({ t }) => {
                     <p>(099) 222 33 44</p>
                   </div>
                 </li>
-              </a>
+              </Link>
               <div className={classes.socialocki}>
                 <p>{t("t1")}</p>
                 <div className={classes.socialocki_1}>
-                  <img
-                    src="./img/Telegram1.svg"
-                    alt="Telegram"
+                  <Link
+                    to="https://t.me/bot4ka"
+                    target="_blank"
+                    rel="noreferrer"
                     style={{ marginLeft: "0px" }}
-                  />
-                  <img src="./img/Facebook1.svg" alt="Facebook" />
-                  <img src="./img/Instagram1.svg" alt="Instagram" />
+                  >
+                    <img src="./img/Telegram1.svg" alt="Telegram" />
+                  </Link>
+                  <Link
+                    to="https://www.facebook.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="./img/Facebook1.svg" alt="Facebook" />
+                  </Link>
+                  <Link
+                    to="https://www.instagram.com/bot4ka/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src="./img/Instagram1.svg" alt="Instagram" />
+                  </Link>
                 </div>
               </div>
             </ul>
           </div>
-          <Switch/>
+          <Switch />
           <p className={classes.tob}>{t("tob")}</p>
         </div>
       </div>

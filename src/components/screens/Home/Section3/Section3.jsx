@@ -42,7 +42,7 @@ const Section3 = ({ t }) => {
           <Section3_card
             id="krisla"
             name={t("t14")}
-            url="/armchairs"
+            url="/chairs"
             onCardHover={handleCardHover}
             onCardMouseLeave={handleCardMouseLeave}
             hoveredCard={hoveredCard}
@@ -50,7 +50,7 @@ const Section3 = ({ t }) => {
           <Section3_card
             id="komodi"
             name={t("t17")}
-            url="/dressers"
+            url="/chests"
             onCardHover={handleCardHover}
             onCardMouseLeave={handleCardMouseLeave}
             hoveredCard={hoveredCard}
@@ -58,7 +58,7 @@ const Section3 = ({ t }) => {
           <Section3_card
             id="shafi"
             name={t("t15")}
-            url="/cabinets"
+            url="/wardrobes"
             onCardHover={handleCardHover}
             onCardMouseLeave={handleCardMouseLeave}
             hoveredCard={hoveredCard}

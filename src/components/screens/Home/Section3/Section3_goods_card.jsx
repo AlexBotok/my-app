@@ -2,13 +2,14 @@ import classes from "./Section3_goods_card.module.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Elem3 from "../../../UI/newElementSect3/Elem3";
-const Section3_goods_card = ({ name, price, img, newprice, id }) => {
+import withTranslation from "../../../../withTranslation";
+const Section3_goods_card = ({ name, price, img, newprice, id, t }) => {
   const checknewprice = () => {
     if (newprice) {
       return (
         <div className={classes.sect3_all}>
           <div className={classes.sect3_1}>
-            <Elem3 id={id} name="Хіт продаж" />
+            <Elem3 id={id} name={t("t39")} />
             <img src={img} alt={name} />
           </div>
           <div className={classes.sect3_2} style={background}>
@@ -28,7 +29,7 @@ const Section3_goods_card = ({ name, price, img, newprice, id }) => {
       return (
         <div className={classes.sect3_all}>
           <div className={classes.sect3_1}>
-            <Elem3 id={id} name="Новинка" />
+            <Elem3 id={id} name={t("t2")} />
             <img src={img} alt={name} />
           </div>
           <div className={classes.sect3_2} style={background}>
@@ -65,4 +66,4 @@ const Section3_goods_card = ({ name, price, img, newprice, id }) => {
   );
 };
 
-export default Section3_goods_card;
+export default withTranslation(Section3_goods_card);

@@ -1,11 +1,12 @@
 import classes from "./Elem3.module.css";
-const Elem3 = ({name, id}) => {
+import withTranslation from "../../../withTranslation"
+const Elem3 = ({name, id, t}) => {
 const checkid = () => {
     if (id === "1") {
       return (
         <div>
           <p className={classes.rect4__2}>{name}</p>
-          <p className={classes.rect4__2_1}>Акція</p>
+          <p className={classes.rect4__2_1}>{t("t38")}</p>
         </div>
       );
     } else if (id === "2") {
@@ -21,4 +22,4 @@ const checkid = () => {
   );
 };
 
-export default Elem3;
+export default withTranslation(Elem3);
