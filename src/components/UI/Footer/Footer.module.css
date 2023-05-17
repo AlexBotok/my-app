@@ -23,7 +23,7 @@
   color: #ffffff;
 }
 
-.header_2_2_footer p::first-letter {
+.header_2_2_footer span {
   font-weight: 700;
   font-size: 36px;
   line-height: 125%;

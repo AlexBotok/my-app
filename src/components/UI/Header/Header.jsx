@@ -19,25 +19,25 @@ const Header = ({ t }) => {
             <div className={classes.header_1_1}>
               <p>{t("t1")}</p>
               <Link to="https://t.me/bot4ka" target="_blank" rel="noreferrer">
-                <img src="./img/Telegram.svg" alt="Telegram" />
+                <img src="/img/Telegram.svg" alt="Telegram" />
               </Link>
               <Link
                 to="https://www.facebook.com"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="./img/Facebook.svg" alt="Facebook" />
+                <img src="/img/Facebook.svg" alt="Facebook" />
               </Link>
               <Link
                 to="https://www.instagram.com/bot4ka/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="./img/Instagram.svg" alt="Instagram" />
+                <img src="/img/Instagram.svg" alt="Instagram" />
               </Link>
               <Link to="tel:+380682735499" className="header_bottom">
                 <img
-                  src="./img/smartphone.svg"
+                  src="/img/smartphone.svg"
                   alt="Smartphone"
                   className={classes.header_bottomimg}
                 />
@@ -57,7 +57,7 @@ const Header = ({ t }) => {
               <ul className={classes.header_1_2_1}>
                 <li>
                   <Link
-                    to="/"
+                    to={`/?language=${localStorage.getItem("language")}`}
                     style={{ marginLeft: "0px" }}
                     className={classes.bottomrect1}
                   >
@@ -65,22 +65,22 @@ const Header = ({ t }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#" className={classes.bottomrect1}>
+                  <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.bottomrect1}>
                     {t("t18")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#" className={classes.bottomrect1}>
+                  <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.bottomrect1}>
                     {t("t19")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#" className={classes.bottomrect1}>
+                  <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.bottomrect1}>
                     {t("t20")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#" className={classes.bottomrect1}>
+                  <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.bottomrect1}>
                     {t("t21")}
                   </Link>
                 </li>
@@ -93,45 +93,48 @@ const Header = ({ t }) => {
           <div className={classes.header_2_1}>
             <ul className={classes.header_2_1_1}>
               <li className={classes.header_2_1_2_1}>
-                <Link to="/sofas">{t("t12")}</Link>
+                <Link to={`/sofas?language=${localStorage.getItem("language")}`}>{t("t12")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to="/beds">{t("t13")}</Link>
+                <Link to={`/beds?language=${localStorage.getItem("language")}`}>{t("t13")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to="/chairs">{t("t14")}</Link>
+                <Link to={`/chairs?language=${localStorage.getItem("language")}`}>{t("t14")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to="/chests">{t("t17")}</Link>
+                <Link to={`/chests?language=${localStorage.getItem("language")}`}>{t("t17")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to="/wardrobes">{t("t15")}</Link>
+                <Link to={`/wardrobes?language=${localStorage.getItem("language")}`}>{t("t15")}</Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to="/kitchens">{t("t16")}</Link>
+                <Link to={`/kitchens?language=${localStorage.getItem("language")}`}>{t("t16")}</Link>
                 <DownArrow></DownArrow>
               </li>
             </ul>
           </div>
           <div className={classes.header_2_2}>
-            <img src="./img/FLogo.svg" alt="FLogo" />
+            <img src="/img/FLogo.svg" alt="FLogo" />
             <p>
               <span>F</span>urniture
             </p>
           </div>
           <div className={classes.header_2_3}>
-            <Link to="/cart">
-              <img src="./img/shopping-cart.svg" alt="cart" />
+            <Link to={`/cart?language=${localStorage.getItem("language")}`}>
+              <img src="/img/shopping-cart.svg" alt="cart" />
             </Link>
-            <Link className={classes.header_2_3_1} to="/cart">
+            <Link
+              className={classes.header_2_3_1}
+              to={`/cart?language=${localStorage.getItem("language")}`}
+            >
               <p>{t("t25")}</p>
             </Link>
-            <Link to="/#">
+            <Link to={`/?language=${localStorage.getItem("language")}`}>
               <div className={classes.header_2_3_2}>
                 <p className={classes.header_2_3_3}>{t("t24")}</p>
               </div>
@@ -156,7 +159,7 @@ const Header = ({ t }) => {
                 >
                   <li style={{ margin: "10px 0px" }}>
                     <Link
-                      to="/"
+                      to={`/?language=${localStorage.getItem("language")}`}
                       style={{ marginLeft: "0px" }}
                       className={classes.bottomrect1}
                     >
@@ -165,7 +168,7 @@ const Header = ({ t }) => {
                   </li>
                   <li style={{ margin: "10px 0px" }}>
                     <Link
-                      to="/#"
+                      to={`/?language=${localStorage.getItem("language")}`}
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
@@ -174,7 +177,7 @@ const Header = ({ t }) => {
                   </li>
                   <li style={{ margin: "10px 0px" }}>
                     <Link
-                      to="/#"
+                      to={`/?language=${localStorage.getItem("language")}`}
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
@@ -183,7 +186,7 @@ const Header = ({ t }) => {
                   </li>
                   <li style={{ margin: "10px 0px" }}>
                     <Link
-                      to="/#"
+                      to={`/?language=${localStorage.getItem("language")}`}
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
@@ -192,7 +195,7 @@ const Header = ({ t }) => {
                   </li>
                   <li style={{ margin: "10px 0px" }}>
                     <Link
-                      to="/#"
+                      to={`/?language=${localStorage.getItem("language")}`}
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
@@ -210,17 +213,17 @@ const Header = ({ t }) => {
         </div>
         <div className={classes.mobilka}>
           <button onClick={clickbtnopen} className={classes.knopka}>
-            <img src="./img/burger.svg" alt="menu" />
+            <img src="/img/burger.svg" alt="menu" />
           </button>
           <div className={classes.header_2_2}>
-            <img src="./img/FLogo.svg" alt="FLogo" />
+            <img src="/img/FLogo.svg" alt="FLogo" />
             <p>
               <span>F</span>urniture
             </p>
           </div>
           <button className={classes.knopka}>
-            <Link to="/cart">
-              <img src="./img/cart1.svg" alt="cart" />
+            <Link to={`/cart?language=${localStorage.getItem("language")}`}>
+              <img src="/img/cart1.svg" alt="cart" />
             </Link>
           </button>
         </div>

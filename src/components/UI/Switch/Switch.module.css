@@ -17,6 +17,7 @@
 
 .active{
   color: #fff;
+  text-decoration: none;
 }
 
 .chk, .chk1 {

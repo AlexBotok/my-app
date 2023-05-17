@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Elem3 from "../../../UI/newElementSect3/Elem3";
 import withTranslation from "../../../../withTranslation";
-const Section3_goods_card = ({ name, price, img, newprice, id, t }) => {
+const Section3_goods_card = ({ name, price, img, newprice, id, t, index }) => {
   const checknewprice = () => {
     if (newprice) {
       return (
@@ -55,7 +55,8 @@ const Section3_goods_card = ({ name, price, img, newprice, id, t }) => {
     : { background: "#FFFFFF" };
   return (
     <Link
-      to="/sofas/1"
+      key={index}
+      to={`/beds/${index}?language=${localStorage.getItem("language")}`}
       className={classes.link}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
