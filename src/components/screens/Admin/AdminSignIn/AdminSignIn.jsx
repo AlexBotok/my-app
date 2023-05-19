@@ -23,24 +23,18 @@ const Admin = () => {
           autocomplete="off"
           className={classes.f1}
         >
-          <h2 className={classes.h2}>Sign in</h2>
-          <div className={classes.inputBox}>
-            <input type="name" name="name" placeholder="Name" />
-
-            <i></i>
-          </div>
-          <div className={classes.inputBox}>
-            <input type="surname" name="surname" placeholder="Surname" />
-
-            <i></i>
-          </div>
           <div className={classes.inputBox}>
             <input type="email" name="email" placeholder="Email" />
 
             <i></i>
           </div>
           <div className={classes.inputBox}>
-            <input type="password" name="password" id="" placeholder="Password" />
+            <input
+              type="password"
+              name="password"
+              id=""
+              placeholder="Password"
+            />
 
             <i></i>
           </div>
