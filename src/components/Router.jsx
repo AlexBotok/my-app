@@ -9,7 +9,7 @@ import Chairs from "./screens/Categories/Chairs/Chairs.jsx";
 import Beds from "./screens/Categories/Beds/Beds.jsx";
 import Wardrobes from "./screens/Categories/Wardrobes/Wardrobes.jsx";
 import Goods from "./screens/Categories/Goods.jsx";
-
+import Admin from "./screens/Admin/Admin.jsx";
 const Router = () => {
   useEffect(() => {
     const language = localStorage.getItem("language");
@@ -21,6 +21,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route element={<Admin />} path="/admin" />
         <Route element={<Home />} path="/" />
         <Route element={<Cart />} path="/cart" />
         <Route element={<Sofas />} path="/sofas" />
@@ -28,7 +29,7 @@ const Router = () => {
         <Route element={<Chests />} path="/chests" />
         <Route element={<Chairs />} path="/chairs" />
         <Route element={<Beds />} path="/beds" />
-        <Route element={<Goods />} path="/beds/*" />
+        {/* <Route element={<Goods />} path="/beds/:id/" /> */}
         <Route element={<Wardrobes />} path="/wardrobes" />
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>

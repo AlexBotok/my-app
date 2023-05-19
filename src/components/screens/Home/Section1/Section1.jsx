@@ -27,7 +27,16 @@ const Section1 = ({ t }) => {
   const [ligko, setLigko] = useState(t("l1"));
   const [bg, setBg] = useState({ backgroundImage: `url(/img/bg.png)` });
   const [delay, setDelay] = useState(2500);
-
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    fetch("http://localhost:5000")
+      .then((res) => res.json())
+      .then((data) => {
+        const message = data.message; // Получаем текст из ключа "message" в объекте "data"
+        setMessage(message); // Устанавливаем значение в стейт "message"
+        console.log("Data received");
+      });
+  }, []);
   const change = (newNum) => {
     const data = {
       1: {
@@ -80,7 +89,7 @@ const Section1 = ({ t }) => {
         <div className={classes.sect1}>
           <div className={classes.rect}></div>
           <div className={classes.rect1}>
-            <p className={classes.rect1_1}>{t("t2")}</p>
+            <p className={classes.rect1_1}>{message}</p>
             <p className={classes.rect1_2} id="rect1_2">
               {ligko}
             </p>

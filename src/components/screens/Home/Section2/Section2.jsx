@@ -45,7 +45,7 @@ const Section2 = ({ t }) => {
         </div>
       </div>
       <div className={classes.sect3}>
-        <Slider {...settings}>
+        <Slider key="slider" {...settings}>
           <div className={classes.sect3_1}>
             <img src="/img/perevagi1.png" alt="perevagi1" />
             <p>{t("t6")}</p>
