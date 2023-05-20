@@ -2,6 +2,7 @@ import classes from "./Header.module.css";
 import DownArrow from "../hoverDownArrow/HoverDownArrow";
 import withTranslation from "../../../withTranslation.js";
 import { Link } from "react-router-dom";
+import { profile } from "../../UI/svgcomp/Svg";
 const Header = ({ t }) => {
   const clickbtnopen = () => {
     const menu = document.getElementById("menushkaid");
@@ -58,29 +59,40 @@ const Header = ({ t }) => {
                 <li>
                   <Link
                     to={`/?language=${localStorage.getItem("language")}`}
-                    style={{ marginLeft: "0px" }}
                     className={classes.bottomrect1}
                   >
                     {t("t23")}
                   </Link>
                 </li>
                 <li>
-                  <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.bottomrect1}>
+                  <Link
+                    to={`/?language=${localStorage.getItem("language")}`}
+                    className={classes.bottomrect1}
+                  >
                     {t("t18")}
                   </Link>
                 </li>
                 <li>
-                  <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.bottomrect1}>
+                  <Link
+                    to={`/?language=${localStorage.getItem("language")}`}
+                    className={classes.bottomrect1}
+                  >
                     {t("t19")}
                   </Link>
                 </li>
                 <li>
-                  <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.bottomrect1}>
+                  <Link
+                    to={`/?language=${localStorage.getItem("language")}`}
+                    className={classes.bottomrect1}
+                  >
                     {t("t20")}
                   </Link>
                 </li>
                 <li>
-                  <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.bottomrect1}>
+                  <Link
+                    to={`/?language=${localStorage.getItem("language")}`}
+                    className={classes.bottomrect1}
+                  >
                     {t("t21")}
                   </Link>
                 </li>
@@ -93,27 +105,49 @@ const Header = ({ t }) => {
           <div className={classes.header_2_1}>
             <ul className={classes.header_2_1_1}>
               <li className={classes.header_2_1_2_1}>
-                <Link to={`/sofas?language=${localStorage.getItem("language")}`}>{t("t12")}</Link>
+                <Link
+                  to={`/sofas?language=${localStorage.getItem("language")}`}
+                >
+                  {t("t12")}
+                </Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to={`/beds?language=${localStorage.getItem("language")}`}>{t("t13")}</Link>
+                <Link to={`/beds?language=${localStorage.getItem("language")}`}>
+                  {t("t13")}
+                </Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to={`/chairs?language=${localStorage.getItem("language")}`}>{t("t14")}</Link>
+                <Link
+                  to={`/chairs?language=${localStorage.getItem("language")}`}
+                >
+                  {t("t14")}
+                </Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to={`/chests?language=${localStorage.getItem("language")}`}>{t("t17")}</Link>
+                <Link
+                  to={`/chests?language=${localStorage.getItem("language")}`}
+                >
+                  {t("t17")}
+                </Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to={`/wardrobes?language=${localStorage.getItem("language")}`}>{t("t15")}</Link>
+                <Link
+                  to={`/wardrobes?language=${localStorage.getItem("language")}`}
+                >
+                  {t("t15")}
+                </Link>
                 <DownArrow></DownArrow>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to={`/kitchens?language=${localStorage.getItem("language")}`}>{t("t16")}</Link>
+                <Link
+                  to={`/kitchens?language=${localStorage.getItem("language")}`}
+                >
+                  {t("t16")}
+                </Link>
                 <DownArrow></DownArrow>
               </li>
             </ul>
@@ -125,6 +159,21 @@ const Header = ({ t }) => {
             </p>
           </div>
           <div className={classes.header_2_3}>
+            <Link
+              to={`/profile?language=${localStorage.getItem("language")}`}
+              style={{ marginLeft: "0px" }}
+            >
+              <svg width="24" height="24" display="block">
+                <use href="#profile"></use>
+              </svg>
+              {profile()}
+            </Link>
+            <Link
+              className={classes.header_2_3_1} style={{ marginRight: "25px" }}
+              to={`/profile?language=${localStorage.getItem("language")}`}
+            >
+              <p>{t("t41")}</p>
+            </Link>
             <Link to={`/cart?language=${localStorage.getItem("language")}`}>
               <img src="/img/shopping-cart.svg" alt="cart" />
             </Link>

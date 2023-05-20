@@ -1,19 +1,6 @@
 import classes from "./Admin.module.css";
-import React, { useEffect, useState } from "react";
 
 const AdminSignUp = () => {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:5000/admin")
-      .then((res) => res.json())
-      .then((data) => {
-        const message = data.message;
-        setMessage(message);
-        console.log("Data received");
-      });
-  }, []);
-
   return (
     <div className={classes.body}>
       <div className={classes.box}>
@@ -40,7 +27,12 @@ const AdminSignUp = () => {
             <i></i>
           </div>
           <div className={classes.inputBox}>
-            <input type="password" name="password" id="" placeholder="Password" />
+            <input
+              type="password"
+              name="password"
+              id=""
+              placeholder="Password"
+            />
 
             <i></i>
           </div>

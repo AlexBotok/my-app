@@ -489,11 +489,18 @@
   .header_1_2_1 a {
     font-size: 18px;
   }
+  .header_2_3_2 {
+    width: 100%;
+    margin-left: 5px;
+  }
 }
 
 @media (min-width: 1700px) {
   .container {
     width: 1600px;
+  }
+  .header_2_3_2 {
+    width: 278px;
   }
 }
 

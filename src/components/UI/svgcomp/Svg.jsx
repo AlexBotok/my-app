@@ -1,3 +1,16 @@
+const profile = () => {
+  return (
+    <svg style={{ display: "none" }}>
+      <symbol id="profile" viewBox="0 0 129 129">
+        <g>
+          <path d="m64.3,71.6c18,0 32.6-14.6 32.6-32.6s-14.6-32.5-32.6-32.5-32.6,14.6-32.6,32.5 14.6,32.6 32.6,32.6zm0-56.6c13.2,0 24,10.8 24,24s-10.8,24-24,24-24-10.8-24-24 10.8-24 24-24z" />
+          <path d="m7.9,122.5h113.2c2.4,0 4.3-1.9 4.3-4.3 0-22.5-18.3-40.9-40.9-40.9h-40c-22.5,0-40.9,18.3-40.9,40.9-1.33227e-15,2.4 1.9,4.3 4.3,4.3zm36.6-36.6h40c16.4,0 29.9,12.2 32,28h-104c2.1-15.7 15.6-28 32-28z" />
+        </g>
+      </symbol>
+    </svg>
+  );
+};
+
 const button = () => {
   return (
     <svg style={{ display: "none" }}>
@@ -58,7 +71,7 @@ const buttondown2 = () => {
   );
 };
 
-const divani = ({hoveredCard}) => {
+const divani = ({ hoveredCard }) => {
   const fill = hoveredCard === "divani" ? "#44C697" : "#1E2E36";
   return (
     <svg style={{ display: "none" }}>
@@ -84,7 +97,7 @@ const divani = ({hoveredCard}) => {
     </svg>
   );
 };
-const lijka = ({hoveredCard}) => {
+const lijka = ({ hoveredCard }) => {
   const fill = hoveredCard === "lijka" ? "#44C697" : "#1E2E36";
   return (
     <svg style={{ display: "none" }}>
@@ -103,7 +116,7 @@ const lijka = ({hoveredCard}) => {
   );
 };
 
-const krisla = ({hoveredCard}) => {
+const krisla = ({ hoveredCard }) => {
   const fill = hoveredCard === "krisla" ? "#44C697" : "#1E2E36";
   return (
     <svg style={{ display: "none" }}>
@@ -121,7 +134,7 @@ const krisla = ({hoveredCard}) => {
     </svg>
   );
 };
-const komodi = ({hoveredCard}) => {
+const komodi = ({ hoveredCard }) => {
   const fill = hoveredCard === "komodi" ? "#44C697" : "#1E2E36";
   return (
     <svg style={{ display: "none" }}>
@@ -139,7 +152,7 @@ const komodi = ({hoveredCard}) => {
     </svg>
   );
 };
-const shafi = ({hoveredCard}) => {
+const shafi = ({ hoveredCard }) => {
   const fill = hoveredCard === "shafi" ? "#44C697" : "#1E2E36";
   return (
     <svg style={{ display: "none" }}>
@@ -158,7 +171,7 @@ const shafi = ({hoveredCard}) => {
     </svg>
   );
 };
-const kuhnia = ({hoveredCard}) => {
+const kuhnia = ({ hoveredCard }) => {
   const fill = hoveredCard === "kuhnia" ? "#44C697" : "#1E2E36";
   return (
     <svg style={{ display: "none" }}>
@@ -253,4 +266,5 @@ export {
   shafi,
   kuhnia,
   filtersvg,
+  profile,
 };
