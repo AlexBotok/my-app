@@ -26,7 +26,7 @@ const Section1 = ({ t }) => {
   const [num, setNum] = useState(1);
   const [ligko, setLigko] = useState(t("l1"));
   const [bg, setBg] = useState({ backgroundImage: `url(/img/bg.png)` });
-  const [delay, setDelay] = useState(2500);
+  const [delay, setDelay] = useState(5000);
 
   const change = (newNum) => {
     const data = {

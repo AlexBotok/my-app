@@ -3,6 +3,7 @@ import DownArrow from "../hoverDownArrow/HoverDownArrow";
 import withTranslation from "../../../withTranslation.js";
 import { Link } from "react-router-dom";
 import { profile } from "../../UI/svgcomp/Svg";
+import ModalCart from "../../screens/Cart/ModalCart/ModalCart";
 const Header = ({ t }) => {
   const clickbtnopen = () => {
     const menu = document.getElementById("menushkaid");
@@ -174,9 +175,10 @@ const Header = ({ t }) => {
             >
               <p>{t("t41")}</p>
             </Link>
-            <Link to={`/cart?language=${localStorage.getItem("language")}`}>
+            {/* <Link to={`/cart?language=${localStorage.getItem("language")}`}>
               <img src="/img/shopping-cart.svg" alt="cart" />
-            </Link>
+            </Link> */}
+            <ModalCart />
             <Link
               className={classes.header_2_3_1}
               to={`/cart?language=${localStorage.getItem("language")}`}
