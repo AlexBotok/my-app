@@ -4,6 +4,7 @@ import withTranslation from "../../../withTranslation.js";
 import { Link } from "react-router-dom";
 import { profile } from "../../UI/svgcomp/Svg";
 import ModalCart from "../../screens/Cart/ModalCart/ModalCart";
+import List from "../List/List";
 const Header = ({ t }) => {
   const clickbtnopen = () => {
     const menu = document.getElementById("menushkaid");
@@ -106,50 +107,22 @@ const Header = ({ t }) => {
           <div className={classes.header_2_1}>
             <ul className={classes.header_2_1_1}>
               <li className={classes.header_2_1_2_1}>
-                <Link
-                  to={`/sofas?language=${localStorage.getItem("language")}`}
-                >
-                  {t("t12")}
-                </Link>
-                <DownArrow></DownArrow>
+                <List name={t("t12")} link="sofas"/>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link to={`/beds?language=${localStorage.getItem("language")}`}>
-                  {t("t13")}
-                </Link>
-                <DownArrow></DownArrow>
+                <List name={t("t13")} link="beds"/>
               </li>
               <li className={classes.header_2_1_2}>
-                <Link
-                  to={`/chairs?language=${localStorage.getItem("language")}`}
-                >
-                  {t("t14")}
-                </Link>
-                <DownArrow></DownArrow>
+                <List name={t("t14")} link="chairs" />
               </li>
               <li className={classes.header_2_1_2}>
-                <Link
-                  to={`/chests?language=${localStorage.getItem("language")}`}
-                >
-                  {t("t17")}
-                </Link>
-                <DownArrow></DownArrow>
+              <List name={t("t17")} link="chests" />
               </li>
               <li className={classes.header_2_1_2}>
-                <Link
-                  to={`/wardrobes?language=${localStorage.getItem("language")}`}
-                >
-                  {t("t15")}
-                </Link>
-                <DownArrow></DownArrow>
+              <List name={t("t15")} link="wardrobes" />
               </li>
               <li className={classes.header_2_1_2}>
-                <Link
-                  to={`/kitchens?language=${localStorage.getItem("language")}`}
-                >
-                  {t("t16")}
-                </Link>
-                <DownArrow></DownArrow>
+              <List name={t("t16")} link="kitchens" />
               </li>
             </ul>
           </div>
@@ -170,7 +143,8 @@ const Header = ({ t }) => {
               {profile()}
             </Link>
             <Link
-              className={classes.header_2_3_1} style={{ marginRight: "25px" }}
+              className={classes.header_2_3_1}
+              style={{ marginRight: "25px" }}
               to={`/profile?language=${localStorage.getItem("language")}`}
             >
               <p>{t("t41")}</p>

@@ -8,9 +8,7 @@ const Admin = () => {
     fetch("http://localhost:5000/admin")
       .then((res) => res.json())
       .then((data) => {
-        const message = data.message;
-        setMessage(message);
-        console.log("Data received");
+        console.log(data);
       });
   }, []);
 

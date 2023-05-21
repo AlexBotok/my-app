@@ -55,45 +55,37 @@
   bottom: 0px;
 }
 
-.flex{
+.flex {
   display: flex;
   align-items: center;
 }
 
-
-
 @media (max-width: 575px) {
-
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
-
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-
 }
 
 @media (min-width: 1200px) {
-  .sect3_2{
+  .sect3_2 {
     font-size: 20px;
   }
 }
 
 @media (min-width: 1400px) {
-  .sect3_2{
+  .sect3_2 {
     font-size: 24px;
   }
 }
 
 @media (min-width: 1700px) {
-
 }
 
 @media (min-width: 1818px) {
-
 }

@@ -78,6 +78,17 @@
   transition: 0.5s ease;
 }
 
+
+
+
+
+.disblo{
+  display: block;
+  opacity: 1;
+}
+
+
+
 .header_1_2_1 {
   display: flex;
   align-items: center;
@@ -148,6 +159,7 @@
   flex-direction: row;
   align-items: center;
   margin-left: 0px;
+  position: relative;
 }
 
 .header_2_1_2_1 svg {
@@ -159,6 +171,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
 }
 
 .header_2_1_2 svg {

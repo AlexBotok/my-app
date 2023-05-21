@@ -5,6 +5,7 @@ import Section3 from "./Section3/Section3.jsx";
 import Section4 from "./Section4/Section4.jsx";
 import Section5 from "./Section5/Section5.jsx";
 import Footer from "../../UI/Footer/Footer.jsx";
+
 function Home() {
   return (
     <div>

@@ -1,33 +1,33 @@
 import anime from "animejs/lib/anime.es.js";
-import {buttondown1} from "../svgcomp/Svg"
+import { buttondown1 } from "../svgcomp/Svg";
 import classes from "./DownArrow.module.css";
 
-const DownArrow = (props) => {
-  const handleMouseEnter = (event) => {
+const DownArrow = ({ value }) => {
+  const handleMouseEnterArrow = (event) => {
     const hov = event.currentTarget;
-    if (props.value == 1) {
-      const hov1 = document.getElementById("hov_menu1")
+    if (value == 1) {
+      const hov1 = document.getElementById("hov_menu1");
       hov1.style.opacity = 1;
-      hov1.style.visibility = "inherit";
+      hov1.style.visibility = "visible";
+      anime({ targets: hov, rotateZ: "90deg", easing: "easeOutExpo" });
     }
-    anime({ targets: hov, rotateZ: "90deg", easing: "easeOutExpo" });
   };
 
-  const handleMouseLeave = (event) => {
+  const handleMouseLeaveArrow = (event) => {
     const hov = event.currentTarget;
-    if (props.value == 1) {
-      const hov1 = document.getElementById("hov_menu1")
+    if (value == 1) {
+      const hov1 = document.getElementById("hov_menu1");
       hov1.style.opacity = 0;
       hov1.style.visibility = "hidden";
+      anime({ targets: hov, rotateZ: "0deg" });
     }
-    anime({ targets: hov, rotateZ: "0deg" });
   };
 
   return (
     <div
       className={classes.el}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnterArrow}
+      onMouseLeave={handleMouseLeaveArrow}
     >
       <svg width="24" height="24" display="block">
         <use href="#buttondown1"></use>
@@ -38,4 +38,3 @@ const DownArrow = (props) => {
 };
 
 export default DownArrow;
-

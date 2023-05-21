@@ -1,0 +1,23 @@
+.hovmenusofas {
+  width: fit-content;
+}
+
+.hovmenusofasul {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  transition: 0.5s all ease;
+  background-color: #1e2e36;
+}
+.hovmenusofasul li {
+  color: #fff;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexcateg {
+  display: flex;
+  align-items: center;
+}

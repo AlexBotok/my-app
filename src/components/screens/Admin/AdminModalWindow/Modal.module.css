@@ -6,6 +6,15 @@
   margin: 0 auto;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: large;
+  font-weight: 300;
+}
+
 .btn {
   user-select: none;
   width: 80%;
@@ -39,6 +48,22 @@
   background-color: rgba(0, 0, 0, 0.4); /*Черный с непрозрачностью */
 }
 
+.browse {
+  position: absolute;
+  /* letter-spacing: 12px; */
+  white-space: nowrap;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.imgin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0px;
+}
+
 .close,
 .close1 {
   color: #aaaaaa;
@@ -58,16 +83,70 @@
 
 .modalcontent {
   background-color: #fff;
-  width: 50%;
-  height: auto;
+  width: 65%;
+  height: 500px;
   margin: 0 auto;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  margin: 15px;
+}
+
+.inputBox input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  color: #000000;
+  font-size: 1em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.inputBox i {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #000000;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.addtodb {
+  border: 1px solid;
+  outline: none;
+  padding: 11px 25px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-family: "Proxima Nova";
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.select {
+  width: 100px;
+  margin-top: 5px;
+  border: 2px solid;
+  font-size: 17px;
+  padding: 3px;
 }
 
 .forma {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding-top: 60px;
+  justify-content: center;
+  height: 80%;
 }
 .show {
   display: block;
