@@ -3,16 +3,74 @@
   margin: 0 auto;
 }
 
-.title{
-    font-style: normal;
-    font-size: 40px;
-    line-height: 125%;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #000000;
-    text-align: center;
-    margin-top: 13px;
-    margin-bottom: 14px;
+.title {
+  font-style: normal;
+  font-size: 40px;
+  line-height: 125%;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+  margin-top: 13px;
+  margin-bottom: 14px;
+}
+
+.price, .name, .titleproduct, .instock {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
+.productsofa {
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 15px;
+  column-gap: 0px;
+  background-color: #1e2e36;
+  justify-items: center;
+  align-items: center;
+}
+
+.goods1 {
+  width: fit-content;
+  background-color: #44c697;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  margin: 5px;
+}
+
+.imageproduct {
+  width: 500px;
+  height: 500px;
+}
+
+.agoods {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000000;
+}
+
+.cart {
+  background: #93d1ba;
+  border: 3px solid black;
+  padding: 5px;
+  margin: 2px;
+  font-size: medium;
+  cursor: pointer;
+  width: 80%;
+}
+
+.cart:active {
+  color: #fff;
 }
 
 .wrapper {
@@ -29,11 +87,17 @@
   .container {
     width: 100%;
   }
+  .productsofa {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
   .container {
     width: 90%;
+  }
+  .productsofa {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -41,11 +105,17 @@
   .container {
     width: 90%;
   }
+  .productsofa {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .container {
     width: 900px;
+  }
+  .productsofa {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -53,11 +123,17 @@
   .container {
     width: 1200px;
   }
+  .productsofa {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1400px) {
   .container {
     width: 1380px;
+  }
+  .productsofa {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -65,10 +141,16 @@
   .container {
     width: 1600px;
   }
+  .productsofa {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (min-width: 1818px) {
   .container {
     width: 1818px;
+  }
+  .productsofa {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

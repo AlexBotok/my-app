@@ -2,10 +2,46 @@ import classes from "./Categories.module.css";
 import Header from "../../UI/Header/Header";
 import Footer from "../../UI/Footer/Footer";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import {
+  MyButtonLeft,
+  MyButtonRight,
+  MyButtonNone,
+} from "../../UI/button/MyButton";
+import TestGoods from "./TestGoods";
 
 const CategoriesTitle = ({ name, typeId }) => {
   const [data, setData] = useState([]);
-
+  const settings = {
+    autoplay: false,
+    infinite: true,
+    dots: false,
+    speed: 300,
+    width: 586,
+    autoplaySpeed: 2000,
+    slidesToShow: 1, 
+    slidesToScroll: 1,
+    nextArrow: <MyButtonRight id="2" />,
+    prevArrow: <MyButtonLeft id="2" />,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          nextArrow: <MyButtonNone />,
+          prevArrow: <MyButtonNone />,
+          centerMode: true,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
   useEffect(() => {
     fetch("http://localhost:5000/admin")
       .then((res) => res.json())
@@ -16,32 +52,55 @@ const CategoriesTitle = ({ name, typeId }) => {
 
   const renderProducts = () => {
     if (data && data[1] && data[1][0] && data[1][0].products) {
-      for (let i = 0; i < data[1][0].products.length; i++) {
-        if(data[1][0].products[i].typeId == typeId){
-          return data[1][0].products.map(
-          (product) => (
-            console.log(product),
-            (
-              <div key={product.id} className="name">
-                {product.name}
-                {product.price}
-                {product.title}
-                {product.inStock}
-              </div>
-            )
-          )
-        );
-        }
+      return data[1][0].products
+        .filter((product) => product.typeId == typeId)
+        .map((product) => (
+          // console.log(product.images),
+          // <TestGoods
+          //   name={`${product.name}`}
+          //   price={`${product.price}`}
+          //   img={product.images}
+          // />
+          <div className={classes.goods1} key={product.id}>
+            <Link to={`/sofas/${product.id}`} style={{textDecoration: "none"}}>
+              <Slider {...settings}>
+                {product.images.map((image) => (
+                  <div className={classes.imageproduct}>
+                    <img
+                      alt={product.name}
+                      title={product.name}
+                      className={classes.imageproduct}
+                      src={`http://localhost:5000/${image}`}
+                    />
+                  </div>
+                ))}
+              </Slider>
 
-        
-      }
+              <div className={classes.name}>{product.name}</div>
+              <div className={classes.price}>
+                {product.price}₴
+              </div>
+              <div  className={classes.instock}>
+                В наличии: {product.inStock}
+              </div>
+              <div
+                className={classes.titleproduct}
+              >
+                {product.title}
+              </div>
+            </Link>
+            <button className={classes.cart} id={product.id}>
+              Додати в кошик
+            </button>
+          </div>
+        ));
     }
     return null;
   };
 
   return (
     <div className={classes.wrapper}>
-      <header>
+      <header style={{ margin: "0 auto" }}>
         <div className={classes.container}>
           <Header />
         </div>
@@ -52,7 +111,9 @@ const CategoriesTitle = ({ name, typeId }) => {
         <hr />
       </header>
       <main>
-        <div className={classes.container}>{renderProducts()}</div>
+        <div className={classes.container}>
+          <div className={classes.productsofa}>{renderProducts()}</div>
+        </div>
       </main>
       <footer>
         <Footer />
