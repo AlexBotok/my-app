@@ -75,47 +75,51 @@ const ModalCart = ({ t }) => {
       ).goods;
       const matchedProducts = [];
       if (localStorageGoods != null) {
-        if (data && data[1] && data[1][0] && data[1][0].products) {
-          for (let i = 0; i < data[1][0].products.length; i++) {
-            const productId = data[1][0].products[i].id;
-            for (let j = 0; j < localStorageGoods.length; j++) {
-              const localStorageId = localStorageGoods[j].id;
-              if (productId == localStorageId) {
-                let product = data[1][0].products[i];
-                const maxCount = product.inStock;
-                matchedProducts.push(
-                  <div className={classes.container} key={product.id}>
-                    <div className={classes.goods1}>
-                      <Slider {...settings}>
-                        {product.images.map((image, index) => (
-                          <div className={classes.imageproduct} key={index}>
-                            <img
-                              alt={product.name}
-                              title={product.name}
-                              className={classes.imageproduct}
-                              src={`http://localhost:5000/public/${image}`}
-                            />
+        if (data && data[1]) {
+          for (let k = 0; k < data[1].length; k++) {
+            if (data[1][k] && data[1][k].products) {
+              for (let i = 0; i < data[1][k].products.length; i++) {
+                const productId = data[1][k].products[i].id;
+                for (let j = 0; j < localStorageGoods.length; j++) {
+                  const localStorageId = localStorageGoods[j].id;
+                  if (productId == localStorageId) {
+                    let product = data[1][0].products[i];
+                    const maxCount = product.inStock;
+                    matchedProducts.push(
+                      <div className={classes.container} key={product.id}>
+                        <div className={classes.goods1}>
+                          <Slider {...settings}>
+                            {product.images.map((image, index) => (
+                              <div className={classes.imageproduct} key={index}>
+                                <img
+                                  alt={product.name}
+                                  title={product.name}
+                                  className={classes.imageproduct}
+                                  src={`http://localhost:5000/public/${image}`}
+                                />
+                              </div>
+                            ))}
+                          </Slider>
+                          <div className={classes.name}>{product.name}</div>
+                          <div className={classes.price}>{product.price}₴</div>
+                          <div className={classes.instock}>
+                            В наличии: {product.inStock}
                           </div>
-                        ))}
-                      </Slider>
-                      <div className={classes.name}>{product.name}</div>
-                      <div className={classes.price}>{product.price}₴</div>
-                      <div className={classes.instock}>
-                        В наличии: {product.inStock}
+                          <div className={classes.titleproduct}>
+                            {product.title}
+                          </div>
+                          <InputCart
+                            count={localStorageGoods[j].count}
+                            maxCount={maxCount}
+                            onChange={(newCount) =>
+                              handleCountChange(localStorageGoods[j], newCount)
+                            }
+                          />
+                        </div>
                       </div>
-                      <div className={classes.titleproduct}>
-                        {product.title}
-                      </div>
-                      <InputCart
-                        count={localStorageGoods[j].count}
-                        maxCount={maxCount}
-                        onChange={(newCount) =>
-                          handleCountChange(localStorageGoods[j], newCount)
-                        }
-                      />
-                    </div>
-                  </div>
-                );
+                    );
+                  }
+                }
               }
             }
           }

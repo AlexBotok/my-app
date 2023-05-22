@@ -48,7 +48,7 @@ const Goods = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        console.log(data);
+        console.log(data[1].length);
       });
   }, []);
 
@@ -59,10 +59,12 @@ const Goods = () => {
 
   const renderTitle = () => {
     if (data && data[1] && data[1][0] && data[1][0].products) {
-      for (let i = 0; i < data[1][0].products.length; i++) {
-        if (data[1][0].products[i].id == digit) {
-          let product = data[1][0].products[i];
-          return <h1 className={classes.title}>{product.name}</h1>;
+      for (let k = 0; k < data[1].length; k++) {
+        for (let i = 0; i < data[1][k].products.length; i++) {
+          if (data[1][k].products[i].id == digit) {
+            let product = data[1][k].products[i];
+            return <h1 className={classes.title}>{product.name}</h1>;
+          }
         }
       }
     }
@@ -71,12 +73,13 @@ const Goods = () => {
 
   const renderProductPage = () => {
     if (data && data[1] && data[1][0] && data[1][0].products) {
-      for (let i = 0; i < data[1][0].products.length; i++) {
-        if (data[1][0].products[i].id == digit) {
-          let product = data[1][0].products[i];
-          return (
-            <div className={classes.container}>
-              <div className={classes.goods1} key={product.id}>
+      for (let k = 0; k < data[1].length; k++) {
+        for (let i = 0; i < data[1][k].products.length; i++) {
+          if (data[1][k].products[i].id == digit) {
+            let product = data[1][k].products[i];
+            return (
+              <div className={classes.container}>
+                <div className={classes.goods1} key={product.id}>
                   <Slider {...settings}>
                     {product.images.map((image, index) => (
                       <div className={classes.imageproduct} key={index}>
@@ -96,9 +99,10 @@ const Goods = () => {
                   </div>
                   <div className={classes.titleproduct}>{product.title}</div>
                   <CartButton id={product.id} inStock={product.inStock} />
+                </div>
               </div>
-            </div>
-          );
+            );
+          }
         }
       }
     }

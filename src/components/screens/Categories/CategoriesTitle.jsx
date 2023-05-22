@@ -12,7 +12,7 @@ import {
 import TestGoods from "./TestGoods";
 import CartButton from "../../UI/CartButton/CartButton";
 
-const CategoriesTitle = ({ name, typeId }) => {
+const CategoriesTitle = ({ name, typeId, linka }) => {
   const [data, setData] = useState([]);
   const settings = {
     autoplay: false,
@@ -53,43 +53,47 @@ const CategoriesTitle = ({ name, typeId }) => {
 
   const renderProducts = () => {
     if (data && data[1] && data[1][0] && data[1][0].products) {
-      return data[1][0].products
-        .filter((product) => product.typeId == typeId)
-        .map((product) => (
-          // console.log(product.images),
-          // <TestGoods
-          //   name={`${product.name}`}
-          //   price={`${product.price}`}
-          //   img={product.images}
-          // />
-          <div className={classes.goods1} key={product.id}>
-            <Link
-              to={`/sofas/${product.id}`}
-              style={{ textDecoration: "none" }}
-            >
-              <Slider {...settings}>
-                {product.images.map((image, index) => (
-                  <div className={classes.imageproduct} key={index}>
-                    <img
-                      alt={product.name}
-                      title={product.name}
-                      className={classes.imageproduct}
-                      src={`http://localhost:5000/public/${image}`}
-                    />
-                  </div>
-                ))}
-              </Slider>
+      for (let i = 0; i < data[1].length; i++) {
+        if (data[1][i].id == typeId) {
+          return data[1][i].products
+            .filter((product) => product.typeId == typeId)
+            .map((product) => (
+              // console.log(product.images),
+              // <TestGoods
+              //   name={`${product.name}`}
+              //   price={`${product.price}`}
+              //   img={product.images}
+              // />
+              <div className={classes.goods1} key={product.id}>
+                <Link
+                  to={`/${linka}/${product.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <Slider {...settings}>
+                    {product.images.map((image, index) => (
+                      <div className={classes.imageproduct} key={index}>
+                        <img
+                          alt={product.name}
+                          title={product.name}
+                          className={classes.imageproduct}
+                          src={`http://localhost:5000/public/${image}`}
+                        />
+                      </div>
+                    ))}
+                  </Slider>
 
-              <div className={classes.name}>{product.name}</div>
-              <div className={classes.price}>{product.price}₴</div>
-              <div className={classes.instock}>
-                В наличии: {product.inStock}
+                  <div className={classes.name}>{product.name}</div>
+                  <div className={classes.price}>{product.price}₴</div>
+                  <div className={classes.instock}>
+                    В наличии: {product.inStock}
+                  </div>
+                  <div className={classes.titleproduct}>{product.title}</div>
+                </Link>
+                <CartButton id={product.id} inStock={product.inStock} />
               </div>
-              <div className={classes.titleproduct}>{product.title}</div>
-            </Link>
-            <CartButton id={product.id} inStock={product.inStock} />
-          </div>
-        ));
+            ));
+        }
+      }
     }
     return null;
   };

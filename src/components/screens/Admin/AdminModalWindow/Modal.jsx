@@ -105,22 +105,22 @@ const Modal = ({ name }) => {
                   <span>Type</span>
                   <select name="typeId" className={classes.select}>
                     <option value="1">Дивани</option>
-                    <option>Ліжко</option>
-                    <option>Крісло</option>
-                    <option>Комод</option>
-                    <option>Шафа</option>
-                    <option>Кухня</option>
+                    <option value="2">Ліжко</option>
+                    <option value="3">Крісло</option>
+                    <option value="4">Комод</option>
+                    <option value="5">Шафа</option>
+                    <option value="6">Кухня</option>
                   </select>
                 </div>
                 <div className={classes.inputBox}>
                   <span>Brand</span>
                   <select name="brandId" className={classes.select}>
-                    <option value="1">Дивани</option>
-                    <option>Ліжко</option>
-                    <option>Крісло</option>
-                    <option>Комод</option>
-                    <option>Шафа</option>
-                    <option>Кухня</option>
+                    <option value="1">Vikom</option>
+                    <option value="2">Yudin</option>
+                    <option value="3">Novelty</option>
+                    <option value="4">EcoDiv</option>
+                    <option value="5">HTO</option>
+                    <option value="6">Кухня</option>
                   </select>
                 </div>
               </div>

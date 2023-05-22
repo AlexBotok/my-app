@@ -20,11 +20,13 @@ const Router = () => {
       const defaultLanguage = "uk";
       localStorage.setItem("language", defaultLanguage);
       window.history.pushState(null, "", `/?language=${defaultLanguage}`);
+    } else if (window.location.pathname === "/") {
+      window.history.pushState(
+        null,
+        "",
+        `/?language=${localStorage.getItem("language")}`
+      );
     }
-    else if(window.location.pathname === "/"){
-      window.history.pushState(null, "", `/?language=${localStorage.getItem("language")}`);
-    }
-
   }, []);
 
   return (
@@ -33,12 +35,17 @@ const Router = () => {
         <Route element={<Home />} path="/" />
         <Route element={<Cart />} path="/cart" />
         <Route element={<Sofas />} path="/sofas" />
-        <Route element={<Kitchens />} path="/kitchens" />
-        <Route element={<Chests />} path="/chests" />
-        <Route element={<Chairs />} path="/chairs" />
-        <Route element={<Beds />} path="/beds" />
         <Route element={<Goods />} path="/sofas/:id/" />
+        <Route element={<Kitchens />} path="/kitchens" />
+        <Route element={<Goods />} path="/kitchens/:id/" />
+        <Route element={<Chests />} path="/chests" />
+        <Route element={<Goods />} path="/chests/:id/" />
+        <Route element={<Chairs />} path="/chairs" />
+        <Route element={<Goods />} path="/chairs/:id/" />
+        <Route element={<Beds />} path="/beds" />
+        <Route element={<Goods />} path="/beds/:id/" />
         <Route element={<Wardrobes />} path="/wardrobes" />
+        <Route element={<Goods />} path="/wardrobes/:id/" />
         <Route element={<SignUp />} path="/register" />
         <Route element={<SignIn />} path="/login" />
         <Route element={<AdminPanel />} path="/admin" />
