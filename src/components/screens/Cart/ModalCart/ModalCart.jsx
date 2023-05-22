@@ -8,6 +8,7 @@ import {
   MyButtonNone,
 } from "../../../UI/button/MyButton";
 import CartButton from "../../../UI/CartButton/CartButton";
+import InputCart from "../../../UI/InputCart/InputCart";
 const ModalCart = ({ t }) => {
   const [data, setData] = useState([]);
   const settings = {
@@ -85,6 +86,7 @@ const ModalCart = ({ t }) => {
                       <div className={classes.titleproduct}>
                         {product.title}
                       </div>
+                      <InputCart count={`${localStorageGoods[j].count}`}/>
                     </div>
                   </div>
                 );

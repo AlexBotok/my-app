@@ -5,9 +5,8 @@ const AdminSignUp = () => {
     <div className={classes.body}>
       <div className={classes.box}>
         <form
-          action="/register"
+          action="http://localhost:5000/register"
           method="post"
-          autocomplete="off"
           className={classes.f1}
         >
           <h2 className={classes.h2}>Sign Up</h2>
@@ -30,7 +29,6 @@ const AdminSignUp = () => {
             <input
               type="password"
               name="password"
-              id=""
               placeholder="Password"
             />
 

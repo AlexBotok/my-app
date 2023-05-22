@@ -74,7 +74,7 @@ const CategoriesTitle = ({ name, typeId }) => {
                       alt={product.name}
                       title={product.name}
                       className={classes.imageproduct}
-                      src={`http://localhost:5000/${image}`}
+                      src={`http://localhost:5000/public/${image}`}
                     />
                   </div>
                 ))}

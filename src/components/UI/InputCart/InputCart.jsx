@@ -6,6 +6,7 @@ const InputCart = ({ count, localS }) => {
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
+    
   };
 
   return (

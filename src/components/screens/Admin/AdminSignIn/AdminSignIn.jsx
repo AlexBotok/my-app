@@ -16,9 +16,9 @@ const Admin = () => {
     <div className={classes.body}>
       <div className={classes.box}>
         <form
-          action="/login"
+          action="http://localhost:5000/login"
           method="post"
-          autocomplete="off"
+          autoComplete="off"
           className={classes.f1}
         >
           <h2 className={classes.h2}>Sign in</h2>
