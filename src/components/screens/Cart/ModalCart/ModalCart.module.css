@@ -97,6 +97,31 @@
 .show {
   display: block;
 }
+
+.price,
+.name,
+.titleproduct,
+.instock {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
+.goods1 {
+  width: 300px;
+  background-color: #44c697;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  margin: 35px auto 0px auto;
+}
+.imageproduct {
+  width: 500px;
+  height: 500px;
+}
 @media (max-width: 575px) {
   .container {
     width: 100%;

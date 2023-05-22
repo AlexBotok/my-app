@@ -10,6 +10,7 @@ import {
   MyButtonNone,
 } from "../../UI/button/MyButton";
 import TestGoods from "./TestGoods";
+import CartButton from "../../UI/CartButton/CartButton";
 
 const CategoriesTitle = ({ name, typeId }) => {
   const [data, setData] = useState([]);
@@ -20,7 +21,7 @@ const CategoriesTitle = ({ name, typeId }) => {
     speed: 300,
     width: 586,
     autoplaySpeed: 2000,
-    slidesToShow: 1, 
+    slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <MyButtonRight id="2" />,
     prevArrow: <MyButtonLeft id="2" />,
@@ -62,10 +63,13 @@ const CategoriesTitle = ({ name, typeId }) => {
           //   img={product.images}
           // />
           <div className={classes.goods1} key={product.id}>
-            <Link to={`/sofas/${product.id}`} style={{textDecoration: "none"}}>
+            <Link
+              to={`/sofas/${product.id}`}
+              style={{ textDecoration: "none" }}
+            >
               <Slider {...settings}>
-                {product.images.map((image) => (
-                  <div className={classes.imageproduct}>
+                {product.images.map((image, index) => (
+                  <div className={classes.imageproduct} key={index}>
                     <img
                       alt={product.name}
                       title={product.name}
@@ -77,21 +81,13 @@ const CategoriesTitle = ({ name, typeId }) => {
               </Slider>
 
               <div className={classes.name}>{product.name}</div>
-              <div className={classes.price}>
-                {product.price}₴
-              </div>
-              <div  className={classes.instock}>
+              <div className={classes.price}>{product.price}₴</div>
+              <div className={classes.instock}>
                 В наличии: {product.inStock}
               </div>
-              <div
-                className={classes.titleproduct}
-              >
-                {product.title}
-              </div>
+              <div className={classes.titleproduct}>{product.title}</div>
             </Link>
-            <button className={classes.cart} id={product.id}>
-              Додати в кошик
-            </button>
+            <CartButton id={product.id} inStock={product.inStock} />
           </div>
         ));
     }

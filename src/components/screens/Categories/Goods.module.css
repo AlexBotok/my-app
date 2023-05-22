@@ -1,74 +1,100 @@
 .container {
+  width: 1818px;
+  margin: 0 auto;
+}
+
+.title {
+  font-style: normal;
+  font-size: 40px;
+  line-height: 125%;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+  margin-top: 13px;
+  margin-bottom: 14px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+}
+
+.price,
+.name,
+.titleproduct,
+.instock {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
+.goods1 {
+  width: fit-content;
+  background-color: #44c697;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  margin: 5px;
+  margin: 0 auto;
+}
+.imageproduct {
+  width: 500px;
+  height: 500px;
+}
+
+@media (max-width: 575px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    width: 900px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    width: 1380px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .container {
+    width: 1600px;
+  }
+}
+
+@media (min-width: 1818px) {
+  .container {
     width: 1818px;
-    margin: 0 auto;
   }
-  
-  .title{
-      font-style: normal;
-      font-size: 40px;
-      line-height: 125%;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #000000;
-      text-align: center;
-      margin-top: 13px;
-      margin-bottom: 14px;
-  }
-  
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .main {
-    flex: 1;
-  }
-  
-  @media (max-width: 575px) {
-    .container {
-      width: 100%;
-    }
-  }
-  
-  @media (min-width: 576px) and (max-width: 767px) {
-    .container {
-      width: 90%;
-    }
-  }
-  
-  @media (min-width: 768px) and (max-width: 991px) {
-    .container {
-      width: 90%;
-    }
-  }
-  
-  @media (min-width: 992px) and (max-width: 1199px) {
-    .container {
-      width: 900px;
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    .container {
-      width: 1200px;
-    }
-  }
-  
-  @media (min-width: 1400px) {
-    .container {
-      width: 1380px;
-    }
-  }
-  
-  @media (min-width: 1700px) {
-    .container {
-      width: 1600px;
-    }
-  }
-  
-  @media (min-width: 1818px) {
-    .container {
-      width: 1818px;
-    }
-  }
+}

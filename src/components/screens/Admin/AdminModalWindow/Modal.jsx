@@ -104,7 +104,7 @@ const Modal = ({ name }) => {
                 <div className={classes.inputBox}>
                   <span>Type</span>
                   <select name="typeId" className={classes.select}>
-                    <option id="1">1</option>
+                    <option value="1">Дивани</option>
                     <option>Ліжко</option>
                     <option>Крісло</option>
                     <option>Комод</option>
@@ -115,7 +115,7 @@ const Modal = ({ name }) => {
                 <div className={classes.inputBox}>
                   <span>Brand</span>
                   <select name="brandId" className={classes.select}>
-                    <option id="1">1</option>
+                    <option value="1">Дивани</option>
                     <option>Ліжко</option>
                     <option>Крісло</option>
                     <option>Комод</option>
