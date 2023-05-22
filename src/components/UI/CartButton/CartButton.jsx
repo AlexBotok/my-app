@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classes from "./CartButton.module.css";
+
 const CartButton = ({ id, inStock }) => {
   const [count, setCount] = useState(0);
 
@@ -17,31 +18,40 @@ const CartButton = ({ id, inStock }) => {
   }, [id]);
 
   const handleClick = () => {
-    const newCount = count + 1;
+    const savedCartData = localStorage.getItem("cartData");
+    let cartData = { goods: [] };
 
-    if (newCount <= inStock) {
-      setCount(newCount);
+    if (savedCartData) {
+      cartData = JSON.parse(savedCartData);
+    }
 
-      const savedCartData = localStorage.getItem("cartData");
-      let cartData = { goods: [] };
+    const itemIndex = cartData.goods.findIndex((good) => good.id === id);
 
-      if (savedCartData) {
-        cartData = JSON.parse(savedCartData);
-      }
+    if (itemIndex >= 0) {
+      const existingCount = parseInt(cartData.goods[itemIndex].count);
+      const newCount = existingCount + 1;
 
-      const itemIndex = cartData.goods.findIndex((good) => good.id === id);
-
-      if (itemIndex >= 0) {
+      if (newCount <= inStock) {
         cartData.goods[itemIndex].count = newCount;
-      } else {
-        cartData.goods.push({ id: id, count: newCount });
+        setCount(newCount);
+        localStorage.setItem("cartData", JSON.stringify(cartData));
       }
+    } else {
+      const newCount = 1;
 
-      localStorage.setItem("cartData", JSON.stringify(cartData));
+      if (newCount <= inStock) {
+        cartData.goods.push({ id: id, count: newCount });
+        setCount(newCount);
+        localStorage.setItem("cartData", JSON.stringify(cartData));
+      }
     }
   };
 
-  return <button className={classes.cart} onClick={handleClick}>Добавить в корзину ({count})</button>;
+  return (
+    <button className={classes.cart} onClick={handleClick}>
+      Добавить в корзину
+    </button>
+  );
 };
 
 export default CartButton;

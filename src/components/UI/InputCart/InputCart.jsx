@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 
-const InputCart = ({ count, localS }) => {
+const InputCart = ({ count, onChange, maxCount }) => {
   const [inputValue, setInputValue] = useState(count);
 
   const handleInputChange = (event) => {
-    const value = event.target.value;
-    setInputValue(value);
-    
+    const value = parseInt(event.target.value);
+
+    if (value >= 1 && value <= maxCount) {
+      setInputValue(value);
+      onChange(value);
+    } else if (value > maxCount) {
+      setInputValue(maxCount);
+      onChange(maxCount);
+    } else {
+      setInputValue(1);
+      onChange(1);
+    }
   };
 
   return (

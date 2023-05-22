@@ -22,6 +22,42 @@ footer {
   margin: 0 auto;
 }
 
+.price,
+.name,
+.titleproduct,
+.instock {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
+.totalPrice {
+  display: flex;
+  width: 500px;
+  font-size: 32px;
+  height: 63px;
+  background: #44c697;
+  margin: 21px auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.goods1 {
+  height: auto;
+  width: fit-content;
+  background-color: #44c697;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 35px auto 0px auto;
+}
+.imageproduct {
+  width: 500px;
+  height: 500px;
+}
+
 @media (max-width: 575px) {
   .main {
     width: 100%;

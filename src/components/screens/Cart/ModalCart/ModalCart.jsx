@@ -7,10 +7,15 @@ import {
   MyButtonRight,
   MyButtonNone,
 } from "../../../UI/button/MyButton";
-import CartButton from "../../../UI/CartButton/CartButton";
 import InputCart from "../../../UI/InputCart/InputCart";
+
 const ModalCart = ({ t }) => {
   const [data, setData] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [cartData, setCartData] = useState(
+    JSON.parse(localStorage.getItem("cartData")) || { goods: [] }
+  );
+
   const settings = {
     autoplay: false,
     infinite: true,
@@ -40,6 +45,7 @@ const ModalCart = ({ t }) => {
       },
     ],
   };
+
   useEffect(() => {
     fetch("http://localhost:5000/admin")
       .then((res) => res.json())
@@ -48,6 +54,19 @@ const ModalCart = ({ t }) => {
         console.log(data);
       });
   }, []);
+
+  const updateCartData = (productId, count) => {
+    const updatedData = cartData.goods.map((item) => {
+      if (item.id === productId) {
+        return { id: item.id, count: count };
+      }
+      return item;
+    });
+
+    setCartData({ goods: updatedData });
+    localStorage.setItem("cartData", JSON.stringify({ goods: updatedData }));
+  };
+
   const cartproducts = () => {
     let localStorageGoods = JSON.parse(localStorage.getItem("cartData"));
     if (localStorageGoods) {
@@ -63,21 +82,22 @@ const ModalCart = ({ t }) => {
               const localStorageId = localStorageGoods[j].id;
               if (productId == localStorageId) {
                 let product = data[1][0].products[i];
+                const maxCount = product.inStock;
                 matchedProducts.push(
                   <div className={classes.container} key={product.id}>
                     <div className={classes.goods1}>
-                      {/* <Slider {...settings}>
-                    {product.images.map((image, index) => (
-                      <div className={classes.imageproduct} key={index}>
-                        <img
-                          alt={product.name}
-                          title={product.name}
-                          className={classes.imageproduct}
-                          src={`http://localhost:5000/${image}`}
-                        />
-                      </div>
-                    ))}
-                  </Slider> */}
+                      <Slider {...settings}>
+                        {product.images.map((image, index) => (
+                          <div className={classes.imageproduct} key={index}>
+                            <img
+                              alt={product.name}
+                              title={product.name}
+                              className={classes.imageproduct}
+                              src={`http://localhost:5000/public/${image}`}
+                            />
+                          </div>
+                        ))}
+                      </Slider>
                       <div className={classes.name}>{product.name}</div>
                       <div className={classes.price}>{product.price}₴</div>
                       <div className={classes.instock}>
@@ -86,7 +106,13 @@ const ModalCart = ({ t }) => {
                       <div className={classes.titleproduct}>
                         {product.title}
                       </div>
-                      <InputCart count={`${localStorageGoods[j].count}`}/>
+                      <InputCart
+                        count={localStorageGoods[j].count}
+                        maxCount={maxCount}
+                        onChange={(newCount) =>
+                          handleCountChange(localStorageGoods[j], newCount)
+                        }
+                      />
                     </div>
                   </div>
                 );
@@ -99,6 +125,25 @@ const ModalCart = ({ t }) => {
     } else {
       return <div>Корзина пуста</div>;
     }
+  };
+
+  const handleCountChange = (item, newCount) => {
+    const savedCartData = localStorage.getItem("cartData");
+    let cartData = { goods: [] };
+
+    if (savedCartData) {
+      cartData = JSON.parse(savedCartData);
+    }
+
+    const itemIndex = cartData.goods.findIndex((good) => good.id === item.id);
+
+    if (itemIndex >= 0) {
+      cartData.goods[itemIndex].count = newCount;
+    } else {
+      cartData.goods.push({ id: item.id, count: newCount });
+    }
+
+    localStorage.setItem("cartData", JSON.stringify(cartData));
   };
 
   useEffect(() => {
