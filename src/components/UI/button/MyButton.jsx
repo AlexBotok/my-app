@@ -1,5 +1,5 @@
 import classes from "./MyButton.module.css";
-import { button, leftb_hov, rightb_hov } from "../svgcomp/Svg";
+import { button, leftb_hov, rightb_hov } from "../svgComponent/svg";
 
 const MyButtonNone = () => {
   return (<button style={{display:"none"}}></button>);

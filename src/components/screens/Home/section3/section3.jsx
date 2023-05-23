@@ -1,9 +1,9 @@
-import classes from "./Section3.module.css";
-import Section3_card from "./Section3_card.jsx";
-import withTranslation from "../../../../withTranslation.js";
+import classes from "./section3.module.css";
+import Section3Categories from "./categories/section3Categories.jsx";
+import withTranslation from "../../../../i18next/withTranslation.js";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Section3_goods_card from "./Section3_goods_card";
+import Section3_goods_card from "./goods/section3Goods";
 const Section3 = ({ t }) => {
   const [hoveredCard, setHoveredCard] = useState(null);
 
@@ -23,7 +23,7 @@ const Section3 = ({ t }) => {
           <p>{t("t29")}</p>
         </div>
         <div className={classes.sect4_2}>
-          <Section3_card
+          <Section3Categories
             id="divani"
             name={t("t12")}
             url={`/sofas?language=${localStorage.getItem("language")}`}
@@ -31,7 +31,7 @@ const Section3 = ({ t }) => {
             onCardMouseLeave={handleCardMouseLeave}
             hoveredCard={hoveredCard}
           />
-          <Section3_card
+          <Section3Categories
             id="lijka"
             name={t("t13")}
             url={`/beds?language=${localStorage.getItem("language")}`}
@@ -39,7 +39,7 @@ const Section3 = ({ t }) => {
             onCardMouseLeave={handleCardMouseLeave}
             hoveredCard={hoveredCard}
           />
-          <Section3_card
+          <Section3Categories
             id="krisla"
             name={t("t14")}
             url={`/chairs?language=${localStorage.getItem("language")}`}
@@ -47,7 +47,7 @@ const Section3 = ({ t }) => {
             onCardMouseLeave={handleCardMouseLeave}
             hoveredCard={hoveredCard}
           />
-          <Section3_card
+          <Section3Categories
             id="komodi"
             name={t("t17")}
             url={`/chests?language=${localStorage.getItem("language")}`}
@@ -55,7 +55,7 @@ const Section3 = ({ t }) => {
             onCardMouseLeave={handleCardMouseLeave}
             hoveredCard={hoveredCard}
           />
-          <Section3_card
+          <Section3Categories
             id="shafi"
             name={t("t15")}
             url={`/wardrobes?language=${localStorage.getItem("language")}`}
@@ -63,7 +63,7 @@ const Section3 = ({ t }) => {
             onCardMouseLeave={handleCardMouseLeave}
             hoveredCard={hoveredCard}
           />
-          <Section3_card
+          <Section3Categories
             id="kuhnia"
             name={t("t16")}
             url={`/kitchens?language=${localStorage.getItem("language")}`}
@@ -76,7 +76,7 @@ const Section3 = ({ t }) => {
           <Section3_goods_card
             name={t("l5")}
             price="8&nbsp;999"
-            img="/img/lijkoramona.svg"
+            img="/img/bedRamona.svg"
             id="2"
             index="1"
           />
@@ -84,34 +84,34 @@ const Section3 = ({ t }) => {
             name={t("l6")}
             price="8&nbsp;999"
             newprice="7&nbsp;999"
-            img="/img/lijkochester.svg"
+            img="/img/bedChester.svg"
             id="1"
             index="2"
           />
           <Section3_goods_card
             name={t("l7")}
             price="8&nbsp;999"
-            img="/img/lijkotiajkiluxe.svg"
+            img="/img/bedVeneziaLuxe.svg"
             index="3"
           />
           <Section3_goods_card
             name={t("l8")}
             price="8&nbsp;999"
-            img="/img/lijkoukraine.svg"
+            img="/img/bedEmpire.svg"
             id="2"
             index="4"
           />
           <Section3_goods_card
             name={t("l9")}
             price="8&nbsp;999"
-            img="/img/lijkoadele.svg"
+            img="/img/bedAdele.svg"
             index="5"
           />
           <Section3_goods_card
             name={t("l10")}
             price="8&nbsp;999"
             newprice="7&nbsp;999"
-            img="/img/lijkoatlant.svg"
+            img="/img/bedAtlant.svg"
             id="1"
             index="6"
           />

@@ -1,4 +1,4 @@
-import classes from "./Categories.module.css";
+import classes from "./categoriesTitleForPages.module.css";
 import Header from "../../../UI/header/header";
 import Footer from "../../../UI/footer/footer";
 import { useEffect, useState } from "react";
@@ -11,7 +11,7 @@ import {
 } from "../../../UI/button/MyButton";
 import CartButton from "../../../UI/cartButton/cartButton";
 
-const CategoriesTitle = ({ name, typeId, link }) => {
+const CategoriesTitleForPages = ({ name, typeId, link }) => {
   const [data, setData] = useState([]);
   const settings = {
     autoplay: false,
@@ -58,11 +58,6 @@ const CategoriesTitle = ({ name, typeId, link }) => {
             .filter((product) => product.typeId == typeId)
             .map((product) => (
               // console.log(product.images),
-              // <TestGoods
-              //   name={`${product.name}`}
-              //   price={`${product.price}`}
-              //   img={product.images}
-              // />
               <div className={classes.goods1} key={product.id}>
                 <Link
                   to={`/${link}/${product.id}`}
@@ -121,4 +116,4 @@ const CategoriesTitle = ({ name, typeId, link }) => {
   );
 };
 
-export default CategoriesTitle;
+export default CategoriesTitleForPages;

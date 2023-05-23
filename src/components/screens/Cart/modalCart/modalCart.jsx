@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import classes from "./ModalCart.module.css";
-import WithTranslation from "../../../../withTranslation";
+import classes from "./modalCart.module.css";
+import WithTranslation from "../../../../i18next/withTranslation";
 import Slider from "react-slick";
 import {
   MyButtonLeft,
   MyButtonRight,
   MyButtonNone,
 } from "../../../UI/button/MyButton";
-import InputCart from "../../../UI/InputCart/InputCart";
+import InputCart from "../../../UI/inputCart/inputCart";
 
 const ModalCart = ({ t }) => {
   const [data, setData] = useState([]);
@@ -197,7 +197,7 @@ const ModalCart = ({ t }) => {
   return (
     <div>
       <button onClick={openModal} className={classes.button}>
-        <img src="/img/shopping-cart.svg" alt="cart" />
+        <img src="/img/cart.svg" alt="cart" />
       </button>
       {showModal && (
         <div

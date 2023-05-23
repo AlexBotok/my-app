@@ -1,6 +1,6 @@
-import classes from "./Admin.module.css";
+import classes from "./signUp.module.css";
 
-const AdminSignUp = () => {
+const SignUp = () => {
   return (
     <div className={classes.body}>
       <div className={classes.box}>
@@ -41,4 +41,4 @@ const AdminSignUp = () => {
   );
 };
 
-export default AdminSignUp;
+export default SignUp;

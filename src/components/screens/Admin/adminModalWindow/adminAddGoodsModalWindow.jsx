@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import classes from "./Modal.module.css";
+import classes from "./adminAddGoodsModalWindow.module.css";
 
-const Modal = ({ name }) => {
+const AdminAddGoodsModalWindow = ({ name }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -138,4 +138,4 @@ const Modal = ({ name }) => {
   );
 };
 
-export default Modal;
+export default AdminAddGoodsModalWindow;

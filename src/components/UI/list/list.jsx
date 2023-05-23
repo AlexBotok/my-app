@@ -1,7 +1,7 @@
-import classes from "./List.module.css";
-import DownArrow1 from "../hoverDownArrow//hoverDown1/HoverDownArrow1";
+import classes from "./list.module.css";
+import DownArrow1 from "../hoverDownArrow/hoverDownList/hoverDownArrowList";
 import { Link } from "react-router-dom";
-import withTranslation from "../../../withTranslation";
+import withTranslation from "../../../i18next/withTranslation";
 import React, { useState, useEffect, useRef } from "react";
 
 const List = ({ name, link }) => {

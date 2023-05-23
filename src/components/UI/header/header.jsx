@@ -1,10 +1,10 @@
-import classes from "./Header.module.css";
-import DownArrow from "../hoverDownArrow/HoverDownArrow";
-import withTranslation from "../../../withTranslation.js";
+import classes from "./header.module.css";
+import DownArrow from "../hoverDownArrow/hoverDownArrow";
+import withTranslation from "../../../i18next/withTranslation.js";
 import { Link } from "react-router-dom";
-import { profile } from "../../UI/svgcomp/Svg";
-import ModalCart from "../../screens/Cart/ModalCart/ModalCart";
-import List from "../List/List";
+import { profile } from "../svgComponent/svg";
+import ModalCart from "../../screens/Cart/modalCart/modalCart";
+import List from "../list/list";
 const Header = ({ t }) => {
   const clickbtnopen = () => {
     const menu = document.getElementById("menushkaid");
@@ -22,25 +22,25 @@ const Header = ({ t }) => {
             <div className={classes.header_1_1}>
               <p>{t("t1")}</p>
               <Link to="https://t.me/bot4ka" target="_blank" rel="noreferrer">
-                <img src="/img/Telegram.svg" alt="Telegram" />
+                <img src="/img/telegramBlack.svg" alt="Telegram" />
               </Link>
               <Link
                 to="https://www.facebook.com"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="/img/Facebook.svg" alt="Facebook" />
+                <img src="/img/facebookBlack.svg" alt="Facebook" />
               </Link>
               <Link
                 to="https://www.instagram.com/bot4ka/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="/img/Instagram.svg" alt="Instagram" />
+                <img src="/img/instagramBlack.svg" alt="Instagram" />
               </Link>
-              <Link to="tel:+380682735499" className="header_bottom">
+              <Link to="tel:+380682735499">
                 <img
-                  src="/img/smartphone.svg"
+                  src="/img/phoneBlack.svg"
                   alt="Smartphone"
                   className={classes.header_bottomimg}
                 />
@@ -127,7 +127,7 @@ const Header = ({ t }) => {
             </ul>
           </div>
           <div className={classes.header_2_2}>
-            <img src="/img/FLogo.svg" alt="FLogo" />
+            <img src="/img/furnitureLogoBlack.svg" alt="FLogo" />
             <p>
               <span>F</span>urniture
             </p>
@@ -149,9 +149,6 @@ const Header = ({ t }) => {
             >
               <p>{t("t41")}</p>
             </Link>
-            {/* <Link to={`/cart?language=${localStorage.getItem("language")}`}>
-              <img src="/img/shopping-cart.svg" alt="cart" />
-            </Link> */}
             <ModalCart />
             <Link
               className={classes.header_2_3_1}
@@ -238,19 +235,15 @@ const Header = ({ t }) => {
         </div>
         <div className={classes.mobilka}>
           <button onClick={clickbtnopen} className={classes.knopka}>
-            <img src="/img/burger.svg" alt="menu" />
+            <img src="/img/burgerMenu.svg" alt="menu" />
           </button>
           <div className={classes.header_2_2}>
-            <img src="/img/FLogo.svg" alt="FLogo" />
+            <img src="/img/furnitureLogoBlack.svg" alt="FLogo" />
             <p>
               <span>F</span>urniture
             </p>
           </div>
-          <button className={classes.knopka}>
-            <Link to={`/cart?language=${localStorage.getItem("language")}`}>
-              <img src="/img/cart1.svg" alt="cart" />
-            </Link>
-          </button>
+          <ModalCart/>
         </div>
       </div>
     </header>

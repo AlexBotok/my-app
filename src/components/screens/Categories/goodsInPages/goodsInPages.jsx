@@ -6,12 +6,12 @@ import {
   MyButtonRight,
   MyButtonNone,
 } from "../../../UI/button/MyButton";
-import classes from "./Goods.module.css";
+import classes from "./goodsInPages.module.css";
 import Header from "../../../UI/header/header";
 import Footer from "../../../UI/footer/footer";
 import CartButton from "../../../UI/cartButton/cartButton";
 
-const Goods = () => {
+const GoodsInPages = () => {
   const [data, setData] = useState([]);
   const settings = {
     autoplay: false,
@@ -127,4 +127,4 @@ const Goods = () => {
   );
 };
 
-export default Goods;
+export default GoodsInPages;

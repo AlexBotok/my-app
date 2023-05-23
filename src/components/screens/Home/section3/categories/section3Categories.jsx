@@ -1,4 +1,4 @@
-import classes from "./Section3_card.module.css";
+import classes from "./section3Categories.module.css";
 import {
   divani,
   lijka,
@@ -6,9 +6,9 @@ import {
   komodi,
   shafi,
   kuhnia,
-} from "../../../UI/svgComponent/svg.jsx";
+} from "../../../../UI/svgComponent/svg.jsx";
 import { Link } from "react-router-dom";
-const Section3_card = ({
+const Section3Categories = ({
   id,
   name,
   url,
@@ -56,4 +56,4 @@ const Section3_card = ({
   );
 };
 
-export default Section3_card;
+export default Section3Categories;

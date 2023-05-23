@@ -1,5 +1,5 @@
-import classes from "./Section.module.css";
-import withTranslation from "../../../../withTranslation.js";
+import classes from "./section2.module.css";
+import withTranslation from "../../../../i18next/withTranslation.js";
 import {
   MyButtonLeft,
   MyButtonRight,
@@ -47,26 +47,26 @@ const Section2 = ({ t }) => {
       <div className={classes.sect3}>
         <Slider key="slider" {...settings}>
           <div className={classes.sect3_1}>
-            <img src="/img/perevagi1.png" alt="perevagi1" />
+            <img src="/img/section2FurniturePremium.png" alt="perevagi1" />
             <p>{t("t6")}</p>
           </div>
           <div className={classes.sect3_1_1}>
-            <img src="/img/perevagi2.png" alt="perevagi2" />
+            <img src="/img/section2Reliability.png" alt="perevagi2" />
             <div className={classes.slidet7}>
               <p>{t("t7")}</p>
               <h6 className={classes.sect3_1p}>{t("t8")}</h6>
             </div>
           </div>
           <div className={classes.sect3_1_2}>
-            <img src="/img/perevagi3.png" alt="perevagi3" />
+            <img src="/img/section2Shipping.png" alt="perevagi3" />
             <p>{t("t9")}</p>
           </div>
           <div className={classes.sect3_1}>
-            <img src="/img/perevagi5.png" alt="perevagi5" />
+            <img src="/img/section2LowPrices.png" alt="perevagi5" />
             <p>{t("t10")}</p>
           </div>
           <div className={classes.sect3_1}>
-            <img src="/img/team.png" alt="team" />
+            <img src="/img/section2Team.png" alt="team" />
             <p>{t("t11")}</p>
           </div>
         </Slider>

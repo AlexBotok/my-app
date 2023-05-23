@@ -1,15 +1,15 @@
 import Header2 from "../../../UI/Header2/Header2";
-import classes from "./AdminPanel.module.css";
-import Footer from "../../../UI/Footer/Footer";
-import withTranslation from "../../../../withTranslation";
-import Modal from "../AdminModalWindow/Modal";
+import classes from "./adminPanel.module.css";
+import Footer from "../../../UI/footer/footer";
+import withTranslation from "../../../../i18next/withTranslation";
+import AdminAddGoodsModalWindow from "../adminModalWindow/adminAddGoodsModalWindow";
 
 const AdminPanel = ({ t }) => {
   return (
     <div className={classes.wrapper}>
       <Header2 name={t("t40")} />
       <main className={classes.main}>
-        <Modal name={"Додати Товар"}></Modal>
+        <AdminAddGoodsModalWindow name={"Додати Товар"}></AdminAddGoodsModalWindow>
       </main>
       <div>
       </div>

@@ -5,7 +5,7 @@
 
 .footer {
   margin-top: 89px;
-  background: url(/public/img/футер.png) no-repeat center top / cover;
+  background: url(/public/img/footer.png) no-repeat center top / cover;
 }
 
 .header_2_2_footer {
@@ -40,11 +40,16 @@
   text-decoration: none;
 }
 
-.katalog li {
+.katalog, .link {
   margin-top: 15px;
 }
 
-.katalog li::first-letter {
+.link{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.katalog::first-letter {
   color: #44c697;
 }
 
@@ -70,7 +75,7 @@
   text-decoration: none;
 }
 
-.katalog3_1 li {
+.katalog3_1 a {
   display: flex;
   margin-top: 15px;
 }
@@ -85,9 +90,15 @@
   font-size: 18px;
   line-height: 125%;
   color: #ffffff;
+  text-decoration: none;
 }
 
-.katalog3_2 li {
+.link1{
+  text-decoration: none;
+  color: #44C697;
+}
+
+.katalog3_2 {
   margin-top: 15px;
   display: flex;
   align-items: flex-start;

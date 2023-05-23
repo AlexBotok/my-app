@@ -1,13 +1,13 @@
 import classes from "./Header2.module.css";
 import { Link } from "react-router-dom";
-import withTranslation from "../../../withTranslation";
+import withTranslation from "../../../i18next/withTranslation";
 const Header2 = ({ t, name }) => {
   return (
     <header className={classes.header}>
       <div className={classes.container}>
         <div className={classes.nav}>
           <div className={classes.header_2_2}>
-            <img src="/img/FLogo.svg" alt="FLogo" />
+            <img src="/img/furnitureLogoBlack.svg" alt="FLogo" />
             <p><span>F</span>urniture {name}</p>
           </div>
           <div className={classes.header_1_2}>

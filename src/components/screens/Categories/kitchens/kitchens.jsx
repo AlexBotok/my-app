@@ -1,7 +1,7 @@
-import CategoriesTitle from "../CategoriesTitle";
-import withTranslation from "../../../../withTranslation";
+import CategoriesTitleForPages from "../categoriesTitleForPages/categoriesTitleForPages";
+import withTranslation from "../../../../i18next/withTranslation";
 const Kitchens = ({ t }) => {
-  return <CategoriesTitle name={t("t16")} typeId="6" linka="kitchens"/>;
+  return <CategoriesTitleForPages name={t("t16")} typeId="6" link="kitchens"/>;
 };
 
 export default withTranslation(Kitchens);

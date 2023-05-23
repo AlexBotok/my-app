@@ -1,6 +1,6 @@
 import anime from "animejs/lib/anime.es.js";
-import { buttondown1 } from "../svgcomp/Svg";
-import classes from "./DownArrow.module.css";
+import { buttondown1 } from "../svgComponent/svg";
+import classes from "./hoverDownArrow.module.css";
 
 const DownArrow = ({ value }) => {
   const handleMouseEnterArrow = (event) => {

@@ -1,9 +1,9 @@
-import classes from "./Section3_goods_card.module.css";
+import classes from "./section3Goods.module.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Elem3 from "../../../UI/section3Label/label";
-import withTranslation from "../../../../withTranslation";
-const Section3_goods_card = ({ name, price, img, newprice, id, t, index }) => {
+import Elem3 from "../../../../UI/section3Label/label";
+import withTranslation from "../../../../../i18next/withTranslation";
+const Section3Goods = ({ name, price, img, newprice, id, t, index }) => {
   const checknewprice = () => {
     if (newprice) {
       return (
@@ -68,4 +68,4 @@ const Section3_goods_card = ({ name, price, img, newprice, id, t, index }) => {
   );
 };
 
-export default withTranslation(Section3_goods_card);
+export default withTranslation(Section3Goods);

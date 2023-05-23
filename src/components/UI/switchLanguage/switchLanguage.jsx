@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import classes from "./Switch.module.css";
-import withTranslation from "../../../withTranslation.js";
+import classes from "./switchLanguage.module.css";
+import withTranslation from "../../../i18next/withTranslation.js";
 
-const Switch = ({ i18n }) => {
+const SwitchLanguage = ({ i18n }) => {
   const [isChecked, setChecked] = useState(
     JSON.parse(localStorage.getItem("isChecked")) || false
   );
@@ -73,4 +73,4 @@ const Switch = ({ i18n }) => {
   );
 };
 
-export default withTranslation(Switch);
+export default withTranslation(SwitchLanguage);

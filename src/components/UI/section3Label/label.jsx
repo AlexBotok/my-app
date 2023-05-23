@@ -1,5 +1,5 @@
-import classes from "./Elem3.module.css";
-import withTranslation from "../../../withTranslation"
+import classes from "./label.module.css";
+import withTranslation from "../../../i18next/withTranslation"
 const Elem3 = ({name, id, t}) => {
 const checkid = () => {
     if (id === "1") {

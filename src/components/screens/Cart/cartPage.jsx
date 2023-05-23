@@ -1,6 +1,6 @@
 import Header2 from "../../UI/Header2/Header2";
 import Footer from "../../UI/footer/footer";
-import classes from "./cart.module.css";
+import classes from "./cartPage.module.css";
 import withTranslation from "../../../i18next/withTranslation";
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
@@ -12,7 +12,7 @@ import {
 } from "../../UI/button/MyButton";
 import InputCart from "../../UI/inputCart/inputCart";
 
-const Cart = ({ t }) => {
+const CartPage = ({ t }) => {
   const [data, setData] = useState([]);
   const [cartData, setCartData] = useState(
     JSON.parse(localStorage.getItem("cartData")) || { goods: [] }
@@ -192,4 +192,4 @@ const Cart = ({ t }) => {
   );
 };
 
-export default withTranslation(Cart);
+export default withTranslation(CartPage);

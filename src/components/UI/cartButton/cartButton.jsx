@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from "./CartButton.module.css";
+import classes from "./cartButton.module.css";
 
 const CartButton = ({ id, inStock }) => {
   const [count, setCount] = useState(0);

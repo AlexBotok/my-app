@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
-import classes from "./Section.module.css";
+import classes from "./section1.module.css";
 import { MyButtonLeft, MyButtonRight } from "../../../UI/button/MyButton";
-import withTranslation from "../../../../withTranslation.js";
+import withTranslation from "../../../../i18next/withTranslation.js";
 import { Link } from "react-router-dom";
 
 const useInterval = (callback, delay) => {
@@ -24,30 +24,32 @@ const useInterval = (callback, delay) => {
 
 const Section1 = ({ t }) => {
   const [num, setNum] = useState(1);
-  const [ligko, setLigko] = useState(t("l1"));
-  const [bg, setBg] = useState({ backgroundImage: `url(/img/bg.png)` });
-  const [delay, setDelay] = useState(5000);
+  const [beds, setBeds] = useState(t("l1"));
+  const [bg, setBg] = useState({
+    backgroundImage: `url(/img/section1Background1.png)`,
+  });
+  const delay = 5000;
 
   const change = (newNum) => {
     const data = {
       1: {
-        ligko: t("l1"),
-        bg: "/img/bg.png",
+        beds: t("l1"),
+        bg: "/img/section1Background1.png",
       },
       2: {
-        ligko: t("l2"),
-        bg: "/img/california.png",
+        beds: t("l2"),
+        bg: "/img/section1Background2.png",
       },
       3: {
-        ligko: t("l3"),
-        bg: "/img/BlackBed.png",
+        beds: t("l3"),
+        bg: "/img/section1Background3.png",
       },
       4: {
-        ligko: t("l4"),
-        bg: "/img/krovatk.png",
+        beds: t("l4"),
+        bg: "/img/section1Background4.png",
       },
     };
-    setLigko(data[newNum].ligko);
+    setBeds(data[newNum].beds);
     setBg({ backgroundImage: `url(${data[newNum].bg})` });
   };
 
@@ -71,9 +73,6 @@ const Section1 = ({ t }) => {
     increment();
   }, delay);
 
-  useEffect(() => {
-    setLigko(t("l1"));
-  }, [t]);
   return (
     <section className={classes.section} style={bg} id="section">
       <div className={classes.container}>
@@ -82,7 +81,7 @@ const Section1 = ({ t }) => {
           <div className={classes.rect1}>
             <p className={classes.rect1_1}>{t("t2")}</p>
             <p className={classes.rect1_2} id="rect1_2">
-              {ligko}
+              {beds}
             </p>
             <p className={classes.rect1_3}>{t("t3")}</p>
             <Link to={`?language=${localStorage.getItem("language")}`}>

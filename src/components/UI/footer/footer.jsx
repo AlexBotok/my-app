@@ -1,6 +1,6 @@
-import classes from "./Footer.module.css";
-import Switch from "../Switch/Switch";
-import withTranslation from "../../../withTranslation.js";
+import classes from "./footer.module.css";
+import Switch from "../switchLanguage/switchLanguage";
+import withTranslation from "../../../i18next/withTranslation.js";
 import { Link } from "react-router-dom";
 const Footer = ({ t }) => {
   return (
@@ -8,66 +8,100 @@ const Footer = ({ t }) => {
       <div className={classes.container}>
         <div className={classes.footercontent}>
           <div className={classes.header_2_2_footer}>
-            <img src="/img/FLogoWhite.svg" alt="FLogo" />
-            <p><span>F</span>urniture</p>
+            <img src="/img/furnitureLogoWhite.svg" alt="FLogo" />
+            <p>
+              <span>F</span>urniture
+            </p>
           </div>
           <div className={classes.footer_2_2}>
             <ul className={classes.katalog1}>
-              <Link to={`/sofas?language=${localStorage.getItem("language")}`} className={classes.katalog}>
-                <li>— {t("t12")}</li>
-              </Link>
-              <Link to={`/beds?language=${localStorage.getItem("language")}`} className={classes.katalog}>
-                <li>— {t("t13")}</li>
-              </Link>
-              <Link to={`/chairs?language=${localStorage.getItem("language")}`} className={classes.katalog}>
-                <li>— {t("t14")}</li>
-              </Link>
-              <Link to={`/wardrobes?language=${localStorage.getItem("language")}`} className={classes.katalog}>
-                <li>— {t("t15")}</li>
-              </Link>
-              <Link to={`/kitchens?language=${localStorage.getItem("language")}`} className={classes.katalog}>
-                <li>— {t("t16")}</li>
-              </Link>
-              <Link to={`/chests?language=${localStorage.getItem("language")}`} className={classes.katalog}>
-                <li>— {t("t17")}</li>
-              </Link>
+              <li className={classes.katalog}>
+                <Link to="/sofas" className={classes.link}>
+                  — {t("t12")}
+                </Link>
+              </li>
+
+              <li className={classes.katalog}>
+                <Link to="/beds" className={classes.link}>
+                  — {t("t13")}
+                </Link>
+              </li>
+
+              <li className={classes.katalog}>
+                <Link to="/chairs" className={classes.link}>
+                  — {t("t14")}
+                </Link>
+              </li>
+
+              <li className={classes.katalog}>
+                <Link to="/wardrobes" className={classes.link}>
+                  — {t("t15")}
+                </Link>
+              </li>
+
+              <li className={classes.katalog}>
+                <Link to="/kitchens" className={classes.link}>
+                  — {t("t16")}
+                </Link>
+              </li>
+
+              <li className={classes.katalog}>
+                <Link to="/chests" className={classes.link}>
+                  — {t("t17")}
+                </Link>
+              </li>
             </ul>
             <ul className={classes.katalog2}>
-              <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.katalog}>
-                <li>— {t("t18")}</li>
-              </Link>
-              <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.katalog}>
-                <li>— {t("t19")}</li>
-              </Link>
-              <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.katalog}>
-                <li>— {t("t20")}</li>
-              </Link>
-              <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.katalog}>
-                <li>— {t("t21")}</li>
-              </Link>
+              <li className={classes.katalog}>
+                <Link to="/" className={classes.link}>
+                  — {t("t18")}
+                </Link>
+              </li>
+
+              <li className={classes.katalog}>
+                <Link to="/" className={classes.link}>
+                  — {t("t19")}
+                </Link>
+              </li>
+
+              <li className={classes.katalog}>
+                <Link to="/" className={classes.link}>
+                  — {t("t20")}
+                </Link>
+              </li>
+
+              <li className={classes.katalog}>
+                <Link to="/" className={classes.link}>
+                  — {t("t21")}
+                </Link>
+              </li>
             </ul>
             <ul className={classes.katalog3}>
-              <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.katalog3_1}>
-                <li>
-                  <img src="/img/map.svg" alt="map" />
+              <li className={classes.katalog3_1}>
+                <Link to="/" className={classes.link}>
+                  <img src="/img/mapLocation.svg" alt="map" />
                   <p>TEST</p>
-                </li>
-              </Link>
-              <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.katalog3_1}>
-                <li>
-                  <img src="/img/calendar.svg" alt="calendar" />
+                </Link>
+              </li>
+
+              <li className={classes.katalog3_1}>
+                <Link to="/" className={classes.link}>
+                  <img src="/img/calendarFooter.svg" alt="calendar" />
                   <p>{t("t22")}</p>
-                </li>
-              </Link>
-              <Link to={`/?language=${localStorage.getItem("language")}`} className={classes.katalog3_2}>
-                <li>
-                  <img src="/img/smartphone 1.svg" alt="smartphone" />
-                  <div>
+                </Link>
+              </li>
+
+              <li className={classes.katalog3_2}>
+                <img src="/img/phoneGreen.svg" alt="smartphone" />
+                <div>
+                  <Link to="tel:+380682735499" className={classes.link1}>
                     <p>(099) 111 22 33</p>
+                  </Link>
+                  <Link to="tel:+380682735499" className={classes.link1}>
                     <p>(099) 222 33 44</p>
-                  </div>
-                </li>
-              </Link>
+                  </Link>
+                </div>
+              </li>
               <div className={classes.socialocki}>
                 <p>{t("t1")}</p>
                 <div className={classes.socialocki_1}>
@@ -77,27 +111,27 @@ const Footer = ({ t }) => {
                     rel="noreferrer"
                     style={{ marginLeft: "0px" }}
                   >
-                    <img src="/img/Telegram1.svg" alt="Telegram" />
+                    <img src="/img/telegramWhite.svg" alt="Telegram" />
                   </Link>
                   <Link
                     to="https://www.facebook.com"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <img src="/img/Facebook1.svg" alt="Facebook" />
+                    <img src="/img/facebookWhite.svg" alt="Facebook" />
                   </Link>
                   <Link
                     to="https://www.instagram.com/bot4ka/"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <img src="/img/Instagram1.svg" alt="Instagram" />
+                    <img src="/img/instagramWhite.svg" alt="Instagram" />
                   </Link>
                 </div>
               </div>
             </ul>
           </div>
-          <Switch/>
+          <Switch />
           <p className={classes.tob}>{t("tob")}</p>
         </div>
       </div>

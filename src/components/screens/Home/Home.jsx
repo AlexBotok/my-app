@@ -1,10 +1,10 @@
-import Header from "../../UI/Header/Header.jsx";
-import Section1 from "./Section1/Section1.jsx";
-import Section2 from "./Section2/Section2.jsx";
-import Section3 from "./Section3/Section3.jsx";
-import Section4 from "./Section4/Section4.jsx";
-import Section5 from "./Section5/Section5.jsx";
-import Footer from "../../UI/Footer/Footer.jsx";
+import Header from "../../UI/header/header.jsx";
+import Section1 from "./section1/section1.jsx";
+import Section2 from "./section2/section2.jsx";
+import Section3 from "./section3/section3.jsx";
+import Section4 from "./section4/section4.jsx";
+import Section5 from "./section5/section5.jsx";
+import Footer from "../../UI/footer/footer.jsx";
 
 function Home() {
   return (

@@ -1,5 +1,5 @@
-import classes from "./Section4.module.css";
-import withTranslation from "../../../../withTranslation.js";
+import classes from "./section4.module.css";
+import withTranslation from "../../../../i18next/withTranslation.js";
 const Section4 = ({t}) => {
   return (
     <div className={classes.container}>
@@ -42,7 +42,7 @@ const Section4 = ({t}) => {
             <div className={classes.sect5_1_1_1}></div>
           </div>
           <img
-            src="/img/sect5img.png"
+            src="/img/section4Image.png"
             className={classes.sect5img}
             alt="Image"
           />

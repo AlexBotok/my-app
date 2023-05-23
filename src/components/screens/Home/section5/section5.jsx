@@ -1,5 +1,5 @@
-import classes from "./Section5.module.css";
-import withTranslation from "../../../../withTranslation.js";
+import classes from "./section5.module.css";
+import withTranslation from "../../../../i18next/withTranslation.js";
 import { Link } from "react-router-dom";
 const Section5 = ({ t }) => {
   return (
@@ -13,7 +13,7 @@ const Section5 = ({ t }) => {
         </div>
         <div className={classes.sect6_2}>
           <img
-            src="/img/sect6_domik.png"
+            src="/img/section5Image.png"
             alt="Kvartirka"
             className={classes.sect6img}
           />

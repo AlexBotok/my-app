@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
-import { buttondown1 } from "../../svgcomp/Svg";
-import classes from "./DownArrow1.module.css";
+import { buttondown1 } from "../../svgComponent/svg";
+import classes from "./hoverDownArrowList.module.css";
 
 const DownArrow = ({ value }) => {
   const elRef = useRef(null);
