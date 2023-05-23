@@ -80,18 +80,20 @@ const GoodsInPages = () => {
             return (
               <div className={classes.container}>
                 <div className={classes.goods1} key={product.id}>
-                  <Slider {...settings}>
-                    {product.images.map((image, index) => (
-                      <div className={classes.imageproduct} key={index}>
-                        <img
-                          alt={product.name}
-                          title={product.name}
-                          className={classes.imageproduct}
-                          src={`http://localhost:5000/public/${image}`}
-                        />
-                      </div>
-                    ))}
-                  </Slider>
+                  <Link>
+                    <Slider {...settings}>
+                      {product.images.map((image, index) => (
+                        <div className={classes.imageproduct} key={index}>
+                          <img
+                            alt={product.name}
+                            title={product.name}
+                            className={classes.imageproduct}
+                            src={`http://localhost:5000/public/${image}`}
+                          />
+                        </div>
+                      ))}
+                    </Slider>
+                  </Link>
                   <div className={classes.name}>{product.name}</div>
                   <div className={classes.price}>{product.price}₴</div>
                   <div className={classes.instock}>
