@@ -10,7 +10,6 @@ import InputCart from "../../UI/inputCart/inputCart";
 
 const CartPage = ({ t }) => {
   const [data, setData] = useState([]);
-
   const [totalPrice, setTotalPrice] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,9 +19,8 @@ const CartPage = ({ t }) => {
       .then((data) => {
         setData(data);
         setIsLoading(false);
-        console.log(data);
       });
-  });
+  }, []);
 
   const cartproducts = () => {
     const matchedProducts = [];
@@ -117,10 +115,9 @@ const CartPage = ({ t }) => {
 
   const calculateTotalPrice = (cartGoods) => {
     let totalPrice = 0;
-    if (data && data[0]) {
-      const productCategories = data[0];
-      for (let i = 0; i < productCategories.length; i++) {
-        const products = productCategories[i].products;
+    if (data && data[1]) {
+      for (let i = 0; i < data[1].length; i++) {
+        const products = data[1][i].products;
         for (let j = 0; j < products.length; j++) {
           const product = products[j];
           const productId = product.id;
@@ -133,7 +130,6 @@ const CartPage = ({ t }) => {
         }
       }
     }
-
     setTotalPrice(totalPrice);
   };
   const cartData = JSON.parse(localStorage.getItem("cartData")) || {
@@ -143,7 +139,7 @@ const CartPage = ({ t }) => {
     if (!isLoading) {
       calculateTotalPrice(cartData.goods);
     }
-  });
+  }, [isLoading]);
 
   return (
     <div className={classes.wrapper}>

@@ -73,6 +73,23 @@ const Section3 = ({ t }) => {
       index: "6",
     },
   };
+
+  const returnSection3Goods = () => {
+    return Object.keys(propsSection3Goods).map((key) => {
+      return <Section3Goods key={key} {...propsSection3Goods[key]} />;
+    });
+  };
+  const returnSection3Categories = () => {
+    return Object.keys(propsSection3Goods).map((key) => {
+      return (
+        <Section3Categories
+          key={key}
+          {...propsSection3Categories[key]}
+          {...propsSection3CategoriesHovered}
+        />
+      );
+    });
+  };
   return (
     <div className={classes.container}>
       <div className={classes.sect4}>
@@ -80,40 +97,8 @@ const Section3 = ({ t }) => {
           <div className={classes.rect3}></div>
           <p>{t("t29")}</p>
         </div>
-        <div className={classes.sect4_2}>
-          <Section3Categories
-            {...propsSection3Categories[1]}
-            {...propsSection3CategoriesHovered}
-          />
-          <Section3Categories
-            {...propsSection3Categories[2]}
-            {...propsSection3CategoriesHovered}
-          />
-          <Section3Categories
-            {...propsSection3Categories[3]}
-            {...propsSection3CategoriesHovered}
-          />
-          <Section3Categories
-            {...propsSection3Categories[4]}
-            {...propsSection3CategoriesHovered}
-          />
-          <Section3Categories
-            {...propsSection3Categories[5]}
-            {...propsSection3CategoriesHovered}
-          />
-          <Section3Categories
-            {...propsSection3Categories[6]}
-            {...propsSection3CategoriesHovered}
-          />
-        </div>
-        <div className={classes.sect4__2}>
-          <Section3Goods {...propsSection3Goods[1]} />
-          <Section3Goods {...propsSection3Goods[2]} />
-          <Section3Goods {...propsSection3Goods[3]} />
-          <Section3Goods {...propsSection3Goods[4]} />
-          <Section3Goods {...propsSection3Goods[5]} />
-          <Section3Goods {...propsSection3Goods[6]}/>
-        </div>
+        <div className={classes.sect4_2}>{returnSection3Categories()}</div>
+        <div className={classes.sect4__2}>{returnSection3Goods()}</div>
         <Link to="/" style={{ textDecoration: "none" }}>
           <div className={classes.sect4__2_1}>
             <p>{t("t27")}</p>

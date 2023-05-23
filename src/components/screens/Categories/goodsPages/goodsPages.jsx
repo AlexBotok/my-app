@@ -16,7 +16,7 @@ const GoodsPages = () => {
       .then((data) => {
         setData(data);
       });
-  });
+  }, []);
 
   const url = window.location.href;
   const parts = url.split("/");

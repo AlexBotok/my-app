@@ -16,8 +16,7 @@ const CategoriesTitleForPages = ({ name, typeId, link }) => {
       .then((data) => {
         setData(data);
       });
-  });
-
+  }, []);
   const renderProducts = () => {
     if (data && data[1]) {
       for (let i = 0; i < data[1].length; i++) {

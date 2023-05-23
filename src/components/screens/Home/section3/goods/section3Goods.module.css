@@ -30,13 +30,21 @@
 .price {
   margin-right: 15px;
 }
+.link {
+  position: relative;
+  transition: 0.5s ease;
+  bottom: 0px;
+}
 
+.link:hover {
+  bottom: 25px;
+  background-color: #44c697;
+}
 .newprice {
   color: #ff1b1b;
   margin-right: 10px;
   transition: 0.5s ease;
 }
-
 .skidon {
   font-size: 18px;
   text-decoration-line: line-through;
@@ -44,32 +52,19 @@
   transition: 0.5s ease;
   margin-right: 15px;
 }
+.link:hover .sect3_2,
+.link:hover .skidon,
+.link:hover .newprice {
+  color: #ffffff;
+}
 
 .name {
   margin-left: 10px;
 }
 
-.link {
-  position: relative;
-  transition: 0.5s ease;
-  bottom: 0px;
-}
-
 .flex {
   display: flex;
   align-items: center;
-}
-
-@media (max-width: 575px) {
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
 }
 
 @media (min-width: 1200px) {
@@ -82,10 +77,4 @@
   .sect3_2 {
     font-size: 24px;
   }
-}
-
-@media (min-width: 1700px) {
-}
-
-@media (min-width: 1818px) {
 }

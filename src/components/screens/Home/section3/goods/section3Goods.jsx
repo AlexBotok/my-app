@@ -12,15 +12,11 @@ const Section3Goods = ({ name, price, img, newprice, id, t, index }) => {
             <Elem3 id={id} name={t("t39")} />
             <img src={img} alt={name} />
           </div>
-          <div className={classes.sect3_2} style={background}>
+          <div className={classes.sect3_2}>
             <p className={classes.name}>{name}</p>
             <div className={classes.two}>
-              <p className={classes.newprice} style={background}>
-                {newprice} ГРН
-              </p>
-              <p className={classes.skidon} style={background}>
-                {price}ГРН
-              </p>
+              <p className={classes.newprice}>{newprice} ГРН</p>
+              <p className={classes.skidon}>{price}ГРН</p>
             </div>
           </div>
         </div>
@@ -32,7 +28,7 @@ const Section3Goods = ({ name, price, img, newprice, id, t, index }) => {
             <Elem3 id={id} name={t("t2")} />
             <img src={img} alt={name} />
           </div>
-          <div className={classes.sect3_2} style={background}>
+          <div className={classes.sect3_2}>
             <p className={classes.name}>{name}</p>
             <p className={classes.price}>{price} ГРН</p>
           </div>
@@ -40,27 +36,8 @@ const Section3Goods = ({ name, price, img, newprice, id, t, index }) => {
       );
     }
   };
-  const [hovered, setHovered] = useState(false);
-
-  const handleMouseOver = () => {
-    setHovered(true);
-  };
-
-  const handleMouseOut = () => {
-    setHovered(false);
-  };
-
-  const background = hovered
-    ? { background: "#44C697", color: "#FFFFFF" }
-    : { background: "#FFFFFF" };
   return (
-    <Link
-      to={`/beds/?language=${localStorage.getItem("language")}`}
-      className={classes.link}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-      style={{ bottom: hovered ? "25px" : "0px", ...background }}
-    >
+    <Link to="/beds" className={classes.link}>
       {checknewprice()}
     </Link>
   );

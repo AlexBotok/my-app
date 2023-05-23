@@ -9,8 +9,11 @@ import InputCart from "../../../UI/inputCart/inputCart";
 const ModalCart = ({ t }) => {
   const [data, setData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const cartData = JSON.parse(localStorage.getItem("cartData")) || { goods: [] }
-
+  const cartData = JSON.parse(localStorage.getItem("cartData")) || {
+    goods: [],
+  };
+  const [showModal, setShowModal] = useState(false);
+  const [isScrollLocked, setScrollLocked] = useState(false);
   useEffect(() => {
     fetch("http://localhost:5000/admin")
       .then((res) => res.json())
@@ -18,7 +21,7 @@ const ModalCart = ({ t }) => {
         setData(data);
         console.log(data);
       });
-  });
+  }, []);
 
   const cartproducts = () => {
     const matchedProducts = [];
@@ -105,9 +108,6 @@ const ModalCart = ({ t }) => {
     }
     localStorage.setItem("cartData", JSON.stringify(cartData));
   };
-
-  const [showModal, setShowModal] = useState(false);
-  const [isScrollLocked, setScrollLocked] = useState(false);
 
   const openModal = () => {
     setShowModal(true);
