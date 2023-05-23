@@ -2,49 +2,14 @@ import React, { useState, useEffect } from "react";
 import classes from "./modalCart.module.css";
 import WithTranslation from "../../../../i18next/withTranslation";
 import Slider from "react-slick";
-import {
-  MyButtonLeft,
-  MyButtonRight,
-  MyButtonNone,
-} from "../../../UI/button/MyButton";
+import sliderSettings from "../../../UI/scripts/sliderSettings";
+import { Link } from "react-router-dom";
 import InputCart from "../../../UI/inputCart/inputCart";
 
 const ModalCart = ({ t }) => {
   const [data, setData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [cartData, setCartData] = useState(
-    JSON.parse(localStorage.getItem("cartData")) || { goods: [] }
-  );
-
-  const settings = {
-    autoplay: false,
-    infinite: true,
-    dots: false,
-    speed: 300,
-    width: 586,
-    autoplaySpeed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <MyButtonRight id="2" />,
-    prevArrow: <MyButtonLeft id="2" />,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          nextArrow: <MyButtonNone />,
-          prevArrow: <MyButtonNone />,
-          centerMode: true,
-        },
-      },
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
+  const cartData = JSON.parse(localStorage.getItem("cartData")) || { goods: [] }
 
   useEffect(() => {
     fetch("http://localhost:5000/admin")
@@ -53,42 +18,35 @@ const ModalCart = ({ t }) => {
         setData(data);
         console.log(data);
       });
-  }, []);
-
-  const updateCartData = (productId, count) => {
-    const updatedData = cartData.goods.map((item) => {
-      if (item.id === productId) {
-        return { id: item.id, count: count };
-      }
-      return item;
-    });
-
-    setCartData({ goods: updatedData });
-    localStorage.setItem("cartData", JSON.stringify({ goods: updatedData }));
-  };
+  });
 
   const cartproducts = () => {
+    const matchedProducts = [];
     let localStorageGoods = JSON.parse(localStorage.getItem("cartData"));
     if (localStorageGoods) {
       let localStorageGoods = JSON.parse(
         localStorage.getItem("cartData")
       ).goods;
-      const matchedProducts = [];
-      if (localStorageGoods != null) {
-        if (data && data[1]) {
-          for (let k = 0; k < data[1].length; k++) {
-            if (data[1][k] && data[1][k].products) {
-              for (let i = 0; i < data[1][k].products.length; i++) {
-                const productId = data[1][k].products[i].id;
-                for (let j = 0; j < localStorageGoods.length; j++) {
-                  const localStorageId = localStorageGoods[j].id;
-                  if (productId == localStorageId) {
-                    let product = data[1][0].products[i];
-                    const maxCount = product.inStock;
-                    matchedProducts.push(
-                      <div className={classes.container} key={product.id}>
-                        <div className={classes.goods1}>
-                          <Slider {...settings}>
+
+      if (data && data[1]) {
+        for (let k = 0; k < data[1].length; k++) {
+          if (data[1][k].products) {
+            // Проверка или есть товары в типе мебели
+            for (let i = 0; i < data[1][k].products.length; i++) {
+              // Цикл для перебора товаров в данной категории
+              const productId = data[1][k].products[i].id; // id товара для дальнейшего сравнения с id товаров в localStorage
+              for (let j = 0; j < localStorageGoods.length; j++) {
+                // Цикл для перебора товаров в localStorage
+                const localStorageId = localStorageGoods[j].id; // id товара в localStorage
+                if (productId == localStorageId) {
+                  // Сравнение id товара в localStorage с id товара в данной категории
+                  let product = data[1][k].products[i]; // Присвоение товара в переменную
+                  const maxCount = product.inStock; // Товар в наличии
+                  matchedProducts.push(
+                    <div className={classes.container} key={product.id}>
+                      <div className={classes.goods1}>
+                        <Link>
+                          <Slider {...sliderSettings}>
                             {product.images.map((image, index) => (
                               <div className={classes.imageproduct} key={index}>
                                 <img
@@ -100,32 +58,34 @@ const ModalCart = ({ t }) => {
                               </div>
                             ))}
                           </Slider>
-                          <div className={classes.name}>{product.name}</div>
-                          <div className={classes.price}>{product.price}₴</div>
-                          <div className={classes.instock}>
-                            В наличии: {product.inStock}
-                          </div>
-                          <div className={classes.titleproduct}>
-                            {product.title}
-                          </div>
-                          <InputCart
-                            count={localStorageGoods[j].count}
-                            maxCount={maxCount}
-                            onChange={(newCount) =>
-                              handleCountChange(localStorageGoods[j], newCount)
-                            }
-                          />
+                        </Link>
+                        <div className={classes.name}>{product.name}</div>
+                        <div className={classes.price}>{product.price}₴</div>
+                        <div className={classes.instock}>
+                          В наличии: {product.inStock}
                         </div>
+                        <div className={classes.titleproduct}>
+                          {product.title}
+                        </div>
+                        <InputCart
+                          count={localStorageGoods[j].count}
+                          maxCount={maxCount}
+                          onChange={(newCount) =>
+                            handleCountChange(localStorageGoods[j], newCount)
+                          }
+                        />
                       </div>
-                    );
-                  }
+                    </div>
+                  );
                 }
               }
             }
           }
         }
       }
-      return matchedProducts;
+      if (matchedProducts.length > 0) {
+        return matchedProducts;
+      }
     } else {
       return <div>Корзина пуста</div>;
     }
@@ -134,25 +94,17 @@ const ModalCart = ({ t }) => {
   const handleCountChange = (item, newCount) => {
     const savedCartData = localStorage.getItem("cartData");
     let cartData = { goods: [] };
-
     if (savedCartData) {
       cartData = JSON.parse(savedCartData);
     }
-
     const itemIndex = cartData.goods.findIndex((good) => good.id === item.id);
-
     if (itemIndex >= 0) {
       cartData.goods[itemIndex].count = newCount;
     } else {
       cartData.goods.push({ id: item.id, count: newCount });
     }
-
     localStorage.setItem("cartData", JSON.stringify(cartData));
   };
-
-  useEffect(() => {
-    cartproducts();
-  }, [data]);
 
   const [showModal, setShowModal] = useState(false);
   const [isScrollLocked, setScrollLocked] = useState(false);

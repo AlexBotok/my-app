@@ -24,11 +24,6 @@ const AdminAddGoodsModalWindow = ({ name }) => {
     console.log(files.length);
     setFileCount(files.length);
   };
-  // const handleSubmit = (event) => {
-  //   event.preventDefault(); // Предотвращаем отправку формы
-  //   // Дополнительные действия по обработке данных формы, если необходимо
-  //   console.log("Додав")
-  // };
 
   return (
     <div className={classes.container}>
@@ -53,7 +48,6 @@ const AdminAddGoodsModalWindow = ({ name }) => {
               action="http://localhost:5000/admin/createProduct"
               method="post"
               className={classes.forma}
-              // onSubmit={handleSubmit}
               encType="multipart/form-data"
             >
               <div className={classes.allinfo}>
@@ -120,7 +114,6 @@ const AdminAddGoodsModalWindow = ({ name }) => {
                     <option value="3">Novelty</option>
                     <option value="4">EcoDiv</option>
                     <option value="5">HTO</option>
-                    <option value="6">Кухня</option>
                   </select>
                 </div>
               </div>

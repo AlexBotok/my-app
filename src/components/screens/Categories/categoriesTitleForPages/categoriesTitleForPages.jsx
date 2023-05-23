@@ -4,66 +4,33 @@ import Footer from "../../../UI/footer/footer";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import {
-  MyButtonLeft,
-  MyButtonRight,
-  MyButtonNone,
-} from "../../../UI/button/MyButton";
+import sliderSettings from "../../../UI/scripts/sliderSettings";
 import CartButton from "../../../UI/cartButton/cartButton";
 
 const CategoriesTitleForPages = ({ name, typeId, link }) => {
   const [data, setData] = useState([]);
-  const settings = {
-    autoplay: false,
-    infinite: true,
-    dots: false,
-    speed: 300,
-    width: 586,
-    autoplaySpeed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <MyButtonRight id="2" />,
-    prevArrow: <MyButtonLeft id="2" />,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          nextArrow: <MyButtonNone />,
-          prevArrow: <MyButtonNone />,
-          centerMode: true,
-        },
-      },
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
+
   useEffect(() => {
     fetch("http://localhost:5000/admin")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
       });
-  }, []);
+  });
 
   const renderProducts = () => {
-    if (data && data[1] && data[1][0] && data[1][0].products) {
+    if (data && data[1]) {
       for (let i = 0; i < data[1].length; i++) {
         if (data[1][i].id == typeId) {
           return data[1][i].products
             .filter((product) => product.typeId == typeId)
             .map((product) => (
-              // console.log(product.images),
               <div className={classes.goods1} key={product.id}>
                 <Link
                   to={`/${link}/${product.id}`}
                   style={{ textDecoration: "none" }}
                 >
-                  <Slider {...settings}>
+                  <Slider {...sliderSettings}>
                     {product.images.map((image, index) => (
                       <div className={classes.imageproduct} key={index}>
                         <img

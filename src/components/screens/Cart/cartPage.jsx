@@ -5,50 +5,14 @@ import withTranslation from "../../../i18next/withTranslation";
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import {
-  MyButtonLeft,
-  MyButtonRight,
-  MyButtonNone,
-} from "../../UI/button/MyButton";
+import sliderSettings from "../../UI/scripts/sliderSettings";
 import InputCart from "../../UI/inputCart/inputCart";
 
 const CartPage = ({ t }) => {
   const [data, setData] = useState([]);
-  const [cartData, setCartData] = useState(
-    JSON.parse(localStorage.getItem("cartData")) || { goods: [] }
-  );
-  const [totalPrice, setTotalPrice] = useState(0); // Общая сумма
-  const [isLoading, setIsLoading] = useState(true);
 
-  const settings = {
-    autoplay: false,
-    infinite: true,
-    dots: false,
-    speed: 300,
-    width: 586,
-    autoplaySpeed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <MyButtonRight id="2" />,
-    prevArrow: <MyButtonLeft id="2" />,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          nextArrow: <MyButtonNone />,
-          prevArrow: <MyButtonNone />,
-          centerMode: true,
-        },
-      },
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:5000/admin")
@@ -58,79 +22,77 @@ const CartPage = ({ t }) => {
         setIsLoading(false);
         console.log(data);
       });
-  }, []);
-
-  const updateCartData = (productId, count) => {
-    const updatedData = cartData.goods.map((item) => {
-      if (item.id === productId) {
-        return { id: item.id, count: count };
-      }
-      return item;
-    });
-
-    setCartData({ goods: updatedData });
-    localStorage.setItem("cartData", JSON.stringify({ goods: updatedData }));
-  };
+  });
 
   const cartproducts = () => {
+    const matchedProducts = [];
     let localStorageGoods = JSON.parse(localStorage.getItem("cartData"));
     if (localStorageGoods) {
       let localStorageGoods = JSON.parse(
         localStorage.getItem("cartData")
       ).goods;
-      const matchedProducts = [];
-      if (localStorageGoods != null) {
-        if (data && data[1] && data[1][0] && data[1][0].products) {
-          for (let i = 0; i < data[1][0].products.length; i++) {
-            const productId = data[1][0].products[i].id;
-            for (let j = 0; j < localStorageGoods.length; j++) {
-              const localStorageId = localStorageGoods[j].id;
-              if (productId == localStorageId) {
-                let product = data[1][0].products[i];
-                const maxCount = product.inStock;
-                matchedProducts.push(
-                  <div className={classes.container} key={product.id}>
-                    <div className={classes.goods1}>
-                      <Link
-                        to={`/sofas/${product.id}`}
-                        style={{ textDecoration: "none" }}
-                      >
-                        <Slider {...settings}>
-                          {product.images.map((image, index) => (
-                            <div className={classes.imageproduct} key={index}>
-                              <img
-                                alt={product.name}
-                                title={product.name}
-                                className={classes.imageproduct}
-                                src={`http://localhost:5000/public/${image}`}
-                              />
-                            </div>
-                          ))}
-                        </Slider>
-                        <div className={classes.name}>{product.name}</div>
-                        <div className={classes.price}>{product.price}₴</div>
-                        <div className={classes.instock}>
-                          В наличии: {product.inStock}
-                        </div>
-                        <div className={classes.titleproduct}>
-                          {product.title}
-                        </div>
-                      </Link>
-                      <InputCart
-                        count={localStorageGoods[j].count}
-                        maxCount={maxCount}
-                        onChange={(newCount) =>
-                          handleCountChange(localStorageGoods[j], newCount)
-                        }
-                      />
+
+      if (data && data[1]) {
+        for (let k = 0; k < data[1].length; k++) {
+          if (data[1][k].products) {
+            // Проверка или есть товары в типе мебели
+            for (let i = 0; i < data[1][k].products.length; i++) {
+              // Цикл для перебора товаров в данной категории
+              const productId = data[1][k].products[i].id; // id товара для дальнейшего сравнения с id товаров в localStorage
+              for (let j = 0; j < localStorageGoods.length; j++) {
+                // Цикл для перебора товаров в localStorage
+                const localStorageId = localStorageGoods[j].id; // id товара в localStorage
+                if (productId == localStorageId) {
+                  // Сравнение id товара в localStorage с id товара в данной категории
+                  let product = data[1][k].products[i]; // Присвоение товара в переменную
+                  const maxCount = product.inStock; // Товар в наличии
+                  matchedProducts.push(
+                    <div className={classes.container} key={product.id}>
+                      <div className={classes.goods1}>
+                        <Link
+                          to={`/sofas/${product.id}`}
+                          style={{ textDecoration: "none" }}
+                        >
+                          <Slider {...sliderSettings}>
+                            {product.images.map((image, index) => (
+                              <div className={classes.imageproduct} key={index}>
+                                <img
+                                  alt={product.name}
+                                  title={product.name}
+                                  className={classes.imageproduct}
+                                  src={`http://localhost:5000/public/${image}`}
+                                />
+                              </div>
+                            ))}
+                          </Slider>
+                          <div className={classes.name}>{product.name}</div>
+                          <div className={classes.price}>{product.price}₴</div>
+                          <div className={classes.instock}>
+                            В наличии: {product.inStock}
+                          </div>
+                          <div className={classes.titleproduct}>
+                            {product.title}
+                          </div>
+                        </Link>
+                        <InputCart
+                          count={localStorageGoods[j].count}
+                          maxCount={maxCount}
+                          onChange={(newCount) =>
+                            handleCountChange(localStorageGoods[j], newCount)
+                          }
+                        />
+                      </div>
                     </div>
-                  </div>
-                );
+                  );
+                }
               }
             }
           }
         }
       }
+    }
+
+    if (matchedProducts.length > 0) {
       return matchedProducts;
     } else {
       return <div>Корзина пуста</div>;
@@ -140,45 +102,48 @@ const CartPage = ({ t }) => {
   const handleCountChange = (item, newCount) => {
     const savedCartData = localStorage.getItem("cartData");
     let cartData = { goods: [] };
-
     if (savedCartData) {
       cartData = JSON.parse(savedCartData);
     }
-
     const itemIndex = cartData.goods.findIndex((good) => good.id === item.id);
-
     if (itemIndex >= 0) {
       cartData.goods[itemIndex].count = newCount;
     } else {
       cartData.goods.push({ id: item.id, count: newCount });
     }
-
     localStorage.setItem("cartData", JSON.stringify(cartData));
-    calculateTotalPrice(cartData.goods); // Обновляем общую сумму при изменении количества товаров
+    calculateTotalPrice(cartData.goods);
   };
 
   const calculateTotalPrice = (cartGoods) => {
     let totalPrice = 0;
-    if (data && data[1] && data[1][0] && data[1][0].products) {
-      for (let i = 0; i < data[1][0].products.length; i++) {
-        const productId = data[1][0].products[i].id;
-        for (let j = 0; j < cartGoods.length; j++) {
-          const cartProductId = cartGoods[j].id;
-          if (productId === cartProductId) {
-            const product = data[1][0].products[i];
-            totalPrice += product.price * cartGoods[j].count;
+    if (data && data[0]) {
+      const productCategories = data[0];
+      for (let i = 0; i < productCategories.length; i++) {
+        const products = productCategories[i].products;
+        for (let j = 0; j < products.length; j++) {
+          const product = products[j];
+          const productId = product.id;
+          for (let k = 0; k < cartGoods.length; k++) {
+            const cartProductId = cartGoods[k].id;
+            if (productId === cartProductId) {
+              totalPrice += product.price * cartGoods[k].count;
+            }
           }
         }
       }
     }
+
     setTotalPrice(totalPrice);
   };
-
+  const cartData = JSON.parse(localStorage.getItem("cartData")) || {
+    goods: [],
+  };
   useEffect(() => {
     if (!isLoading) {
       calculateTotalPrice(cartData.goods);
     }
-  }, [isLoading, cartData.goods]);
+  });
 
   return (
     <div className={classes.wrapper}>

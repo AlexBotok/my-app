@@ -1,17 +1,6 @@
 import classes from "./signIn.module.css";
-import React, { useEffect, useState } from "react";
 
 const Admin = () => {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:5000/admin")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-  }, []);
-
   return (
     <div className={classes.body}>
       <div className={classes.box}>

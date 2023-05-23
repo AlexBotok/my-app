@@ -55,8 +55,6 @@ const Section3Goods = ({ name, price, img, newprice, id, t, index }) => {
     : { background: "#FFFFFF" };
   return (
     <Link
-      // key={index}
-      // to={`/beds/${index}/?language=${localStorage.getItem("language")}`}
       to={`/beds/?language=${localStorage.getItem("language")}`}
       className={classes.link}
       onMouseOver={handleMouseOver}
