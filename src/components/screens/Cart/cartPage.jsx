@@ -12,12 +12,12 @@ import apiServices from "../../services/apiServices";
 const CartPage = ({ t }) => {
   const [data, setData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function fetchData() {
     const data = await apiServices.getApiData();
     setData(data);
-    setIsLoading(false);
+    setIsLoading(true);
   }
 
   useEffect(() => {
@@ -145,7 +145,7 @@ const CartPage = ({ t }) => {
     goods: [],
   };
   useEffect(() => {
-    if (!isLoading) {
+    if (isLoading) {
       calculateTotalPrice(cartData.goods);
     }
   }, [isLoading]);
@@ -159,11 +159,11 @@ const CartPage = ({ t }) => {
       <main className={classes.main}>
         <div className={classes.cartinfo}>
           {isLoading ? (
+            cartproducts()
+          ) : (
             <h1 style={{ fontSize: 24, color: "#fff", textAlign: "center" }}>
               Loading...
             </h1>
-          ) : (
-            cartproducts()
           )}
         </div>
         <div className={classes.totalPrice}>До сплати: {totalPrice}₴</div>

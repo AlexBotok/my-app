@@ -10,9 +10,6 @@ import apiServices from "../../../services/apiServices";
 const ModalCart = ({ t }) => {
   const [data, setData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const cartData = JSON.parse(localStorage.getItem("cartData")) || {
-    goods: [],
-  };
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isScrollLocked, setScrollLocked] = useState(false);
@@ -25,7 +22,7 @@ const ModalCart = ({ t }) => {
 
   useEffect(() => {
     fetchData();
-  }, [showModal == true]);
+  }, [showModal]);
 
   const cartproducts = () => {
     const matchedProducts = [];
@@ -97,21 +94,52 @@ const ModalCart = ({ t }) => {
       return <div>Корзина пуста</div>;
     }
   };
-
-  const handleCountChange = (item, newCount) => {
-    const savedCartData = localStorage.getItem("cartData");
-    let cartData = { goods: [] };
-    if (savedCartData) {
-      cartData = JSON.parse(savedCartData);
+  const calculateTotalPrice = (cartGoods) => {
+    let totalPrice = 0;
+    if (data && data[1]) {
+      for (let i = 0; i < data[1].length; i++) {
+        const products = data[1][i].products;
+        for (let j = 0; j < products.length; j++) {
+          const product = products[j];
+          const productId = product.id;
+          for (let k = 0; k < cartGoods.length; k++) {
+            const cartProductId = cartGoods[k].id;
+            if (productId === cartProductId) {
+              totalPrice += product.price * cartGoods[k].count;
+            }
+          }
+        }
+      }
     }
-    const itemIndex = cartData.goods.findIndex((good) => good.id === item.id);
-    if (itemIndex >= 0) {
-      cartData.goods[itemIndex].count = newCount;
-    } else {
-      cartData.goods.push({ id: item.id, count: newCount });
-    }
-    localStorage.setItem("cartData", JSON.stringify(cartData));
+    setTotalPrice(totalPrice);
   };
+  const handleCountChange = (product, newCount) => {
+    const savedCartData = localStorage.getItem("cartData"); // Получение старых данных из localStorage
+    let cartData = { goods: [] }; // Создание нового объекта для записи в localStorage
+    if (savedCartData) {
+      // Проверка или есть данные в localStorage
+      cartData = JSON.parse(savedCartData); // Присвоение данных из localStorage в новый объект
+    }
+    const item = cartData.goods.findIndex((good) => good.id === product.id); // Поиск товара в localStorage
+    if (newCount >= 1) {
+      // Проверка или количество товара больше 1
+      cartData.goods[item].count = newCount; // Присвоение нового количества товара
+      localStorage.setItem("cartData", JSON.stringify(cartData)); // Запись новых данных в localStorage
+    } else if (newCount === 0) {
+      // Проверка или количество товара равно 0
+      cartData.goods.splice(item, 1); // Удаление товара из localStorage
+      localStorage.setItem("cartData", JSON.stringify(cartData)); // Запись новых данных в localStorage
+    }
+    calculateTotalPrice(cartData.goods);
+  };
+  const cartData = JSON.parse(localStorage.getItem("cartData")) || {
+    goods: [],
+  };
+  useEffect(() => {
+    if (isLoading) {
+      calculateTotalPrice(cartData.goods);
+    }
+  }, [showModal]);
 
   const openModal = () => {
     setShowModal(true);
@@ -188,6 +216,7 @@ const ModalCart = ({ t }) => {
                 </h1>
               )}
             </div>
+            <div className={classes.totalPrice}>До сплати: {totalPrice}₴</div>
           </div>
         </div>
       )}
