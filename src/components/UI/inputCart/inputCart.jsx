@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import classes from "./inputCart.module.css";
 const InputCart = ({ count, onChange, maxCount }) => {
   const [inputValue, setInputValue] = useState(count);
 
@@ -18,8 +18,37 @@ const InputCart = ({ count, onChange, maxCount }) => {
     }
   };
 
+  const handleIncrement = () => {
+    const newValue = inputValue + 1;
+    if (newValue <= maxCount) {
+      setInputValue(newValue);
+      onChange(newValue);
+    }
+  };
+
+  const handleDecrement = () => {
+    const newValue = inputValue - 1;
+    if (newValue >= 1) {
+      setInputValue(newValue);
+      onChange(newValue);
+    }
+  };
+
   return (
-    <input type="number" value={inputValue} onChange={handleInputChange} />
+    <div className={classes.input}>
+      <button className={classes.button} onClick={handleIncrement}>
+        +
+      </button>
+      <input
+        className={classes.inputNumber}
+        type="number"
+        value={inputValue}
+        onChange={handleInputChange}
+      />
+      <button className={classes.button} onClick={handleDecrement}>
+        -
+      </button>
+    </div>
   );
 };
 

@@ -1,0 +1,26 @@
+.input {
+  display: flex;
+}
+
+.inputNumber,
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputNumber {
+  background: white;
+  border: 0px;
+  outline: 0px;
+  width: 100px;
+  text-align: center;
+}
+
+.button {
+  background: transparent;
+  font-size: 15px;
+  font-weight: 100;
+  margin: 8px;
+}

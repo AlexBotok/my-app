@@ -1,4 +1,4 @@
-import Header2 from "../../UI/Header2/Header2";
+import Header from "../../UI/header/header";
 import Footer from "../../UI/footer/footer";
 import classes from "./cartPage.module.css";
 import withTranslation from "../../../i18next/withTranslation";
@@ -49,7 +49,7 @@ const CartPage = ({ t }) => {
                       <div className={classes.goods1}>
                         <Link
                           to={`/sofas/${product.id}`}
-                          style={{ textDecoration: "none" }}
+                          className={classes.link}
                         >
                           <Slider {...sliderSettings}>
                             {product.images.map((image, index) => (
@@ -63,6 +63,8 @@ const CartPage = ({ t }) => {
                               </div>
                             ))}
                           </Slider>
+                        </Link>
+                        <div className={classes.infoBlock}>
                           <div className={classes.name}>{product.name}</div>
                           <div className={classes.price}>{product.price}₴</div>
                           <div className={classes.instock}>
@@ -71,8 +73,9 @@ const CartPage = ({ t }) => {
                           <div className={classes.titleproduct}>
                             {product.title}
                           </div>
-                        </Link>
+                        </div>
                         <InputCart
+                          id={productId}
                           count={localStorageGoods[j].count}
                           maxCount={maxCount}
                           onChange={(newCount) =>
@@ -143,7 +146,10 @@ const CartPage = ({ t }) => {
 
   return (
     <div className={classes.wrapper}>
-      <Header2 name={t("t37")} />
+      <Header />
+      <hr className={classes.hr} />
+      <h1 className={classes.title}> Furniture {t("t37")}</h1>
+      <hr className={classes.hr} />
       <main className={classes.main}>
         <div className={classes.cartinfo}>{cartproducts()}</div>
         <div className={classes.totalPrice}>До сплати: {totalPrice}₴</div>

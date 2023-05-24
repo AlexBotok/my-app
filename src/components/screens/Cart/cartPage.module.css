@@ -20,6 +20,7 @@ footer {
 .main {
   width: 920px;
   margin: 0 auto;
+  background-color: #1e2e36;
 }
 
 .price,
@@ -42,13 +43,28 @@ footer {
   justify-content: center;
 }
 
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+}
+
+.link {
+  height: 500px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
 .goods1 {
   height: auto;
   width: fit-content;
   background-color: #44c697;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   margin: 35px auto 0px auto;
@@ -56,6 +72,21 @@ footer {
 .imageproduct {
   width: 500px;
   height: 500px;
+}
+
+.hr {
+  width: 99%;
+}
+
+.title {
+  font-style: normal;
+  font-size: 40px;
+  line-height: 125%;
+  text-transform: uppercase;
+  color: #000000;
+  text-align: center;
+  margin-top: 13px;
+  margin-bottom: 14px;
 }
 
 @media (max-width: 575px) {
