@@ -6,16 +6,18 @@ import classes from "./goodsPages.module.css";
 import Header from "../../../UI/header/header";
 import Footer from "../../../UI/footer/footer";
 import CartButton from "../../../UI/cartButton/cartButton";
+import apiServices from "../../../services/apiServices";
 
 const GoodsPages = () => {
   const [data, setData] = useState([]);
 
+  async function fetchData() {
+    const data = await apiServices.getApiData();
+    setData(data);
+  }
+
   useEffect(() => {
-    fetch("http://localhost:5000/admin")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
+    fetchData();
   }, []);
 
   const url = window.location.href;

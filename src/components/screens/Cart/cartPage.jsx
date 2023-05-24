@@ -7,19 +7,21 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import sliderSettings from "../../UI/scripts/sliderSettings";
 import InputCart from "../../UI/inputCart/inputCart";
+import apiServices from "../../services/apiServices";
 
 const CartPage = ({ t }) => {
   const [data, setData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
+  async function fetchData() {
+    const data = await apiServices.getApiData();
+    setData(data);
+    setIsLoading(false);
+  }
+
   useEffect(() => {
-    fetch("http://localhost:5000/admin")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setIsLoading(false);
-      });
+    fetchData();
   }, []);
 
   const cartproducts = () => {
@@ -100,19 +102,23 @@ const CartPage = ({ t }) => {
     }
   };
 
-  const handleCountChange = (item, newCount) => {
-    const savedCartData = localStorage.getItem("cartData");
-    let cartData = { goods: [] };
+  const handleCountChange = (product, newCount) => {
+    const savedCartData = localStorage.getItem("cartData"); // Получение старых данных из localStorage
+    let cartData = { goods: [] }; // Создание нового объекта для записи в localStorage
     if (savedCartData) {
-      cartData = JSON.parse(savedCartData);
+      // Проверка или есть данные в localStorage
+      cartData = JSON.parse(savedCartData); // Присвоение данных из localStorage в новый объект
     }
-    const itemIndex = cartData.goods.findIndex((good) => good.id === item.id);
-    if (itemIndex >= 0) {
-      cartData.goods[itemIndex].count = newCount;
-    } else {
-      cartData.goods.push({ id: item.id, count: newCount });
+    const item = cartData.goods.findIndex((good) => good.id === product.id); // Поиск товара в localStorage
+    if (newCount >= 1) {
+      // Проверка или количество товара больше 1
+      cartData.goods[item].count = newCount; // Присвоение нового количества товара
+      localStorage.setItem("cartData", JSON.stringify(cartData)); // Запись новых данных в localStorage
+    } else if (newCount === 0) {
+      // Проверка или количество товара равно 0
+      cartData.goods.splice(item, 1); // Удаление товара из localStorage
+      localStorage.setItem("cartData", JSON.stringify(cartData)); // Запись новых данных в localStorage
     }
-    localStorage.setItem("cartData", JSON.stringify(cartData));
     calculateTotalPrice(cartData.goods);
   };
 
@@ -151,7 +157,15 @@ const CartPage = ({ t }) => {
       <h1 className={classes.title}> Furniture {t("t37")}</h1>
       <hr className={classes.hr} />
       <main className={classes.main}>
-        <div className={classes.cartinfo}>{cartproducts()}</div>
+        <div className={classes.cartinfo}>
+          {isLoading ? (
+            <h1 style={{ fontSize: 24, color: "#fff", textAlign: "center" }}>
+              Loading...
+            </h1>
+          ) : (
+            cartproducts()
+          )}
+        </div>
         <div className={classes.totalPrice}>До сплати: {totalPrice}₴</div>
       </main>
       <Footer />

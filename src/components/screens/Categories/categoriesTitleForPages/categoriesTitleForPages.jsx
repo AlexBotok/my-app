@@ -6,17 +6,21 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import sliderSettings from "../../../UI/scripts/sliderSettings";
 import CartButton from "../../../UI/cartButton/cartButton";
+import apiServices from "../../../services/apiServices";
 
 const CategoriesTitleForPages = ({ name, typeId, link }) => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  async function fetchData() {
+    const data = await apiServices.getApiData();
+    setData(data);
+    setIsLoading(true);
+  }
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
+    fetchData();
   }, []);
+
   const renderProducts = () => {
     if (data && data[1]) {
       for (let i = 0; i < data[1].length; i++) {
@@ -72,7 +76,15 @@ const CategoriesTitleForPages = ({ name, typeId, link }) => {
       </header>
       <main>
         <div className={classes.container}>
-          <div className={classes.productsofa}>{renderProducts()}</div>
+          <div className={classes.productsofa}>
+            {isLoading ? (
+              renderProducts()
+            ) : (
+              <h1 style={{ fontSize: 24, color: "#fff", textAlign: "center" }}>
+                Loading...
+              </h1>
+            )}
+          </div>
         </div>
       </main>
       <footer>

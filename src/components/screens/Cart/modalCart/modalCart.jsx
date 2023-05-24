@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import sliderSettings from "../../../UI/scripts/sliderSettings";
 import { Link } from "react-router-dom";
 import InputCart from "../../../UI/inputCart/inputCart";
+import apiServices from "../../../services/apiServices";
 
 const ModalCart = ({ t }) => {
   const [data, setData] = useState([]);
@@ -12,16 +13,19 @@ const ModalCart = ({ t }) => {
   const cartData = JSON.parse(localStorage.getItem("cartData")) || {
     goods: [],
   };
+  const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isScrollLocked, setScrollLocked] = useState(false);
+
+  async function fetchData() {
+    const data = await apiServices.getApiData();
+    setData(data);
+    setIsLoading(true);
+  }
+
   useEffect(() => {
-    fetch("http://localhost:5000/admin")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        console.log(data);
-      });
-  }, []);
+    fetchData();
+  }, [showModal == true]);
 
   const cartproducts = () => {
     const matchedProducts = [];
@@ -169,7 +173,21 @@ const ModalCart = ({ t }) => {
               </span>
             </div>
             <hr />
-            <div className={classes.cartinfo}>{cartproducts()}</div>
+            <div className={classes.cartinfo}>
+              {isLoading ? (
+                cartproducts()
+              ) : (
+                <h1
+                  style={{
+                    fontSize: 24,
+                    color: "#000000",
+                    textAlign: "center",
+                  }}
+                >
+                  Loading...
+                </h1>
+              )}
+            </div>
           </div>
         </div>
       )}
