@@ -1,40 +1,8 @@
 import classes from "./section2.module.css";
 import withTranslation from "../../../../i18next/withTranslation.js";
-import {
-  MyButtonLeft,
-  MyButtonRight,
-  MyButtonNone,
-} from "../../../UI/button/MyButton";
 import Slider from "react-slick";
-const settings = {
-  autoplay: false,
-  infinite: true,
-  dots: true,
-  speed: 300,
-  width: 586,
-  autoplaySpeed: 2000,
-  slidesToShow: 3, // Отображение слайдов
-  slidesToScroll: 1,
-  nextArrow: <MyButtonRight id="2" />, // Передача компонента кнопки "вправо"
-  prevArrow: <MyButtonLeft id="2" />, // Передача компонента кнопки "влево"
-  responsive: [
-    {
-      breakpoint: 768, // При ширине экрана меньше 768px
-      settings: {
-        slidesToShow: 1, // Отображение 1 слайда
-        nextArrow: <MyButtonNone />, // Убрать кнопку "вправо"
-        prevArrow: <MyButtonNone />,
-        centerMode: true,
-      },
-    },
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-  ],
-};
+import sliderSettings from "../../../UI/scripts/sliderSettings";
+
 const Section2 = ({ t }) => {
   return (
     <div className={classes.container}>
@@ -45,7 +13,7 @@ const Section2 = ({ t }) => {
         </div>
       </div>
       <div className={classes.sect3}>
-        <Slider key="slider" {...settings}>
+        <Slider key="slider" {...sliderSettings(3,2,true)}>
           <div className={classes.sect3_1}>
             <img src="/img/section2FurniturePremium.png" alt="perevagi1" />
             <p>{t("t6")}</p>

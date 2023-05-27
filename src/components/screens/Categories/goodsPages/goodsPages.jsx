@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Slider from "react-slick";
 import sliderSettings from "../../../UI/scripts/sliderSettings";
 import classes from "./goodsPages.module.css";
@@ -10,20 +10,22 @@ import apiServices from "../../../services/apiServices";
 
 const GoodsPages = () => {
   const [data, setData] = useState([]);
-
-  async function fetchData() {
-    const data = await apiServices.getApiData();
-    setData(data);
+  const digit = useParams().id;
+  
+  function fetchData() {
+    apiServices
+      .getApiData()
+      .then((data) => {
+        setData(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   useEffect(() => {
     fetchData();
   }, []);
-
-  const url = window.location.href;
-  const parts = url.split("/");
-  const lastPart = parts[parts.length - 1];
-  const digit = parseInt(lastPart, 10);
 
   const renderTitle = () => {
     if (data && data[1]) {

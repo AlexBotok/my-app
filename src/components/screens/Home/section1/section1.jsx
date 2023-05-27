@@ -84,7 +84,7 @@ const Section1 = ({ t }) => {
               {beds}
             </p>
             <p className={classes.rect1_3}>{t("t3")}</p>
-            <Link to={`?language=${localStorage.getItem("language")}`}>
+            <Link to="/beds">
               <div className={classes.rect1_4}>
                 <p>{t("t4")}</p>
               </div>

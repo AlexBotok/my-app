@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./screens/Home/Home.jsx";
-import Cart from "./screens/Cart/cartPage.jsx"
+import Cart from "./screens/Cart/cartPage.jsx";
 import Sofas from "./screens/Categories/sofas/sofas.jsx";
 import Kitchens from "./screens/Categories/kitchens/kitchens.jsx";
 import Chests from "./screens/Categories/chests/chests.jsx";
@@ -14,21 +13,6 @@ import GoodsPages from "./screens/Categories/goodsPages/goodsPages.jsx";
 import AdminPanel from "./screens/Admin/adminPanel/adminPanel.jsx";
 
 const Router = () => {
-  useEffect(() => {
-    const language = localStorage.getItem("language");
-    if (!language && window.location.pathname === "/") {
-      const defaultLanguage = "uk";
-      localStorage.setItem("language", defaultLanguage);
-      window.history.pushState(null, "", `/?language=${defaultLanguage}`);
-    } else if (window.location.pathname === "/") {
-      window.history.pushState(
-        null,
-        "",
-        `/?language=${localStorage.getItem("language")}`
-      );
-    }
-  }, []);
-
   return (
     <BrowserRouter>
       <Routes>

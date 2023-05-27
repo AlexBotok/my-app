@@ -14,10 +14,16 @@ const CartPage = ({ t }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  async function fetchData() {
-    const data = await apiServices.getApiData();
-    setData(data);
-    setIsLoading(true);
+  function fetchData() {
+    apiServices
+      .getApiData()
+      .then((data) => {
+        setData(data);
+        setIsLoading(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-import Header2 from "../../../UI/Header2/Header2";
 import Header from "../../../UI/header/header";
 import classes from "./adminPanel.module.css";
 import Footer from "../../../UI/footer/footer";

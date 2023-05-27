@@ -59,42 +59,27 @@ const Header = ({ t }) => {
             <div className={classes.header_1_2}>
               <ul className={classes.header_1_2_1}>
                 <li>
-                  <Link
-                    to={`/?language=${localStorage.getItem("language")}`}
-                    className={classes.bottomrect1}
-                  >
+                  <Link to="/" className={classes.bottomrect1}>
                     {t("t23")}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to={`/?language=${localStorage.getItem("language")}`}
-                    className={classes.bottomrect1}
-                  >
+                  <Link to="/" className={classes.bottomrect1}>
                     {t("t18")}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to={`/?language=${localStorage.getItem("language")}`}
-                    className={classes.bottomrect1}
-                  >
+                  <Link to="/" className={classes.bottomrect1}>
                     {t("t19")}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to={`/?language=${localStorage.getItem("language")}`}
-                    className={classes.bottomrect1}
-                  >
+                  <Link to="/" className={classes.bottomrect1}>
                     {t("t20")}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to={`/?language=${localStorage.getItem("language")}`}
-                    className={classes.bottomrect1}
-                  >
+                  <Link to="/" className={classes.bottomrect1}>
                     {t("t21")}
                   </Link>
                 </li>
@@ -107,22 +92,22 @@ const Header = ({ t }) => {
           <div className={classes.header_2_1}>
             <ul className={classes.header_2_1_1}>
               <li className={classes.header_2_1_2_1}>
-                <List name={t("t12")} link="sofas"/>
+                <List name={t("t12")} link="sofas" />
               </li>
               <li className={classes.header_2_1_2}>
-                <List name={t("t13")} link="beds"/>
+                <List name={t("t13")} link="beds" />
               </li>
               <li className={classes.header_2_1_2}>
                 <List name={t("t14")} link="chairs" />
               </li>
               <li className={classes.header_2_1_2}>
-              <List name={t("t17")} link="chests" />
+                <List name={t("t17")} link="chests" />
               </li>
               <li className={classes.header_2_1_2}>
-              <List name={t("t15")} link="wardrobes" />
+                <List name={t("t15")} link="wardrobes" />
               </li>
               <li className={classes.header_2_1_2}>
-              <List name={t("t16")} link="kitchens" />
+                <List name={t("t16")} link="kitchens" />
               </li>
             </ul>
           </div>
@@ -133,10 +118,7 @@ const Header = ({ t }) => {
             </p>
           </div>
           <div className={classes.header_2_3}>
-            <Link
-              to={`/profile?language=${localStorage.getItem("language")}`}
-              style={{ marginLeft: "0px" }}
-            >
+            <Link to="/profile" style={{ marginLeft: "0px" }}>
               <svg width="24" height="24" display="block">
                 <use href="#profile"></use>
               </svg>
@@ -145,18 +127,15 @@ const Header = ({ t }) => {
             <Link
               className={classes.header_2_3_1}
               style={{ marginRight: "25px" }}
-              to={`/profile?language=${localStorage.getItem("language")}`}
+              to="/profile"
             >
               <p>{t("t41")}</p>
             </Link>
             <ModalCart />
-            <Link
-              className={classes.header_2_3_1}
-              to={`/cart?language=${localStorage.getItem("language")}`}
-            >
+            <Link className={classes.header_2_3_1} to="/cart">
               <p>{t("t25")}</p>
             </Link>
-            <Link to={`/?language=${localStorage.getItem("language")}`}>
+            <Link to="/">
               <div className={classes.header_2_3_2}>
                 <p className={classes.header_2_3_3}>{t("t24")}</p>
               </div>
@@ -181,7 +160,7 @@ const Header = ({ t }) => {
                 >
                   <li style={{ margin: "10px 0px" }}>
                     <Link
-                      to={`/?language=${localStorage.getItem("language")}`}
+                      to="/"
                       style={{ marginLeft: "0px" }}
                       className={classes.bottomrect1}
                     >
@@ -190,7 +169,7 @@ const Header = ({ t }) => {
                   </li>
                   <li style={{ margin: "10px 0px" }}>
                     <Link
-                      to={`/?language=${localStorage.getItem("language")}`}
+                      to="/"
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
@@ -199,7 +178,7 @@ const Header = ({ t }) => {
                   </li>
                   <li style={{ margin: "10px 0px" }}>
                     <Link
-                      to={`/?language=${localStorage.getItem("language")}`}
+                      to="/"
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
@@ -208,7 +187,7 @@ const Header = ({ t }) => {
                   </li>
                   <li style={{ margin: "10px 0px" }}>
                     <Link
-                      to={`/?language=${localStorage.getItem("language")}`}
+                      to="/"
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
@@ -217,7 +196,7 @@ const Header = ({ t }) => {
                   </li>
                   <li style={{ margin: "10px 0px" }}>
                     <Link
-                      to={`/?language=${localStorage.getItem("language")}`}
+                      to="/"
                       className={classes.bottomrect1}
                       style={{ marginLeft: "0px" }}
                     >
@@ -243,7 +222,7 @@ const Header = ({ t }) => {
               <span>F</span>urniture
             </p>
           </div>
-          <ModalCart/>
+          <ModalCart />
         </div>
       </div>
     </header>

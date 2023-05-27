@@ -11,10 +11,17 @@ import apiServices from "../../../services/apiServices";
 const CategoriesTitleForPages = ({ name, typeId, link }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  async function fetchData() {
-    const data = await apiServices.getApiData();
-    setData(data);
-    setIsLoading(true);
+
+  function fetchData() {
+    apiServices
+      .getApiData()
+      .then((data) => {
+        setData(data);
+        setIsLoading(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   useEffect(() => {
@@ -33,7 +40,7 @@ const CategoriesTitleForPages = ({ name, typeId, link }) => {
                   to={`/${link}/${product.id}`}
                   style={{ textDecoration: "none" }}
                 >
-                  <Slider {...sliderSettings}>
+                  <Slider {...sliderSettings(1,1)}>
                     {product.images.map((image, index) => (
                       <div className={classes.imageproduct} key={index}>
                         <img

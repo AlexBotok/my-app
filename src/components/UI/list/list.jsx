@@ -28,7 +28,7 @@ const List = ({ name, link }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className={classes.flexcateg}>
-        <Link to={`/${link}?language=${localStorage.getItem("language")}`}>
+        <Link to={`/${link}`}>
           {name}
         </Link>
         <DownArrow1 value={isHovered} />

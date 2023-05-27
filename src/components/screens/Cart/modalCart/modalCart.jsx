@@ -14,10 +14,16 @@ const ModalCart = ({ t }) => {
   const [showModal, setShowModal] = useState(false);
   const [isScrollLocked, setScrollLocked] = useState(false);
 
-  async function fetchData() {
-    const data = await apiServices.getApiData();
-    setData(data);
-    setIsLoading(true);
+  function fetchData() {
+    apiServices
+      .getApiData()
+      .then((data) => {
+        setData(data);
+        setIsLoading(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   useEffect(() => {
