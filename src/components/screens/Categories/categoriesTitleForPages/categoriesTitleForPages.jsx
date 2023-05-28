@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import sliderSettings from "../../../UI/scripts/sliderSettings";
 import CartButton from "../../../UI/cartButton/cartButton";
 import apiServices from "../../../services/apiServices";
+import InputCart from "../../../UI/inputCart/inputCart";
 
 const CategoriesTitleForPages = ({ name, typeId, link }) => {
   const [data, setData] = useState([]);
@@ -40,7 +41,7 @@ const CategoriesTitleForPages = ({ name, typeId, link }) => {
                   to={`/${link}/${product.id}`}
                   style={{ textDecoration: "none" }}
                 >
-                  <Slider {...sliderSettings(1,1)}>
+                  <Slider {...sliderSettings(1, 1)}>
                     {product.images.map((image, index) => (
                       <div className={classes.imageproduct} key={index}>
                         <img
@@ -60,7 +61,10 @@ const CategoriesTitleForPages = ({ name, typeId, link }) => {
                   </div>
                   <div className={classes.titleproduct}>{product.title}</div>
                 </Link>
-                <CartButton id={product.id} inStock={product.inStock} />
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  Добавить в корзину:
+                  <CartButton id={product.id} inStock={product.inStock} />
+                </div>
               </div>
             ));
         }

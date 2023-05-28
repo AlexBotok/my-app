@@ -3,7 +3,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Elem3 from "../../../../UI/section3Label/label";
 import withTranslation from "../../../../../i18next/withTranslation";
-const Section3Goods = ({ name, price, img, newprice, id, t, index }) => {
+import CartButton from "../../../../UI/cartButton/cartButton";
+const Section3Goods = ({
+  name,
+  price,
+  img,
+  newprice,
+  id,
+  t,
+  productId,
+  productInStock,
+}) => {
+  const preventDefault = (event) => event.preventDefault();
   const checknewprice = () => {
     if (newprice) {
       return (
@@ -14,9 +25,10 @@ const Section3Goods = ({ name, price, img, newprice, id, t, index }) => {
           </div>
           <div className={classes.sect3_2}>
             <p className={classes.name}>{name}</p>
-            <div className={classes.two}>
+            <div className={classes.two} onClick={preventDefault}>
               <p className={classes.newprice}>{newprice} ГРН</p>
               <p className={classes.skidon}>{price}ГРН</p>
+              <CartButton id={productId} inStock={productInStock} />
             </div>
           </div>
         </div>
@@ -30,14 +42,17 @@ const Section3Goods = ({ name, price, img, newprice, id, t, index }) => {
           </div>
           <div className={classes.sect3_2}>
             <p className={classes.name}>{name}</p>
-            <p className={classes.price}>{price} ГРН</p>
+            <div className={classes.flex} onClick={preventDefault}>
+              <p className={classes.price}>{price} ГРН</p>
+              <CartButton id={productId} inStock={productInStock} />
+            </div>
           </div>
         </div>
       );
     }
   };
   return (
-    <Link to="/beds" className={classes.link}>
+    <Link to={`/beds/${productId}`} className={classes.link}>
       {checknewprice()}
     </Link>
   );

@@ -6,50 +6,42 @@ const CartButton = ({ id, inStock }) => {
 
   useEffect(() => {
     const savedCartData = localStorage.getItem("cartData");
-
     if (savedCartData) {
       const cartData = JSON.parse(savedCartData);
-      const item = cartData.goods.find((good) => good.id === id);
-
-      if (item) {
-        setCount(item.count);
+      const itemIndex = cartData.goods.findIndex((good) => good.id === id);
+      if (itemIndex !== -1) {
+        setCount(cartData.goods[itemIndex].count);
       }
     }
   }, [id]);
 
-  const handleClick = () => {
+  const click = () => {
     const savedCartData = localStorage.getItem("cartData");
     let cartData = { goods: [] };
-
     if (savedCartData) {
       cartData = JSON.parse(savedCartData);
     }
-
     const itemIndex = cartData.goods.findIndex((good) => good.id === id);
-
-    if (itemIndex >= 0) {
-      const existingCount = parseInt(cartData.goods[itemIndex].count);
-      const newCount = existingCount + 1;
-
-      if (newCount <= inStock) {
-        cartData.goods[itemIndex].count = newCount;
-        setCount(newCount);
-        localStorage.setItem("cartData", JSON.stringify(cartData));
-      }
+    if (itemIndex === -1) {
+      cartData.goods.push({ id: id, count: 1 });
     } else {
-      const newCount = 1;
-
-      if (newCount <= inStock) {
-        cartData.goods.push({ id: id, count: newCount });
-        setCount(newCount);
-        localStorage.setItem("cartData", JSON.stringify(cartData));
+      if (
+        cartData.goods[itemIndex] &&
+        cartData.goods[itemIndex].count < inStock
+      ) {
+        cartData.goods[itemIndex].count += 1;
+      } else {
+        return;
       }
     }
+    localStorage.setItem("cartData", JSON.stringify(cartData));
+    setCount(cartData.goods[itemIndex] ? cartData.goods[itemIndex].count : 1);
   };
 
   return (
-    <button className={classes.cart} onClick={handleClick}>
-      Добавить в корзину
+    <button className={classes.cart} onClick={click}>
+      <img src="/img/cart.svg" alt="cart" className={classes.cartButton} />
+      <div className={classes.counter}>{count}</div>
     </button>
   );
 };

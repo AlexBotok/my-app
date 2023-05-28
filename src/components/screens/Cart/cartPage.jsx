@@ -59,7 +59,7 @@ const CartPage = ({ t }) => {
                           to={`/sofas/${product.id}`}
                           className={classes.link}
                         >
-                          <Slider {...sliderSettings}>
+                          <Slider {...sliderSettings(1,1)}>
                             {product.images.map((image, index) => (
                               <div className={classes.imageproduct} key={index}>
                                 <img

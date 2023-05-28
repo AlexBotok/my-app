@@ -67,6 +67,10 @@
   object-fit: cover;
 }
 
+.sect4__2 button img {
+  object-fit: none;
+}
+
 .sect4__2_1 {
   display: flex;
   justify-content: center;

@@ -1,13 +1,36 @@
 .cart {
-    background: #93d1ba;
-    border: 3px solid black;
-    padding: 5px;
-    margin: 2px;
-    font-size: medium;
-    cursor: pointer;
-    width: 80%;
-  }
+  display: flex;
+  align-items: center;
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 0px;
+  margin: 5px;
+  font-size: medium;
+  cursor: pointer;
+  width: fit-content;
+  font-size: 18px;
+}
+
+.counter {
+  width: 20px;
+  height: fit-content;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transform: scale(0.7);
+  position: relative;
+  right: 5px;
+  bottom: 10px;
+  transition: all 0.1s ease-in-out;
+}
+
+.cart:active {
+  color: red;
+  transform: scale(1.1);
+}
+
+.cartButton {
+  width: 30px;
+  height: 30px;
   
-  .cart:active {
-    color: #fff;
-  }
+}

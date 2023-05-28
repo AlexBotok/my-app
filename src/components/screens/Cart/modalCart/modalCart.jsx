@@ -56,7 +56,7 @@ const ModalCart = ({ t }) => {
                     <div className={classes.container} key={product.id}>
                       <div className={classes.goods1}>
                         <Link>
-                          <Slider {...sliderSettings}>
+                          <Slider {...sliderSettings(1, 1)}>
                             {product.images.map((image, index) => (
                               <div className={classes.imageproduct} key={index}>
                                 <img

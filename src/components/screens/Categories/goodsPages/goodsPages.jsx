@@ -51,7 +51,7 @@ const GoodsPages = () => {
               <div className={classes.container}>
                 <div className={classes.goods1} key={product.id}>
                   <Link>
-                    <Slider {...sliderSettings}>
+                    <Slider {...sliderSettings(1,1)}>
                       {product.images.map((image, index) => (
                         <div className={classes.imageproduct} key={index}>
                           <img

@@ -29,7 +29,6 @@ const SwitchLanguage = ({ i18n }) => {
   useEffect(() => {
     localStorage.setItem("isChecked", isChecked);
   }, [isChecked]);
-
   const editParamSearchUk = () => {
     changeLanguage("uk");
     nav.search = "?language=uk";
