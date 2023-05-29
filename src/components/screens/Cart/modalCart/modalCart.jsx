@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import classes from "./modalCart.module.css";
 import WithTranslation from "../../../../i18next/withTranslation";
 import Slider from "react-slick";
@@ -6,6 +6,7 @@ import sliderSettings from "../../../UI/scripts/sliderSettings";
 import { Link } from "react-router-dom";
 import InputCart from "../../../UI/inputCart/inputCart";
 import apiServices from "../../../services/apiServices";
+import { CartContext } from "../../../screens/useContext/cartCount";
 
 const ModalCart = ({ t }) => {
   const [data, setData] = useState([]);
@@ -13,6 +14,7 @@ const ModalCart = ({ t }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isScrollLocked, setScrollLocked] = useState(false);
+  const { cartDatalength } = useContext(CartContext);
 
   function fetchData() {
     apiServices
@@ -28,6 +30,9 @@ const ModalCart = ({ t }) => {
 
   useEffect(() => {
     fetchData();
+    if (isLoading) {
+      calculateTotalPrice(cartData.goods);
+    }
   }, [showModal]);
 
   const cartproducts = () => {
@@ -78,6 +83,7 @@ const ModalCart = ({ t }) => {
                           {product.title}
                         </div>
                         <InputCart
+                          id={productId}
                           count={localStorageGoods[j].count}
                           maxCount={maxCount}
                           onChange={(newCount) =>
@@ -93,9 +99,12 @@ const ModalCart = ({ t }) => {
           }
         }
       }
+      console.log(matchedProducts);
       if (matchedProducts.length > 0) {
         return matchedProducts;
       }
+    } else if (matchedProducts.length === 0) {
+      return <div>Корзина пуста</div>;
     } else {
       return <div>Корзина пуста</div>;
     }
@@ -141,11 +150,6 @@ const ModalCart = ({ t }) => {
   const cartData = JSON.parse(localStorage.getItem("cartData")) || {
     goods: [],
   };
-  useEffect(() => {
-    if (isLoading) {
-      calculateTotalPrice(cartData.goods);
-    }
-  }, [showModal]);
 
   const openModal = () => {
     setShowModal(true);
@@ -184,10 +188,18 @@ const ModalCart = ({ t }) => {
     };
   }, [isScrollLocked]);
 
+  // useEffect(() => {
+  //   const cartData = JSON.parse(localStorage.getItem("cartData")) || {
+  //     goods: [],
+  //   };
+  //   setAllproducts(cartDatalength);
+  // }, [showModal]);
+
   return (
     <div>
       <button onClick={openModal} className={classes.button}>
         <img src="/img/cart.svg" alt="cart" />
+        <div className={classes.inCart}>{cartDatalength}</div>
       </button>
       {showModal && (
         <div

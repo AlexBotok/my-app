@@ -129,6 +129,18 @@
   justify-content: center;
 }
 
+.inCart {
+  width: 20px;
+  height: fit-content;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transform: scale(0.7);
+  position: relative;
+  right: 5px;
+  bottom: 10px;
+  transition: all 0.1s ease-in-out;
+}
+
 .imageproduct {
   width: 500px;
   height: 500px;

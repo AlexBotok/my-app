@@ -1,4 +1,4 @@
-import React, {Suspense} from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./i18next/18n.js";
 import "./Styles/reset.css";

@@ -78,16 +78,10 @@
   transition: 0.5s ease;
 }
 
-
-
-
-
-.disblo{
+.disblo {
   display: block;
   opacity: 1;
 }
-
-
 
 .header_1_2_1 {
   display: flex;
@@ -164,6 +158,24 @@
 
 .header_2_1_2_1 svg {
   padding-left: 3px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  color: #1e2e36;
+  margin: 0px 7px;
+}
+
+.profile a {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #1e2e36;
 }
 
 .header_2_1_2 {

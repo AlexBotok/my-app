@@ -1,20 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { CartContext } from "../../screens/useContext/cartCount";
 import classes from "./inputCart.module.css";
-const InputCart = ({ count, onChange, maxCount }) => {
+
+const InputCart = ({ id, count, maxCount, onChange }) => {
+  const { getCartCount, updateCartCount, deleteItemFromCart } =
+    useContext(CartContext);
   const [inputValue, setInputValue] = useState(count);
+
+  useEffect(() => {
+    const cartCount = getCartCount(id);
+    setInputValue(cartCount);
+  }, [id]);
 
   const handleInputChange = (event) => {
     const value = parseInt(event.target.value);
-
     if (value >= 1 && value <= maxCount) {
       setInputValue(value);
+      updateCartCount(id, value);
       onChange(value);
     } else if (value > maxCount) {
       setInputValue(maxCount);
+      updateCartCount(id, maxCount);
       onChange(maxCount);
     } else {
       setInputValue(1);
       onChange(1);
+      updateCartCount(id, 1);
     }
   };
 
@@ -22,6 +33,7 @@ const InputCart = ({ count, onChange, maxCount }) => {
     const newValue = inputValue + 1;
     if (newValue <= maxCount) {
       setInputValue(newValue);
+      updateCartCount(id, newValue);
       onChange(newValue);
     }
   };
@@ -30,20 +42,22 @@ const InputCart = ({ count, onChange, maxCount }) => {
     const newValue = inputValue - 1;
     if (newValue >= 1) {
       setInputValue(newValue);
+      updateCartCount(id, newValue);
       onChange(newValue);
     }
   };
+
   const handleDelete = () => {
-    const newValue = 0;
-    setInputValue(newValue);
-    onChange(newValue);
+    setInputValue(0);
+    deleteItemFromCart(id);
+    onChange(0);
   };
 
   return (
     <div className={classes.input}>
       <div style={{ display: "flex" }}>
-        <button className={classes.button} onClick={handleIncrement}>
-          +
+        <button className={classes.button} onClick={handleDecrement}>
+          -
         </button>
         <input
           className={classes.inputNumber}
@@ -51,8 +65,8 @@ const InputCart = ({ count, onChange, maxCount }) => {
           value={inputValue}
           onChange={handleInputChange}
         />
-        <button className={classes.button} onClick={handleDecrement}>
-          -
+        <button className={classes.button} onClick={handleIncrement}>
+          +
         </button>
       </div>
       <div className={classes.delButton}>
@@ -67,5 +81,4 @@ const InputCart = ({ count, onChange, maxCount }) => {
     </div>
   );
 };
-
 export default InputCart;

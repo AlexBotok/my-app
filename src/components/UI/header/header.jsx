@@ -124,13 +124,10 @@ const Header = ({ t }) => {
               </svg>
               {profile()}
             </Link>
-            <Link
-              className={classes.header_2_3_1}
-              style={{ marginRight: "25px" }}
-              to="/profile"
-            >
-              <p>{t("t41")}</p>
-            </Link>
+            <div className={classes.profile}>
+              <List name={t("t41")} link="profile" />
+            </div>
+
             <ModalCart />
             <Link className={classes.header_2_3_1} to="/cart">
               <p>{t("t25")}</p>

@@ -28,7 +28,10 @@ const Section3Goods = ({
             <div className={classes.two} onClick={preventDefault}>
               <p className={classes.newprice}>{newprice} ГРН</p>
               <p className={classes.skidon}>{price}ГРН</p>
-              <CartButton id={productId} inStock={productInStock} />
+              <CartButton
+                id={productId}
+                inStock={productInStock}
+              />
             </div>
           </div>
         </div>
@@ -44,7 +47,10 @@ const Section3Goods = ({
             <p className={classes.name}>{name}</p>
             <div className={classes.flex} onClick={preventDefault}>
               <p className={classes.price}>{price} ГРН</p>
-              <CartButton id={productId} inStock={productInStock} />
+              <CartButton
+                id={productId}
+                inStock={productInStock}
+              />
             </div>
           </div>
         </div>

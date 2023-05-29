@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import { CartContext } from "../../screens/useContext/cartCount";
 import classes from "./cartButton.module.css";
 
 const CartButton = ({ id, inStock }) => {
-  const [count, setCount] = useState(0);
-
+  const { getCartCount, updateCartCount } = useContext(CartContext);
+  const cartCount = getCartCount(id);
   useEffect(() => {
     const savedCartData = localStorage.getItem("cartData");
     if (savedCartData) {
       const cartData = JSON.parse(savedCartData);
       const itemIndex = cartData.goods.findIndex((good) => good.id === id);
       if (itemIndex !== -1) {
-        setCount(cartData.goods[itemIndex].count);
+        updateCartCount(id, cartData.goods[itemIndex].count);
       }
     }
   }, [id]);
@@ -35,13 +36,14 @@ const CartButton = ({ id, inStock }) => {
       }
     }
     localStorage.setItem("cartData", JSON.stringify(cartData));
-    setCount(cartData.goods[itemIndex] ? cartData.goods[itemIndex].count : 1);
+    updateCartCount(id, cartData.goods[itemIndex] ? cartData.goods[itemIndex].count : 1
+    );
   };
 
   return (
     <button className={classes.cart} onClick={click}>
       <img src="/img/cart.svg" alt="cart" className={classes.cartButton} />
-      <div className={classes.counter}>{count}</div>
+      <div className={classes.counter}>{cartCount}</div>
     </button>
   );
 };
