@@ -11,17 +11,22 @@ const SignUp = () => {
         >
           <h2 className={classes.h2}>Sign Up</h2>
           <div className={classes.inputBox}>
-            <input type="name" name="name" placeholder="Name" />
+            <input type="name" name="name" placeholder="Name" required />
 
             <i></i>
           </div>
           <div className={classes.inputBox}>
-            <input type="surname" name="surname" placeholder="Surname" />
+            <input
+              type="surname"
+              name="surname"
+              placeholder="Surname"
+              required
+            />
 
             <i></i>
           </div>
           <div className={classes.inputBox}>
-            <input type="email" name="email" placeholder="Email" />
+            <input type="email" name="email" placeholder="Email" required />
 
             <i></i>
           </div>
@@ -30,6 +35,7 @@ const SignUp = () => {
               type="password"
               name="password"
               placeholder="Password"
+              required
             />
 
             <i></i>

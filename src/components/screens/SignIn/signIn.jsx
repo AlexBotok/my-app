@@ -12,12 +12,12 @@ const Admin = () => {
         >
           <h2 className={classes.h2}>Sign in</h2>
           <div className={classes.inputBox}>
-            <input type="email" name="email" placeholder="Email" />
+            <input type="email" name="email" placeholder="Email" required/>
 
             <i></i>
           </div>
           <div className={classes.inputBox}>
-            <input type="password" name="password" id="" placeholder="Password" />
+            <input type="password" name="password" id="" placeholder="Password" required/>
 
             <i></i>
           </div>

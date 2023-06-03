@@ -62,7 +62,7 @@ const CategoriesTitleForPages = ({ name, typeId, link }) => {
                   <div className={classes.titleproduct}>{product.title}</div>
                 </Link>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  Добавить в корзину:
+                  Додати в кошик:
                   <CartButton id={product.id} inStock={product.inStock} />
                 </div>
               </div>

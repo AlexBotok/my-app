@@ -2,7 +2,7 @@ import axios from "axios";
 export default class apiServices {
   static getApiData() {
     return axios
-      .get("http://localhost:5000/admin")
+      .get("http://localhost:5000/")
       .then((response) => {
         return response.data;
       })

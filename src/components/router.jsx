@@ -11,6 +11,7 @@ import SignUp from "./screens/SignUp/signUp.jsx";
 import SignIn from "./screens/SignIn/signIn.jsx";
 import GoodsPages from "./screens/Categories/goodsPages/goodsPages.jsx";
 import AdminPanel from "./screens/Admin/adminPanel/adminPanel.jsx";
+import Profile from "./screens/Profile/profile.jsx";
 import { CartProvider } from "./screens/useContext/cartCount.js";
 
 const Router = () => {
@@ -32,6 +33,7 @@ const Router = () => {
           <Route Component={GoodsPages} path="/beds/:id/" />
           <Route Component={Wardrobes} path="/wardrobes" />
           <Route Component={GoodsPages} path="/wardrobes/:id/" />
+          <Route Component={Profile} path="/profile" />
           <Route Component={SignUp} path="/register" />
           <Route Component={SignIn} path="/login" />
           <Route Component={AdminPanel} path="/admin" />
