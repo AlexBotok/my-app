@@ -125,9 +125,8 @@ const Header = ({ t }) => {
               {profile()}
             </Link>
             <div className={classes.profile}>
-              <List name={t("t41")} link="profile" />
+              <List name={t("t41")} link="profile"/>
             </div>
-
             <ModalCart />
             <Link className={classes.header_2_3_1} to="/cart">
               <p>{t("t25")}</p>

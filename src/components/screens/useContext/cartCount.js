@@ -10,8 +10,6 @@ export const CartProvider = ({ children }) => {
     }));
   };
 
-  const cartDatalength = Object.keys(cartData).length;
-
   const getCartCount = (itemId) => {
     return cartData[itemId] || 0;
   };
@@ -23,9 +21,18 @@ export const CartProvider = ({ children }) => {
       return newCartData;
     });
   };
+
+  const cartDatalength = Object.keys(cartData).length;
+  
   return (
     <CartContext.Provider
-      value={{ cartData, updateCartCount, getCartCount, deleteItemFromCart, cartDatalength }}
+      value={{
+        cartData,
+        updateCartCount,
+        getCartCount,
+        deleteItemFromCart,
+        cartDatalength,
+      }}
     >
       {children}
     </CartContext.Provider>

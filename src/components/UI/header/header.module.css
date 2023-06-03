@@ -177,6 +177,14 @@
   text-decoration: none;
   color: #1e2e36;
 }
+.profile li a {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 125%;
+  text-transform: none;
+  text-decoration: none;
+  color: #FFFFFF;
+}
 
 .header_2_1_2 {
   margin-left: 15px;

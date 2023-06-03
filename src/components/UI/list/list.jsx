@@ -21,6 +21,28 @@ const List = ({ name, link }) => {
     }
   }, [isHovered]);
 
+  const listLiElements = () => {
+    if (link == "profile") {
+      return (
+        <ul ref={hov1Ref} id="hov_menu1" className={classes.hovmenusofasul}>
+          <li><Link to="/profile">Profile</Link></li>
+          <li><Link to="/register">Register</Link></li>
+          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/sofas">Logout</Link></li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul ref={hov1Ref} id="hov_menu1" className={classes.hovmenusofasul}>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+          <li>Four</li>
+        </ul>
+      );
+    }
+  };
+
   return (
     <div
       className={classes.hovmenusofas}
@@ -28,17 +50,10 @@ const List = ({ name, link }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className={classes.flexcateg}>
-        <Link to={`/${link}`}>
-          {name}
-        </Link>
+        <Link to={`/${link}`}>{name}</Link>
         <DownArrow1 value={isHovered} />
       </div>
-      <ul ref={hov1Ref} id="hov_menu1" className={classes.hovmenusofasul}>
-        <li>One</li>
-        <li>Two</li>
-        <li>Three</li>
-        <li>Four</li>
-      </ul>
+      {listLiElements()}
     </div>
   );
 };

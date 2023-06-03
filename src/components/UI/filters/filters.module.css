@@ -1,0 +1,31 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filtersvg {
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;
+}
+
+.filterosnova {
+  display: flex;
+  align-items: center;
+  margin-left: 18px;
+}
+
+.filterosnova p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 125%;
+  color: #000000;
+}
+
+.linef1 {
+  width: 159px;
+  height: 1px;
+  background: #000000;
+}

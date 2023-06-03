@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import sliderSettings from "../../../UI/scripts/sliderSettings";
 import CartButton from "../../../UI/cartButton/cartButton";
 import apiServices from "../../../services/apiServices";
-import InputCart from "../../../UI/inputCart/inputCart";
+import Filters from "../../../UI/filters/filters";
 
 const CategoriesTitleForPages = ({ name, typeId, link }) => {
   const [data, setData] = useState([]);
@@ -73,6 +73,32 @@ const CategoriesTitleForPages = ({ name, typeId, link }) => {
     return null;
   };
 
+  const maxPrice = () => {
+    if (data && data[1]) {
+      for (let i = 0; i < data[1].length; i++) {
+        if (data[1][i].id == typeId) {
+          return data[1][i].products
+            .filter((product) => product.typeId == typeId)
+            .map((product) => product.price)
+            .reduce((a, b) => Math.max(a, b));
+        }
+      }
+    }
+  };
+
+  const minPrice = () => {
+    if (data && data[1]) {
+      for (let i = 0; i < data[1].length; i++) {
+        if (data[1][i].id == typeId) {
+          return data[1][i].products
+            .filter((product) => product.typeId == typeId)
+            .map((product) => product.price)
+            .reduce((a, b) => Math.min(a, b));
+        }
+      }
+    }
+  };
+
   return (
     <div className={classes.wrapper}>
       <header style={{ margin: "0 auto" }}>
@@ -87,14 +113,19 @@ const CategoriesTitleForPages = ({ name, typeId, link }) => {
       </header>
       <main>
         <div className={classes.container}>
-          <div className={classes.productsofa}>
-            {isLoading ? (
-              renderProducts()
-            ) : (
-              <h1 style={{ fontSize: 24, color: "#fff", textAlign: "center" }}>
-                Loading...
-              </h1>
-            )}
+          <div className={classes.flex}>
+            <Filters maxPrice={maxPrice()} minPrice={minPrice()} />
+            <div className={classes.productsofa}>
+              {isLoading ? (
+                renderProducts()
+              ) : (
+                <h1
+                  style={{ fontSize: 24, color: "#fff", textAlign: "center" }}
+                >
+                  Loading...
+                </h1>
+              )}
+            </div>
           </div>
         </div>
       </main>

@@ -30,9 +30,9 @@ const DownArrow = ({ value }) => {
       onMouseLeave={handleMouseLeaveArrow}
     >
       <svg width="24" height="24" display="block">
-        <use href="#buttondown1"></use>
+        <use href="#buttondown1">{buttondown1()}</use>
       </svg>
-      {buttondown1()}
+      
     </div>
   );
 };
