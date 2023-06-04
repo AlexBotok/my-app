@@ -2,7 +2,7 @@ import axios from "axios";
 export class apiServices {
   static getApiData() {
     return axios
-      .get("http://localhost:5000/")
+      .get("https://localhost:5000/")
       .then((response) => {
         return response.data;
       })
@@ -15,7 +15,7 @@ export class apiServices {
 export class apiLogin {
   static getApiData() {
     return axios
-      .get("http://localhost:5000/login")
+      .get("https://localhost:5000/login")
       .then((response) => {
         return response.data;
       })
