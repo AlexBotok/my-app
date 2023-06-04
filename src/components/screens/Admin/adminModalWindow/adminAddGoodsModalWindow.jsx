@@ -21,7 +21,6 @@ const AdminAddGoodsModalWindow = ({ name }) => {
 
   const handleFileChange = () => {
     let files = document.getElementById("inputimg").files;
-    console.log(files.length);
     setFileCount(files.length);
   };
 

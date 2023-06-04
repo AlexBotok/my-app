@@ -25,7 +25,6 @@ const Section3 = ({ t }) => {
       .then((data) => {
         setData(data);
         setIsLoading(true);
-        console.log(data);
       })
       .catch((error) => {
         console.log(error);

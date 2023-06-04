@@ -99,7 +99,6 @@ const ModalCart = ({ t }) => {
           }
         }
       }
-      console.log(matchedProducts);
       if (matchedProducts.length > 0) {
         return matchedProducts;
       }

@@ -14,7 +14,6 @@ const Filters = ({maxPrice, minPrice}) => {
       .then((data) => {
         setData(data);
         setIsLoading(true);
-        console.log(data);
       })
       .catch((error) => {
         console.log(error);
