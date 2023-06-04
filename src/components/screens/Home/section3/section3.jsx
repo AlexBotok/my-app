@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Section3Categories from "./categories/section3Categories.jsx";
 import Section3Goods from "./goods/section3Goods";
-import apiServices from "../../../services/apiServices";
+import {apiServices} from "../../../services/apiServices";
 import withTranslation from "../../../../i18next/withTranslation.js";
 import classes from "./section3.module.css";
 

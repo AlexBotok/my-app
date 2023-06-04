@@ -6,13 +6,12 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import sliderSettings from "../../../UI/scripts/sliderSettings";
 import CartButton from "../../../UI/cartButton/cartButton";
-import apiServices from "../../../services/apiServices";
+import { apiServices } from "../../../services/apiServices";
 import Filters from "../../../UI/filters/filters";
 
 const CategoriesTitleForPages = ({ name, typeId, link }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
   function fetchData() {
     apiServices
       .getApiData()

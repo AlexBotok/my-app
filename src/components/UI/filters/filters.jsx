@@ -2,7 +2,7 @@ import classes from "./filters.module.css";
 import { filtersvg } from "../svgComponent/svg";
 import FilterComponentBrands from "./filterComponents/brands/filterComponentBrands";
 import FilterComponentPrice from "./filterComponents/price/filterComponentPrice";
-import apiServices from "../../services/apiServices";
+import {apiServices} from "../../services/apiServices";
 import { useEffect, useState } from "react";
 const Filters = ({maxPrice, minPrice}) => {
   const [data, setData] = useState([]);

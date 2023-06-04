@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import sliderSettings from "../../../UI/scripts/sliderSettings";
 import { Link } from "react-router-dom";
 import InputCart from "../../../UI/inputCart/inputCart";
-import apiServices from "../../../services/apiServices";
+import {apiServices} from "../../../services/apiServices";
 import { CartContext } from "../../../screens/useContext/cartCount";
 
 const ModalCart = ({ t }) => {

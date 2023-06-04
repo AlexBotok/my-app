@@ -6,7 +6,7 @@ import classes from "./goodsPages.module.css";
 import Header from "../../../UI/header/header";
 import Footer from "../../../UI/footer/footer";
 import CartButton from "../../../UI/cartButton/cartButton";
-import apiServices from "../../../services/apiServices";
+import {apiServices} from "../../../services/apiServices";
 
 const GoodsPages = () => {
   const [data, setData] = useState([]);

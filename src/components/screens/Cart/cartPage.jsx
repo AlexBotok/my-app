@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import sliderSettings from "../../UI/scripts/sliderSettings";
 import InputCart from "../../UI/inputCart/inputCart";
-import apiServices from "../../services/apiServices";
+import {apiServices} from "../../services/apiServices";
 
 const CartPage = ({ t }) => {
   const [data, setData] = useState([]);

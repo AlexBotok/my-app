@@ -92,10 +92,14 @@ const FilterComponentPrice = ({ maxPrice, minPrice }) => {
   };
 
   const setUrlPrice = (maxValue, minValue) => {
-    console.log(maxValue, minValue);
     const brandsParam = searchParams.get("brands");
     const languageParam = searchParams.get("language");
+    const type = searchParams.get("type");
     let params = {};
+    if (type) {
+      params.type = loc.pathname.replace("/", "");
+    }
+    params.type = loc.pathname.replace("/", "");
     if (brandsParam) {
       params.brands = brandsParam;
     }

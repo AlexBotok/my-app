@@ -11,6 +11,7 @@ const SwitchLanguage = ({ i18n }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const brandsParam = searchParams.get("brands");
   const priceParam = searchParams.get("price");
+  const type = searchParams.get("type");
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };
@@ -20,6 +21,9 @@ const SwitchLanguage = ({ i18n }) => {
     if (chkClass === classes.chk1) {
       changeLanguage("uk");
       let params = {};
+      if(type){
+        params.type = type;
+      }
       if (brandsParam) {
         params.brands = brandsParam;
       }
@@ -31,6 +35,9 @@ const SwitchLanguage = ({ i18n }) => {
     } else {
       changeLanguage("en");
       let params = {};
+      if(type){
+        params.type = type;
+      }
       if (brandsParam) {
         params.brands = brandsParam;
       }
@@ -55,6 +62,9 @@ const SwitchLanguage = ({ i18n }) => {
       setChecked(i18n.language === "en" ? true : false);
       changeLanguage(i18n.language);
       let params = {};
+      if(type){
+        params.type = type;
+      }
       if (brandsParam) {
         params.brands = brandsParam;
       }

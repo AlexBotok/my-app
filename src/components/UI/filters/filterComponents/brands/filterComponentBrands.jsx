@@ -50,6 +50,7 @@ const FilterComponentBrands = ({ brands, lengthFilter }) => {
     const brandsParam = searchParams.get("brands");
     const languageParam = searchParams.get("language");
     const priceParam = searchParams.get("price");
+    const type = searchParams.get("type");
     let updatedBrands = [];
     if (brandsParam) {
       updatedBrands = brandsParam.split(",");
@@ -61,6 +62,10 @@ const FilterComponentBrands = ({ brands, lengthFilter }) => {
       brandsSet.add(brandName);
     }
     let params = {};
+    if (type) {
+      params.type = loc.pathname.replace("/", "");
+    }
+    params.type = loc.pathname.replace("/", "");
     if (brandsSet.size > 0) {
       params.brands = Array.from(brandsSet).join(",");
     } else {
