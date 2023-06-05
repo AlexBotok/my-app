@@ -26,20 +26,20 @@ const AdminAddGoodsModalWindow = ({ name }) => {
     setFileCount(files.length);
   };
 
-  const checkApi = () => {
-    console.log(`Bearer ${cookie}`);
-    axios.get("http://localhost:5000/admin/", {
-        headers: {
-          'Authorization':`Bearer ${cookie}`,
-        },
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const checkApi = () => {
+  //   console.log(`Bearer ${cookie}`);
+  //   axios.get("http://localhost:5000/admin/", {
+  //       headers: {
+  //         'Authorization':`Bearer ${cookie}`,
+  //       },
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   return (
     <div className={classes.container}>

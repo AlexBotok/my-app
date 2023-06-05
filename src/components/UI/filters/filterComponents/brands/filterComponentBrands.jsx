@@ -2,7 +2,7 @@ import classes from "./filterComponentBrands.module.css";
 import anime from "animejs/lib/anime.es.js";
 import { buttondown1 } from "../../../svgComponent/svg";
 import { useRef, useState } from "react";
-import { useSearchParams, useLocation } from "react-router-dom";
+import { useSearchParams, useLocation, Navigate } from "react-router-dom";
 
 const FilterComponentBrands = ({ brands, lengthFilter }) => {
   const [click, setClick] = useState(false);
@@ -10,7 +10,6 @@ const FilterComponentBrands = ({ brands, lengthFilter }) => {
   const el = elRef.current;
   const [searchParams, setSearchParams] = useSearchParams();
   const loc = useLocation();
-
   const buttonSvgRotate = () => {
     if (click === false) {
       setClick(true);
@@ -78,7 +77,7 @@ const FilterComponentBrands = ({ brands, lengthFilter }) => {
       params.language = languageParam;
     }
     setSearchParams(params);
-    window.location.reload(loc.pathname + "?" + searchParams.toString());
+    <Navigate to={`${loc.pathname}?${searchParams.toString()}`} />;
   };
 
   return (

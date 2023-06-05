@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./switchLanguage.module.css";
 import withTranslation from "../../../i18next/withTranslation.js";
-import { useSearchParams, useLocation } from "react-router-dom";
+import { useSearchParams, useLocation, Navigate } from "react-router-dom";
 
 const SwitchLanguage = ({ i18n }) => {
   const [isChecked, setChecked] = useState(
@@ -40,7 +40,7 @@ const SwitchLanguage = ({ i18n }) => {
       }
       params.language = "uk";
       setSearchParams(params);
-      window.location.reload(loc.pathname + "?" + searchParams.toString());
+      <Navigate to={`${loc.pathname}?${searchParams.toString()}`}></Navigate>
     } else {
       changeLanguage("en");
       let params = {};
@@ -62,7 +62,7 @@ const SwitchLanguage = ({ i18n }) => {
       }
       params.language = "en";
       setSearchParams(params);
-      window.location.reload(loc.pathname + "?" + searchParams.toString());
+      <Navigate to={`${loc.pathname}?${searchParams.toString()}`}></Navigate>
     }
   };
 
@@ -106,7 +106,7 @@ const SwitchLanguage = ({ i18n }) => {
         typeP == "chests" ||
         typeP == "kitchens"
       ) {
-        window.location.reload(loc.pathname + "?" + searchParams.toString());
+        <Navigate to={`${loc.pathname}?${searchParams.toString()}`}/>
       }
     }
   }, []);
