@@ -60,7 +60,7 @@ const AdminAddGoodsModalWindow = ({ name }) => {
             </div>
             <hr style={{ margin: "0px" }} />
             <form
-              action="https://furniturebackendapp.herokuapp.com/admin/createProduct"
+              action="http://localhost:5000/admin/createProduct"
               method="post"
               className={classes.forma}
               encType="multipart/form-data"

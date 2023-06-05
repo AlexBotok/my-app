@@ -5,7 +5,7 @@ const SignUp = () => {
     <div className={classes.body}>
       <div className={classes.box}>
         <form
-          action="https://furniturebackendapp.herokuapp.com/register"
+          action="http://localhost:5000/register"
           method="post"
           className={classes.f1}
         >

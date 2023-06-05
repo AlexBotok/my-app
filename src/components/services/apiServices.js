@@ -2,9 +2,7 @@ import axios from "axios";
 export class apiServices {
   static getApiData() {
     return axios
-      .get("https://furniturebackendapp.herokuapp.com/", {
-        credentials: "include",
-      })
+      .get("http://localhost:5000/")
       .then((response) => {
         return response.data;
       })
@@ -13,6 +11,7 @@ export class apiServices {
       });
   }
 }
+
 
 // export class apiLogin {
 //   static getApiData() {

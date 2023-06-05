@@ -5,7 +5,7 @@ const Admin = () => {
     <div className={classes.body}>
       <div className={classes.box}>
         <form
-          action="https://furniturebackendapp.herokuapp.com/login"
+          action="http://localhost:5000/login"
           method="post"
           autoComplete="off"
           className={classes.f1}
