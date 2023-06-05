@@ -7,7 +7,6 @@ const AdminAddGoodsModalWindow = ({ name }) => {
 
   const openModal = () => {
     setShowModal(true);
-    checkApi();
   };
 
   const closeModal = () => {
