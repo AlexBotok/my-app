@@ -30,7 +30,19 @@ const SwitchLanguage = ({ i18n }) => {
         typeP == "chests" ||
         typeP == "kitchens"
       ) {
-        params.type = loc.pathname.replace("/", "");
+        if (typeP == "sofas") {
+          params.type = "Дивани";
+        } else if (typeP == "beds") {
+          params.type = "Ліжка";
+        } else if (typeP == "chairs") {
+          params.type = "Крісла";
+        } else if (typeP == "wardrobes") {
+          params.type = "Шафи";
+        } else if (typeP == "chests") {
+          params.type = "Комоди";
+        } else if (typeP == "kitchens") {
+          params.type = "Кухні";
+        }
       }
       if (brandsParam) {
         params.brands = brandsParam;
@@ -40,7 +52,7 @@ const SwitchLanguage = ({ i18n }) => {
       }
       params.language = "uk";
       setSearchParams(params);
-      <Navigate to={`${loc.pathname}?${searchParams.toString()}`}></Navigate>
+      <Navigate to={`${loc.pathname}?${searchParams.toString()}`}></Navigate>;
     } else {
       changeLanguage("en");
       let params = {};
@@ -52,7 +64,19 @@ const SwitchLanguage = ({ i18n }) => {
         typeP == "chests" ||
         typeP == "kitchens"
       ) {
-        params.type = loc.pathname.replace("/", "");
+        if (typeP == "sofas") {
+          params.type = "Дивани";
+        } else if (typeP == "beds") {
+          params.type = "Ліжка";
+        } else if (typeP == "chairs") {
+          params.type = "Крісла";
+        } else if (typeP == "wardrobes") {
+          params.type = "Шафи";
+        } else if (typeP == "chests") {
+          params.type = "Комоди";
+        } else if (typeP == "kitchens") {
+          params.type = "Кухні";
+        }
       }
       if (brandsParam) {
         params.brands = brandsParam;
@@ -62,7 +86,7 @@ const SwitchLanguage = ({ i18n }) => {
       }
       params.language = "en";
       setSearchParams(params);
-      <Navigate to={`${loc.pathname}?${searchParams.toString()}`}></Navigate>
+      <Navigate to={`${loc.pathname}?${searchParams.toString()}`}></Navigate>;
     }
   };
 
@@ -79,7 +103,6 @@ const SwitchLanguage = ({ i18n }) => {
       setChecked(i18n.language === "en" ? true : false);
       changeLanguage(i18n.language);
       let params = {};
-      console.log(typeP);
       if (
         typeP == "sofas" ||
         typeP == "beds" ||
@@ -88,7 +111,19 @@ const SwitchLanguage = ({ i18n }) => {
         typeP == "chests" ||
         typeP == "kitchens"
       ) {
-        params.type = loc.pathname.replace("/", "");
+        if (typeP == "sofas") {
+          params.type = "Дивани";
+        } else if (typeP == "beds") {
+          params.type = "Ліжка";
+        } else if (typeP == "chairs") {
+          params.type = "Крісла";
+        } else if (typeP == "wardrobes") {
+          params.type = "Шафи";
+        } else if (typeP == "chests") {
+          params.type = "Комоди";
+        } else if (typeP == "kitchens") {
+          params.type = "Кухні";
+        }
       }
       if (brandsParam) {
         params.brands = brandsParam;
@@ -106,7 +141,7 @@ const SwitchLanguage = ({ i18n }) => {
         typeP == "chests" ||
         typeP == "kitchens"
       ) {
-        <Navigate to={`${loc.pathname}?${searchParams.toString()}`}/>
+        <Navigate to={`${loc.pathname}?${searchParams.toString()}`} />;
       }
     }
   }, []);
