@@ -68,7 +68,7 @@ const ModalCart = ({ t }) => {
                                   alt={product.name}
                                   title={product.name}
                                   className={classes.imageproduct}
-                                  src={`http://localhost:5000/public/${image}`}
+                                  src={`https://furniturebackendapp.herokuapp.com/public/${image}`}
                                 />
                               </div>
                             ))}
