@@ -70,23 +70,6 @@ const FilterComponentPrice = ({ maxPrice, minPrice }) => {
             OK
           </button>
         </div>
-        {/* <input type="range" min={minPrice} max={maxPrice} onChange={setMinValue}/>
-        <div className={classes.sliderWrapper}>
-          <div className={classes.slider}>
-            <div className={classes.sliderRange}>
-              <div className={classes.sliderRangeSpace}></div>
-            </div>
-            <button
-              }}
-              className={classes.buttonSlider}
-              style={{ left: "0%", marginLeft: "-24px" }}
-            ></button>
-            <button
-              className={classes.buttonSlider}
-              style={{ left: "100%" }}
-            ></button>
-          </div>
-        </div> */}
       </div>
     );
   };

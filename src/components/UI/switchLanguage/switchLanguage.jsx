@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./switchLanguage.module.css";
 import withTranslation from "../../../i18next/withTranslation.js";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 
 const SwitchLanguage = ({ i18n }) => {
   const [isChecked, setChecked] = useState(
@@ -9,9 +9,10 @@ const SwitchLanguage = ({ i18n }) => {
   );
   const chkClass = isChecked ? classes.chk1 : classes.chk;
   const [searchParams, setSearchParams] = useSearchParams();
+  const loc = useLocation();
   const brandsParam = searchParams.get("brands");
   const priceParam = searchParams.get("price");
-  const type = searchParams.get("type");
+  const typeP = loc.pathname.replace("/", "");
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };
@@ -21,8 +22,15 @@ const SwitchLanguage = ({ i18n }) => {
     if (chkClass === classes.chk1) {
       changeLanguage("uk");
       let params = {};
-      if(type){
-        params.type = type;
+      if (
+        typeP == "sofas" ||
+        typeP == "beds" ||
+        typeP == "chairs" ||
+        typeP == "wardrobes" ||
+        typeP == "chests" ||
+        typeP == "kitchens"
+      ) {
+        params.type = loc.pathname.replace("/", "");
       }
       if (brandsParam) {
         params.brands = brandsParam;
@@ -32,11 +40,19 @@ const SwitchLanguage = ({ i18n }) => {
       }
       params.language = "uk";
       setSearchParams(params);
+      window.location.reload(loc.pathname + "?" + searchParams.toString());
     } else {
       changeLanguage("en");
       let params = {};
-      if(type){
-        params.type = type;
+      if (
+        typeP == "sofas" ||
+        typeP == "beds" ||
+        typeP == "chairs" ||
+        typeP == "wardrobes" ||
+        typeP == "chests" ||
+        typeP == "kitchens"
+      ) {
+        params.type = loc.pathname.replace("/", "");
       }
       if (brandsParam) {
         params.brands = brandsParam;
@@ -46,6 +62,7 @@ const SwitchLanguage = ({ i18n }) => {
       }
       params.language = "en";
       setSearchParams(params);
+      window.location.reload(loc.pathname + "?" + searchParams.toString());
     }
   };
 
@@ -62,8 +79,16 @@ const SwitchLanguage = ({ i18n }) => {
       setChecked(i18n.language === "en" ? true : false);
       changeLanguage(i18n.language);
       let params = {};
-      if(type){
-        params.type = type;
+      console.log(typeP);
+      if (
+        typeP == "sofas" ||
+        typeP == "beds" ||
+        typeP == "chairs" ||
+        typeP == "wardrobes" ||
+        typeP == "chests" ||
+        typeP == "kitchens"
+      ) {
+        params.type = loc.pathname.replace("/", "");
       }
       if (brandsParam) {
         params.brands = brandsParam;
@@ -73,6 +98,16 @@ const SwitchLanguage = ({ i18n }) => {
       }
       params.language = i18n.language;
       setSearchParams(params);
+      if (
+        typeP == "sofas" ||
+        typeP == "beds" ||
+        typeP == "chairs" ||
+        typeP == "wardrobes" ||
+        typeP == "chests" ||
+        typeP == "kitchens"
+      ) {
+        window.location.reload(loc.pathname + "?" + searchParams.toString());
+      }
     }
   }, []);
 

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import classes from "./adminAddGoodsModalWindow.module.css";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const AdminAddGoodsModalWindow = ({ name }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
     setShowModal(true);
+    checkApi();
   };
 
   const closeModal = () => {
@@ -22,6 +25,23 @@ const AdminAddGoodsModalWindow = ({ name }) => {
   const handleFileChange = () => {
     let files = document.getElementById("inputimg").files;
     setFileCount(files.length);
+  };
+
+  const checkApi = () => {
+    const cookie = Cookies.get("jwt");
+    console.log(cookie);
+    console.log(`Bearer ${cookie}`);
+    axios.get("http://localhost:5000/admin/", {
+        headers: {
+          'Authorization':`Bearer ${cookie}`,
+        },
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
