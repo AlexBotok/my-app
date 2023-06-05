@@ -2,7 +2,12 @@ import classes from "./profile.module.css";
 import Header from "../../UI/header/header";
 import Footer from "../../UI/footer/footer";
 import withTranslation from "../../../i18next/withTranslation";
+import {cookie} from "../../constants/constants"
+// import jwt from "jsonwebtoken";
 const Profile = ({ t }) => {
+  console.log(cookie);
+  // const token = jwt.decode(cookie);
+  // console.log(token);
   return (
     <div className={classes.wrapper}>
       <Header />

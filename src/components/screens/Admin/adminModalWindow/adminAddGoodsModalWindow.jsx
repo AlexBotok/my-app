@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import classes from "./adminAddGoodsModalWindow.module.css";
 import axios from "axios";
-import Cookies from "js-cookie";
-
+import {cookie} from "../../../constants/constants"
 const AdminAddGoodsModalWindow = ({ name }) => {
   const [showModal, setShowModal] = useState(false);
 
@@ -28,8 +27,6 @@ const AdminAddGoodsModalWindow = ({ name }) => {
   };
 
   const checkApi = () => {
-    const cookie = Cookies.get("jwt");
-    console.log(cookie);
     console.log(`Bearer ${cookie}`);
     axios.get("http://localhost:5000/admin/", {
         headers: {

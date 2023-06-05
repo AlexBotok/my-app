@@ -87,7 +87,7 @@ const FilterComponentPrice = ({ maxPrice, minPrice }) => {
       params.brands = brandsParam;
     }
     if (maxValue !== "" && minValue !== "") {
-      params.price = `${minValue}` + "-" + `${maxValue}`;
+      params.price = `${minValue}` + "," + `${maxValue}`;
     }
     if (languageParam) {
       params.language = languageParam;
