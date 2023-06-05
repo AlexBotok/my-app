@@ -2,7 +2,12 @@ import axios from "axios";
 export class apiServices {
   static getApiData() {
     return axios
-      .get("https://furniturebackendapp.herokuapp.com/")
+      .get("https://furniturebackendapp.herokuapp.com/", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        },
+      })
       .then((response) => {
         return response.data;
       })
@@ -11,7 +16,6 @@ export class apiServices {
       });
   }
 }
-
 
 // export class apiLogin {
 //   static getApiData() {
