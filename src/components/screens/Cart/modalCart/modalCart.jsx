@@ -6,7 +6,7 @@ import sliderSettings from "../../../UI/scripts/sliderSettings";
 import { Link } from "react-router-dom";
 import InputCart from "../../../UI/inputCart/inputCart";
 import {apiServices} from "../../../services/apiServices";
-import { CartContext } from "../../../screens/useContext/cartCount";
+import { CartContext } from "../../Redux/cartCount";
 
 const ModalCart = ({ t }) => {
   const [data, setData] = useState([]);
@@ -186,13 +186,6 @@ const ModalCart = ({ t }) => {
       document.body.style.overflow = "auto";
     };
   }, [isScrollLocked]);
-
-  // useEffect(() => {
-  //   const cartData = JSON.parse(localStorage.getItem("cartData")) || {
-  //     goods: [],
-  //   };
-  //   setAllproducts(cartDatalength);
-  // }, [showModal]);
 
   return (
     <div>

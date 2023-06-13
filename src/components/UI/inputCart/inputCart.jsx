@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { CartContext } from "../../screens/useContext/cartCount";
+import { CartContext } from "../../screens/Redux/cartCount";
 import classes from "./inputCart.module.css";
 
 const InputCart = ({ id, count, maxCount, onChange }) => {

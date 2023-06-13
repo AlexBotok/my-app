@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { CartContext } from "../../screens/useContext/cartCount";
+import { CartContext } from "../../screens/Redux/cartCount";
 import classes from "./cartButton.module.css";
 
 const CartButton = ({ id, inStock }) => {

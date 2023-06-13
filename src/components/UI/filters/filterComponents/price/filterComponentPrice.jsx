@@ -2,7 +2,7 @@ import classes from "./filterComponentPrice.module.css";
 import { buttondown1 } from "../../../svgComponent/svg";
 import { useRef, useState, useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
-import { useSearchParams, useLocation, Navigate } from "react-router-dom";
+import { useSearchParams, useLocation} from "react-router-dom";
 
 const FilterComponentPrice = ({ maxPrice, minPrice }) => {
   const [click, setClick] = useState(false);
@@ -92,8 +92,7 @@ const FilterComponentPrice = ({ maxPrice, minPrice }) => {
     if (languageParam) {
       params.language = languageParam;
     }
-    setSearchParams(params);
-    <Navigate to={`${loc.pathname}?${searchParams.toString()}`}/>
+    setSearchParams(params, { replace: true });
   };
 
   return (

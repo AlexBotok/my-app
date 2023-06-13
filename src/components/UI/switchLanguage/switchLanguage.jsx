@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./switchLanguage.module.css";
 import withTranslation from "../../../i18next/withTranslation.js";
-import { useSearchParams, useLocation, Navigate } from "react-router-dom";
+import { useSearchParams} from "react-router-dom";
 
 const SwitchLanguage = ({ i18n }) => {
   const [isChecked, setChecked] = useState(
@@ -9,10 +9,9 @@ const SwitchLanguage = ({ i18n }) => {
   );
   const chkClass = isChecked ? classes.chk1 : classes.chk;
   const [searchParams, setSearchParams] = useSearchParams();
-  const loc = useLocation();
   const brandsParam = searchParams.get("brands");
   const priceParam = searchParams.get("price");
-  const typeP = loc.pathname.replace("/", "");
+  const type = searchParams.get("type");
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };
@@ -22,27 +21,8 @@ const SwitchLanguage = ({ i18n }) => {
     if (chkClass === classes.chk1) {
       changeLanguage("uk");
       let params = {};
-      if (
-        typeP == "sofas" ||
-        typeP == "beds" ||
-        typeP == "chairs" ||
-        typeP == "wardrobes" ||
-        typeP == "chests" ||
-        typeP == "kitchens"
-      ) {
-        if (typeP == "sofas") {
-          params.type = "Дивани";
-        } else if (typeP == "beds") {
-          params.type = "Ліжка";
-        } else if (typeP == "chairs") {
-          params.type = "Крісла";
-        } else if (typeP == "wardrobes") {
-          params.type = "Шафи";
-        } else if (typeP == "chests") {
-          params.type = "Комоди";
-        } else if (typeP == "kitchens") {
-          params.type = "Кухні";
-        }
+      if (type) {
+        params.type = type;
       }
       if (brandsParam) {
         params.brands = brandsParam;
@@ -51,32 +31,12 @@ const SwitchLanguage = ({ i18n }) => {
         params.price = priceParam;
       }
       params.language = "uk";
-      setSearchParams(params);
-      <Navigate to={`${loc.pathname}?${searchParams.toString()}`}></Navigate>;
+      setSearchParams(params, { replace: true });
     } else {
       changeLanguage("en");
       let params = {};
-      if (
-        typeP == "sofas" ||
-        typeP == "beds" ||
-        typeP == "chairs" ||
-        typeP == "wardrobes" ||
-        typeP == "chests" ||
-        typeP == "kitchens"
-      ) {
-        if (typeP == "sofas") {
-          params.type = "Дивани";
-        } else if (typeP == "beds") {
-          params.type = "Ліжка";
-        } else if (typeP == "chairs") {
-          params.type = "Крісла";
-        } else if (typeP == "wardrobes") {
-          params.type = "Шафи";
-        } else if (typeP == "chests") {
-          params.type = "Комоди";
-        } else if (typeP == "kitchens") {
-          params.type = "Кухні";
-        }
+      if (type) {
+        params.type = type;
       }
       if (brandsParam) {
         params.brands = brandsParam;
@@ -85,45 +45,16 @@ const SwitchLanguage = ({ i18n }) => {
         params.price = priceParam;
       }
       params.language = "en";
-      setSearchParams(params);
-      <Navigate to={`${loc.pathname}?${searchParams.toString()}`}></Navigate>;
+      setSearchParams(params, { replace: true });
     }
   };
 
-  useEffect(() => {
-    if (searchParams.get("language") !== null) {
-      if (searchParams.get("language") === "uk") {
-        setChecked(false);
-        changeLanguage("uk");
-      } else if (searchParams.get("language") === "en") {
-        setChecked(true);
-        changeLanguage("en");
-      }
-    } else {
-      setChecked(i18n.language === "en" ? true : false);
+  const params = () =>{
+    setChecked(i18n.language === "en" ? true : false);
       changeLanguage(i18n.language);
       let params = {};
-      if (
-        typeP == "sofas" ||
-        typeP == "beds" ||
-        typeP == "chairs" ||
-        typeP == "wardrobes" ||
-        typeP == "chests" ||
-        typeP == "kitchens"
-      ) {
-        if (typeP == "sofas") {
-          params.type = "Дивани";
-        } else if (typeP == "beds") {
-          params.type = "Ліжка";
-        } else if (typeP == "chairs") {
-          params.type = "Крісла";
-        } else if (typeP == "wardrobes") {
-          params.type = "Шафи";
-        } else if (typeP == "chests") {
-          params.type = "Комоди";
-        } else if (typeP == "kitchens") {
-          params.type = "Кухні";
-        }
+      if (type) {
+        params.type = type;
       }
       if (brandsParam) {
         params.brands = brandsParam;
@@ -132,19 +63,26 @@ const SwitchLanguage = ({ i18n }) => {
         params.price = priceParam;
       }
       params.language = i18n.language;
-      setSearchParams(params);
-      if (
-        typeP == "sofas" ||
-        typeP == "beds" ||
-        typeP == "chairs" ||
-        typeP == "wardrobes" ||
-        typeP == "chests" ||
-        typeP == "kitchens"
-      ) {
-        <Navigate to={`${loc.pathname}?${searchParams.toString()}`} />;
+      setSearchParams(params, { replace: true });
+  }
+
+  useEffect(() => {
+    if (searchParams.get("language") != null) {
+      if (searchParams.get("language") === "uk") {
+        console.log("lol1")
+        setChecked(false);
+        changeLanguage("uk");
+      } else if (searchParams.get("language") === "en") {
+        console.log("lol2")
+        setChecked(true);
+        changeLanguage("en");
       }
+    } 
+    else {
+      params()
     }
-  }, []);
+    console.log("useEffect");
+  }, [searchParams]);
 
   return (
     <div className={classes.div}>

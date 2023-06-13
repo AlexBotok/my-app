@@ -2,14 +2,17 @@ import classes from "./filterComponentBrands.module.css";
 import anime from "animejs/lib/anime.es.js";
 import { buttondown1 } from "../../../svgComponent/svg";
 import { useRef, useState } from "react";
-import { useSearchParams, useLocation, Navigate } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
+import { apiSofas } from "../../../../services/apiServices.js";
 
 const FilterComponentBrands = ({ brands, lengthFilter }) => {
+  const [data, setData] = useState([]);
   const [click, setClick] = useState(false);
   const elRef = useRef(null);
   const el = elRef.current;
   const [searchParams, setSearchParams] = useSearchParams();
   const loc = useLocation();
+  const brandsParam = searchParams.get("brands");
   const buttonSvgRotate = () => {
     if (click === false) {
       setClick(true);
@@ -21,7 +24,6 @@ const FilterComponentBrands = ({ brands, lengthFilter }) => {
   };
 
   const Brands = () => {
-    const brandsParam = searchParams.get("brands");
     const selectedBrands = brandsParam ? brandsParam.split(",") : [];
 
     return brands.map((item, key) => {
@@ -46,7 +48,6 @@ const FilterComponentBrands = ({ brands, lengthFilter }) => {
   };
 
   const handleNav = (brandName) => {
-    const brandsParam = searchParams.get("brands");
     const languageParam = searchParams.get("language");
     const priceParam = searchParams.get("price");
     const type = searchParams.get("type");
@@ -61,10 +62,16 @@ const FilterComponentBrands = ({ brands, lengthFilter }) => {
       brandsSet.add(brandName);
     }
     let params = {};
-    if (type) {
-      params.type = loc.pathname.replace("/", "");
-    }
-    params.type = loc.pathname.replace("/", "");
+    params.type = "Дивани";
+    apiSofas
+      .getApiData()
+      .then((data) => {
+        setData(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     if (brandsSet.size > 0) {
       params.brands = Array.from(brandsSet).join(",");
     } else {
@@ -76,8 +83,7 @@ const FilterComponentBrands = ({ brands, lengthFilter }) => {
     if (languageParam) {
       params.language = languageParam;
     }
-    setSearchParams(params);
-    <Navigate to={`${loc.pathname}?${searchParams.toString()}`} />;
+    setSearchParams(params, { replace: true });
   };
 
   return (

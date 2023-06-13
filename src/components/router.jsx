@@ -12,7 +12,7 @@ import SignIn from "./screens/SignIn/signIn.jsx";
 import GoodsPages from "./screens/Categories/goodsPages/goodsPages.jsx";
 import AdminPanel from "./screens/Admin/adminPanel/adminPanel.jsx";
 import Profile from "./screens/Profile/profile.jsx";
-import { CartProvider } from "./screens/useContext/cartCount.js";
+import { CartProvider } from "./screens/Redux/cartCount.js";
 
 const Router = () => {
   return (
