@@ -1,20 +1,19 @@
-import React, { useContext, useEffect } from "react";
-import { CartContext } from "../../screens/Redux/cartCount";
 import classes from "./cartButton.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { cartUpdate } from "../../screens/Redux/acitons";
 
 const CartButton = ({ id, inStock }) => {
-  const { getCartCount, updateCartCount } = useContext(CartContext);
-  const cartCount = getCartCount(id);
-  useEffect(() => {
+  const dispatch = useDispatch();
+  const counter = useSelector(() => {
     const savedCartData = localStorage.getItem("cartData");
     if (savedCartData) {
       const cartData = JSON.parse(savedCartData);
       const itemIndex = cartData.goods.findIndex((good) => good.id === id);
       if (itemIndex !== -1) {
-        updateCartCount(id, cartData.goods[itemIndex].count);
+        return cartData.goods[itemIndex].count;
       }
     }
-  }, [id]);
+  });
 
   const click = () => {
     const savedCartData = localStorage.getItem("cartData");
@@ -36,14 +35,13 @@ const CartButton = ({ id, inStock }) => {
       }
     }
     localStorage.setItem("cartData", JSON.stringify(cartData));
-    updateCartCount(id, cartData.goods[itemIndex] ? cartData.goods[itemIndex].count : 1
-    );
+    dispatch(cartUpdate());
   };
 
   return (
     <button className={classes.cart} onClick={click}>
       <img src="/img/cart.svg" alt="cart" className={classes.cartButton} />
-      <div className={classes.counter}>{cartCount}</div>
+      <div className={classes.counter}>{counter}</div>
     </button>
   );
 };

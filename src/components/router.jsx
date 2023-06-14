@@ -12,12 +12,13 @@ import SignIn from "./screens/SignIn/signIn.jsx";
 import GoodsPages from "./screens/Categories/goodsPages/goodsPages.jsx";
 import AdminPanel from "./screens/Admin/adminPanel/adminPanel.jsx";
 import Profile from "./screens/Profile/profile.jsx";
-import { CartProvider } from "./screens/Redux/cartCount.js";
+import { Provider } from "react-redux";
+import { store } from "../components/screens/Redux/createStore.js";
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <CartProvider>
+      <Provider store={store}>
         <Routes>
           <Route Component={Home} path="/" />
           <Route Component={Cart} path="/cart" />
@@ -39,7 +40,7 @@ const Router = () => {
           <Route Component={AdminPanel} path="/admin" />
           <Route path="*" element={<div>Not Found</div>} />
         </Routes>
-      </CartProvider>
+      </Provider>
     </BrowserRouter>
   );
 };

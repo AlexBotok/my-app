@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./modalCart.module.css";
 import WithTranslation from "../../../../i18next/withTranslation";
 import Slider from "react-slick";
 import sliderSettings from "../../../UI/scripts/sliderSettings";
 import { Link } from "react-router-dom";
 import InputCart from "../../../UI/inputCart/inputCart";
-import {apiServices} from "../../../services/apiServices";
-import { CartContext } from "../../Redux/cartCount";
-
+import { apiServices } from "../../../services/apiServices";
+import { useSelector, useDispatch } from "react-redux";
+import { cartUpdate } from "../../Redux/acitons";
 const ModalCart = ({ t }) => {
   const [data, setData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isScrollLocked, setScrollLocked] = useState(false);
-  const { cartDatalength } = useContext(CartContext);
+  const dispatch = useDispatch();
 
   function fetchData() {
     apiServices
@@ -27,6 +27,11 @@ const ModalCart = ({ t }) => {
         console.log(error);
       });
   }
+  const goodsInCart = useSelector((state) => state.goods.length);
+  console.log(goodsInCart);
+  useEffect(() => {
+    dispatch(cartUpdate());
+  }, [dispatch]);
 
   useEffect(() => {
     fetchData();
@@ -191,7 +196,7 @@ const ModalCart = ({ t }) => {
     <div>
       <button onClick={openModal} className={classes.button}>
         <img src="/img/cart.svg" alt="cart" />
-        <div className={classes.inCart}>{cartDatalength}</div>
+        <div className={classes.inCart}>{goodsInCart}</div>
       </button>
       {showModal && (
         <div

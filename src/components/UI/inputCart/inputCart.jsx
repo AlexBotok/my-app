@@ -1,31 +1,22 @@
-import React, { useContext, useState, useEffect } from "react";
-import { CartContext } from "../../screens/Redux/cartCount";
+import React, { useState } from "react";
 import classes from "./inputCart.module.css";
+import { useDispatch } from "react-redux";
+import { cartUpdate } from "../../screens/Redux/acitons";
 
-const InputCart = ({ id, count, maxCount, onChange }) => {
-  const { getCartCount, updateCartCount, deleteItemFromCart } =
-    useContext(CartContext);
+const InputCart = ({ count, maxCount, onChange }) => {
   const [inputValue, setInputValue] = useState(count);
-
-  useEffect(() => {
-    const cartCount = getCartCount(id);
-    setInputValue(cartCount);
-  }, [id]);
-
+  const dispatch = useDispatch();
   const handleInputChange = (event) => {
     const value = parseInt(event.target.value);
     if (value >= 1 && value <= maxCount) {
       setInputValue(value);
-      updateCartCount(id, value);
       onChange(value);
     } else if (value > maxCount) {
       setInputValue(maxCount);
-      updateCartCount(id, maxCount);
       onChange(maxCount);
     } else {
       setInputValue(1);
       onChange(1);
-      updateCartCount(id, 1);
     }
   };
 
@@ -33,24 +24,24 @@ const InputCart = ({ id, count, maxCount, onChange }) => {
     const newValue = inputValue + 1;
     if (newValue <= maxCount) {
       setInputValue(newValue);
-      updateCartCount(id, newValue);
       onChange(newValue);
     }
+    dispatch(cartUpdate());
   };
 
   const handleDecrement = () => {
     const newValue = inputValue - 1;
     if (newValue >= 1) {
       setInputValue(newValue);
-      updateCartCount(id, newValue);
       onChange(newValue);
     }
+    dispatch(cartUpdate());
   };
 
   const handleDelete = () => {
     setInputValue(0);
-    deleteItemFromCart(id);
     onChange(0);
+    dispatch(cartUpdate());
   };
 
   return (
